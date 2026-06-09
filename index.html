@@ -13,7 +13,7 @@
    Same design system as the dermal-filler pilot.
    ============================================================================ */
 :root{
-  --bg:#F1EAE0; --surface:#E9E0D6; --surface-2:#E2D8CB;
+  --white:#FDFBF7; --bg:#F1EAE0; --surface:#E9E0D6; --surface-2:#E2D8CB;
   --ink:#1A1A1A; --ink-2:#5E5649;
   --accent:#1A1A1A; --accent-2:#2B2926; --on-accent:#F1EAE0; --green:#2B3A36;
   --line:rgba(26,26,26,.16); --line-soft:rgba(26,26,26,.09);
@@ -96,7 +96,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .frame .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,26,26,0),rgba(26,26,26,.18))}
 
 /* values */
-.values{padding:var(--s10) 0;background:var(--surface)}
+.values{padding:var(--s10) 0;background:var(--white)}
 .vgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s6)}
 .vitem .vico{width:44px;height:44px;border-radius:var(--r-pill);border:1px solid var(--line);display:grid;place-items:center;color:var(--green);margin-bottom:var(--s4)}
 .vitem .vico svg{width:20px;height:20px}
@@ -106,7 +106,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 /* services */
 .services{padding:var(--s10) 0}
 .svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--s5)}
-.svc-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:var(--s7);display:flex;flex-direction:column;gap:var(--s3);transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s var(--ease)}
+.svc-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);padding:var(--s7);display:flex;flex-direction:column;gap:var(--s3);transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s var(--ease)}
 .svc-card:hover{transform:translateY(-6px);box-shadow:var(--e-raised);border-color:var(--green)}
 .svc-card h3{font-size:var(--fs-24)}
 .svc-card p{font-size:var(--fs-16);flex:1}
@@ -115,7 +115,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .svc-card:hover .svc-link svg{transform:translate(3px,-2px)}
 
 /* results (slideshow) */
-.results{padding:var(--s10) 0;background:var(--surface)}
+.results{padding:var(--s10) 0;background:var(--white)}
 .res-grid{display:grid;grid-template-columns:1fr .9fr;gap:var(--s8);align-items:center}
 .slideshow{position:relative;border-radius:var(--r-card);padding:var(--s2);background:var(--bg);border:1px solid var(--line);box-shadow:var(--e-raised)}
 .ss-stage{position:relative;border-radius:var(--r-inner);aspect-ratio:1/1;overflow:hidden;background:linear-gradient(155deg,#E2D8CB,#E9E0D6 70%)}
@@ -136,7 +136,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 
 /* memberships / financing band */
 .band{padding:var(--s9) 0}
-.band-inner{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:var(--s8);display:grid;grid-template-columns:1.3fr 1fr;gap:var(--s7);align-items:center}
+.band-inner{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);padding:var(--s8);display:grid;grid-template-columns:1.3fr 1fr;gap:var(--s7);align-items:center}
 .band-inner h2{font-size:var(--fs-32)}
 .band-inner p{margin-top:var(--s3);max-width:46ch}
 .band-actions{display:flex;flex-direction:column;gap:var(--s3)}
