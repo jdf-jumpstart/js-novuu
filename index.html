@@ -13,7 +13,7 @@
    Same design system as the dermal-filler pilot.
    ============================================================================ */
 :root{
-  --bg:#F1EAE0; --surface:#E9E0D6; --surface-2:#E2D8CB;
+  --white:#FDFBF7; --bg:#F1EAE0; --surface:#E9E0D6; --surface-2:#E2D8CB;
   --ink:#1A1A1A; --ink-2:#5E5649;
   --accent:#1A1A1A; --accent-2:#2B2926; --on-accent:#F1EAE0; --green:#2B3A36;
   --line:rgba(26,26,26,.16); --line-soft:rgba(26,26,26,.09);
@@ -69,9 +69,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .btn--lg .dot{width:38px;height:38px}
 
 /* nav */
-.topbar{text-align:center;font-size:var(--fs-12);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);padding:var(--s3) var(--s5);background:var(--surface);border-bottom:1px solid var(--line-soft)}
+.topbar{position:sticky;top:0;z-index:90;text-align:center;font-size:var(--fs-12);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);padding:var(--s3) var(--s5);background:var(--surface);border-bottom:1px solid var(--line-soft)}
 .topbar a{color:var(--ink);border-bottom:1px solid var(--accent);padding-bottom:1px}
-.nav{position:fixed;top:var(--s4);left:50%;transform:translateX(-50%);z-index:80;width:min(94%,var(--maxw));display:flex;align-items:center;justify-content:space-between;padding:var(--s3) var(--s3) var(--s3) var(--s5);background:rgba(241,234,224,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:var(--r-pill);box-shadow:var(--e-overlay)}
+.nav{position:fixed;top:var(--nav-top,var(--s4));left:50%;transform:translateX(-50%);z-index:80;width:min(94%,var(--maxw));display:flex;align-items:center;justify-content:space-between;padding:var(--s3) var(--s3) var(--s3) var(--s5);background:rgba(241,234,224,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:var(--r-pill);box-shadow:var(--e-overlay)}
 .brand-logo{height:30px;width:auto;color:var(--ink);display:block}
 .nav-links{display:flex;gap:var(--s6);align-items:center}
 .nav-links a{font-size:var(--fs-14);font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);transition:color .4s var(--ease)}
@@ -96,7 +96,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .frame .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,26,26,0),rgba(26,26,26,.18))}
 
 /* values */
-.values{padding:var(--s10) 0;background:var(--surface)}
+.values{padding:var(--s10) 0;background:var(--white)}
 .vgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s6)}
 .vitem .vico{width:44px;height:44px;border-radius:var(--r-pill);border:1px solid var(--line);display:grid;place-items:center;color:var(--green);margin-bottom:var(--s4)}
 .vitem .vico svg{width:20px;height:20px}
@@ -106,7 +106,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 /* services */
 .services{padding:var(--s10) 0}
 .svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--s5)}
-.svc-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:var(--s7);display:flex;flex-direction:column;gap:var(--s3);transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s var(--ease)}
+.svc-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);padding:var(--s7);display:flex;flex-direction:column;gap:var(--s3);transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s var(--ease)}
 .svc-card:hover{transform:translateY(-6px);box-shadow:var(--e-raised);border-color:var(--green)}
 .svc-card h3{font-size:var(--fs-24)}
 .svc-card p{font-size:var(--fs-16);flex:1}
@@ -115,7 +115,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .svc-card:hover .svc-link svg{transform:translate(3px,-2px)}
 
 /* results (slideshow) */
-.results{padding:var(--s10) 0;background:var(--surface)}
+.results{padding:var(--s10) 0;background:var(--white)}
 .res-grid{display:grid;grid-template-columns:1fr .9fr;gap:var(--s8);align-items:center}
 .slideshow{position:relative;border-radius:var(--r-card);padding:var(--s2);background:var(--bg);border:1px solid var(--line);box-shadow:var(--e-raised)}
 .ss-stage{position:relative;border-radius:var(--r-inner);aspect-ratio:1/1;overflow:hidden;background:linear-gradient(155deg,#E2D8CB,#E9E0D6 70%)}
@@ -131,12 +131,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s5);margin-top:var(--s8)}
 .tcard{border:1px solid var(--line);border-radius:var(--r-card);padding:var(--s6);background:var(--surface)}
 .tcard .qmark{font-family:var(--display);font-size:var(--fs-44);line-height:.6;color:var(--green);display:block;margin-bottom:var(--s3)}
-.tcard p{font-size:var(--fs-16);color:var(--ink-2)}
+.tcard p{font-size:var(--fs-16);color:var(--accent)}
 .tcard cite{display:block;margin-top:var(--s4);font-style:normal;font-size:var(--fs-14);font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
 
 /* memberships / financing band */
 .band{padding:var(--s9) 0}
-.band-inner{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:var(--s8);display:grid;grid-template-columns:1.3fr 1fr;gap:var(--s7);align-items:center}
+.band-inner{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);padding:var(--s8);display:grid;grid-template-columns:1.3fr 1fr;gap:var(--s7);align-items:center}
 .band-inner h2{font-size:var(--fs-32)}
 .band-inner p{margin-top:var(--s3);max-width:46ch}
 .band-actions{display:flex;flex-direction:column;gap:var(--s3)}
@@ -180,6 +180,27 @@ footer{padding:var(--s9) 0 var(--s6)}
   .closing{border-radius:50% 50% 0 0 / 60px 60px 0 0}
 }
 @media(max-width:560px){.vgrid{grid-template-columns:1fr}}
+
+/* new-patient popup */
+.np-overlay{position:fixed;inset:0;z-index:200;background:rgba(26,26,26,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:var(--s5);opacity:0;pointer-events:none;transition:opacity .5s var(--ease)}
+.np-overlay.is-open{opacity:1;pointer-events:auto}
+.np-modal{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);padding:var(--s7) var(--s7) var(--s8);max-width:480px;width:100%;position:relative;transform:translateY(24px) scale(.97);transition:transform .5s var(--ease);box-shadow:var(--e-overlay)}
+.np-overlay.is-open .np-modal{transform:none}
+.np-close{position:absolute;top:var(--s4);right:var(--s4);background:none;border:0;cursor:pointer;color:var(--ink-2);padding:var(--s2);line-height:1;font-size:20px;transition:opacity .3s}
+.np-close:hover{opacity:.5}
+.np-eyebrow{font-family:var(--body);font-size:var(--fs-12);font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--green);margin-bottom:var(--s3)}
+.np-modal h2{font-family:var(--display);font-size:clamp(var(--fs-32),5vw,var(--fs-44));font-weight:300;letter-spacing:-.015em;line-height:1.06;color:var(--ink);margin-bottom:var(--s3)}
+.np-modal .sub{font-size:var(--fs-16);color:var(--ink-2);margin-bottom:var(--s6)}
+.np-form{display:flex;flex-direction:column;gap:var(--s3)}
+.np-field{display:flex;flex-direction:column;gap:6px}
+.np-field label{font-size:var(--fs-12);font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+.np-field input{background:var(--bg);border:1px solid var(--line);border-radius:var(--r-inner);padding:var(--s3) var(--s4);font-size:var(--fs-16);font-family:var(--body);color:var(--ink);outline:none;transition:border-color .3s}
+.np-field input:focus{border-color:var(--accent)}
+.np-submit{margin-top:var(--s2)}
+.np-code{display:none;text-align:center;padding:var(--s6);background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card)}
+.np-code p{font-size:var(--fs-14);color:var(--ink-2);margin-bottom:var(--s3)}
+.np-code .code{font-family:var(--display);font-size:var(--fs-32);color:var(--ink);letter-spacing:.08em}
+.np-code .fine{font-size:var(--fs-12);color:var(--ink-2);margin-top:var(--s3)}
 </style>
 </head>
 <body>
@@ -388,7 +409,49 @@ footer{padding:var(--s9) 0 var(--s6)}
   </div>
 </footer>
 
+<div class="np-overlay" id="npOverlay" role="dialog" aria-modal="true" aria-label="New Patient Offer">
+  <div class="np-modal">
+    <button class="np-close" id="npClose" aria-label="Close">&times;</button>
+    <p class="np-eyebrow">New Patient Exclusive</p>
+    <h2>$50 Off<br>Your First Visit</h2>
+    <p class="sub">Share your info and we'll send your exclusive offer code — valid for any first-time treatment.</p>
+    <div id="npFormWrap">
+      <form class="np-form" id="npForm" novalidate>
+        <div class="np-field">
+          <label for="npName">Full Name</label>
+          <input type="text" id="npName" name="name" placeholder="Jane Smith" required autocomplete="name">
+        </div>
+        <div class="np-field">
+          <label for="npEmail">Email Address</label>
+          <input type="email" id="npEmail" name="email" placeholder="jane@example.com" required autocomplete="email">
+        </div>
+        <div class="np-field">
+          <label for="npPhone">Phone Number</label>
+          <input type="tel" id="npPhone" name="phone" placeholder="(555) 000-0000" required autocomplete="tel">
+        </div>
+        <button type="submit" class="btn btn--primary btn--lg np-submit">
+          Claim My $50 Off
+          <span class="dot"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+        </button>
+      </form>
+    </div>
+    <div class="np-code" id="npCode">
+      <p>Your exclusive offer code:</p>
+      <div class="code">NOVUU50</div>
+      <p class="fine">Valid for new patients only. Present at check-in. Cannot be combined with other offers.</p>
+    </div>
+  </div>
+</div>
+
 <script>
+(function(){
+  var tb=document.querySelector('.topbar'),nav=document.querySelector('.nav');
+  if(tb&&nav){
+    function trackNav(){var bottom=Math.max(0,tb.getBoundingClientRect().bottom);document.documentElement.style.setProperty('--nav-top',(bottom+16)+'px');}
+    window.addEventListener('scroll',trackNav,{passive:true});
+    trackNav();
+  }
+})();
 (function(){
   var box=document.querySelector('.slideshow'); if(!box) return;
   var slides=[].slice.call(box.querySelectorAll('.ss-slide'));
@@ -415,6 +478,35 @@ var burger=document.querySelector('.burger'), links=document.querySelector('.nav
 burger.addEventListener('click',function(){var open=links.style.display==='flex';
   links.style.cssText=open?'':'display:flex;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:var(--surface);padding:var(--s5);border-radius:var(--r-card);gap:var(--s4);box-shadow:var(--e-overlay);border:1px solid var(--line)';
   burger.setAttribute('aria-expanded',!open);});
+(function(){
+  var KEY='novuu_np_seen';
+  if(localStorage.getItem(KEY)) return;
+  var overlay=document.getElementById('npOverlay');
+  var closeBtn=document.getElementById('npClose');
+  var form=document.getElementById('npForm');
+  var formWrap=document.getElementById('npFormWrap');
+  var codeBox=document.getElementById('npCode');
+  function open(){overlay.classList.add('is-open');document.body.style.overflow='hidden';}
+  function close(){overlay.classList.remove('is-open');document.body.style.overflow='';localStorage.setItem(KEY,'1');}
+  setTimeout(open, 3500);
+  closeBtn.addEventListener('click',close);
+  overlay.addEventListener('click',function(e){if(e.target===overlay)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&overlay.classList.contains('is-open'))close();});
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=document.getElementById('npName').value.trim();
+    var email=document.getElementById('npEmail').value.trim();
+    var phone=document.getElementById('npPhone').value.trim();
+    if(!name||!email||!phone){
+      var first=form.querySelector('input:invalid')||form.querySelector('input');
+      if(first)first.focus();
+      return;
+    }
+    formWrap.style.display='none';
+    codeBox.style.display='block';
+    localStorage.setItem(KEY,'1');
+  });
+})();
 </script>
 </body>
 </html>
