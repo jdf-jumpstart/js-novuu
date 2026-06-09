@@ -71,7 +71,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 /* nav */
 .topbar{position:sticky;top:0;z-index:90;text-align:center;font-size:var(--fs-12);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);padding:var(--s3) var(--s5);background:var(--surface);border-bottom:1px solid var(--line-soft)}
 .topbar a{color:var(--ink);border-bottom:1px solid var(--accent);padding-bottom:1px}
-.nav{position:fixed;top:var(--s4);left:50%;transform:translateX(-50%);z-index:80;width:min(94%,var(--maxw));display:flex;align-items:center;justify-content:space-between;padding:var(--s3) var(--s3) var(--s3) var(--s5);background:rgba(241,234,224,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:var(--r-pill);box-shadow:var(--e-overlay)}
+.nav{position:fixed;top:var(--nav-top,var(--s4));left:50%;transform:translateX(-50%);z-index:80;width:min(94%,var(--maxw));display:flex;align-items:center;justify-content:space-between;padding:var(--s3) var(--s3) var(--s3) var(--s5);background:rgba(241,234,224,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:var(--r-pill);box-shadow:var(--e-overlay)}
 .brand-logo{height:30px;width:auto;color:var(--ink);display:block}
 .nav-links{display:flex;gap:var(--s6);align-items:center}
 .nav-links a{font-size:var(--fs-14);font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);transition:color .4s var(--ease)}
@@ -444,6 +444,14 @@ footer{padding:var(--s9) 0 var(--s6)}
 </div>
 
 <script>
+(function(){
+  var tb=document.querySelector('.topbar'),nav=document.querySelector('.nav');
+  if(tb&&nav){
+    function trackNav(){var bottom=Math.max(0,tb.getBoundingClientRect().bottom);document.documentElement.style.setProperty('--nav-top',(bottom+16)+'px');}
+    window.addEventListener('scroll',trackNav,{passive:true});
+    trackNav();
+  }
+})();
 (function(){
   var box=document.querySelector('.slideshow'); if(!box) return;
   var slides=[].slice.call(box.querySelectorAll('.ss-slide'));
