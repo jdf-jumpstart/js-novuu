@@ -72,7 +72,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .topbar{text-align:center;font-size:var(--fs-12);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);padding:var(--s3) var(--s5);background:var(--surface);border-bottom:1px solid var(--line-soft)}
 .topbar a{color:var(--ink);border-bottom:1px solid var(--accent);padding-bottom:1px}
 /* section sub-nav */
-.subnav{position:sticky;top:calc(var(--s4) + 56px);z-index:79;margin:6px auto 0;width:max-content;display:flex;gap:4px;padding:6px;background:rgba(241,234,224,.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:var(--r-pill);box-shadow:var(--e-overlay);max-width:calc(100% - var(--s5));overflow-x:auto;scrollbar-width:none}
+.subnav{position:fixed;top:50%;left:var(--s5);transform:translateY(-50%);z-index:79;display:flex;flex-direction:column;gap:4px;padding:6px;background:rgba(241,234,224,.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--e-overlay);max-height:calc(100vh - var(--s8));overflow-y:auto;scrollbar-width:none}
 .subnav::-webkit-scrollbar{display:none}
 .subnav a{font-size:var(--fs-12);font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);white-space:nowrap;padding:8px var(--s4);border-radius:var(--r-pill);transition:color .3s var(--ease),background .3s var(--ease)}
 .subnav a:hover{color:var(--ink)}
@@ -203,6 +203,7 @@ footer{padding:var(--s9) 0 var(--s6)}
   .foot-grid{grid-template-columns:1fr;gap:var(--s6)}
   .closing{border-radius:50% 50% 0 0 / 60px 60px 0 0}
 }
+@media(max-width:1120px){.subnav{display:none}}
 @media(max-width:560px){.vgrid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -314,6 +315,21 @@ footer{padding:var(--s9) 0 var(--s6)}
   </div>
 </header>
 
+<!-- ====================== SERVICES ====================== -->
+<section class="services" id="menu">
+  <div class="wrap">
+    <div class="section-head reveal"><span class="eyebrow"><svg><use href="#leaf"/></svg> The menu</span><h2>IV Infusion Menu.</h2></div>
+    <div class="svc-grid">
+      <div class="svc-card reveal"><div class="svc-img"><img src="images/infusions/the-morning-after.png" alt="Nōvuu Medspa The Morning After IV infusion bag" loading="lazy"></div><h3>The Morning After</h3><p>Supports recovery from a night of celebration.</p><span class="svc-ing"><b>Includes</b>B-Complex, magnesium, anti-nausea medicine, headache medicine</span></div>
+      <div class="svc-card reveal" style="--d:.06s"><div class="svc-img"><img src="images/infusions/meyers-cocktail.png" alt="Nōvuu Medspa Meyer's Cocktail IV infusion bag" loading="lazy"></div><h3>Meyer's Cocktail</h3><p>Boost immune system, aid illness recovery, reduce fatigue, and restore electrolytes.</p><span class="svc-ing"><b>Includes</b>Vitamin C, Zinc, B-Complex, Glutathione</span></div>
+      <div class="svc-card reveal" style="--d:.12s"><div class="svc-img"><img src="images/infusions/beauty-blend.png" alt="Nōvuu Medspa Beauty Blend IV infusion bag" loading="lazy"></div><h3>Beauty Blend</h3><p>Promote hair and nail growth, and enhance skin complexion.</p><span class="svc-ing"><b>Includes</b>Vitamin C, Biotin, Glutathione, B-Complex</span></div>
+      <div class="svc-card reveal" style="--d:.18s"><div class="svc-img"><img src="images/infusions/immunity.png" alt="Nōvuu Medspa Immunity IV infusion bag" loading="lazy"></div><h3>Immunity</h3><p>Boost immune system, aid illness recovery, reduce fatigue, and restore electrolytes.</p><span class="svc-ing"><b>Includes</b>Vitamin C, Zinc, B-Complex, Glutathione</span></div>
+      <div class="svc-card reveal" style="--d:.24s"><div class="svc-img"><img src="images/infusions/fly-high-hydration.png" alt="Nōvuu Medspa Fly High Hydration IV infusion bag" loading="lazy"></div><h3>Fly High Hydration</h3><p>Boost immune system to prepare for travel, and increase energy levels.</p><span class="svc-ing"><b>Includes</b>Vitamin C, Zinc, B12, Magnesium</span></div>
+      <div class="svc-card reveal" style="--d:.30s"><div class="svc-img"><img src="images/infusions/vitality-nad.png" alt="Nōvuu Medspa Vitality NAD+ IV infusion bag" loading="lazy"></div><h3>Vitality NAD+</h3><p>Replenish cellular energy and support healthy aging with NAD+ IV therapy. This essential coenzyme boosts mitochondrial function, enhances mental clarity, and promotes cellular repair, helping you feel refreshed, focused, and revitalized.</p></div>
+    </div>
+  </div>
+</section>
+
 <!-- ====================== VALUES ====================== -->
 <section class="values" id="benefits">
   <div class="wrap">
@@ -331,22 +347,6 @@ footer{padding:var(--s9) 0 var(--s6)}
     </div>
   </div>
 </section>
-
-<!-- ====================== SERVICES ====================== -->
-<section class="services" id="menu">
-  <div class="wrap">
-    <div class="section-head reveal"><span class="eyebrow"><svg><use href="#leaf"/></svg> The menu</span><h2>IV Infusion Menu.</h2></div>
-    <div class="svc-grid">
-      <div class="svc-card reveal"><div class="svc-img"><img src="images/infusions/the-morning-after.png" alt="Nōvuu Medspa The Morning After IV infusion bag" loading="lazy"></div><h3>The Morning After</h3><p>Supports recovery from a night of celebration.</p><span class="svc-ing"><b>Includes</b>B-Complex, magnesium, anti-nausea medicine, headache medicine</span></div>
-      <div class="svc-card reveal" style="--d:.06s"><div class="svc-img"><img src="images/infusions/meyers-cocktail.png" alt="Nōvuu Medspa Meyer's Cocktail IV infusion bag" loading="lazy"></div><h3>Meyer's Cocktail</h3><p>Boost immune system, aid illness recovery, reduce fatigue, and restore electrolytes.</p><span class="svc-ing"><b>Includes</b>Vitamin C, Zinc, B-Complex, Glutathione</span></div>
-      <div class="svc-card reveal" style="--d:.12s"><div class="svc-img"><img src="images/infusions/beauty-blend.png" alt="Nōvuu Medspa Beauty Blend IV infusion bag" loading="lazy"></div><h3>Beauty Blend</h3><p>Promote hair and nail growth, and enhance skin complexion.</p><span class="svc-ing"><b>Includes</b>Vitamin C, Biotin, Glutathione, B-Complex</span></div>
-      <div class="svc-card reveal" style="--d:.18s"><div class="svc-img"><img src="images/infusions/immunity.png" alt="Nōvuu Medspa Immunity IV infusion bag" loading="lazy"></div><h3>Immunity</h3><p>Boost immune system, aid illness recovery, reduce fatigue, and restore electrolytes.</p><span class="svc-ing"><b>Includes</b>Vitamin C, Zinc, B-Complex, Glutathione</span></div>
-      <div class="svc-card reveal" style="--d:.24s"><div class="svc-img"><img src="images/infusions/fly-high-hydration.png" alt="Nōvuu Medspa Fly High Hydration IV infusion bag" loading="lazy"></div><h3>Fly High Hydration</h3><p>Boost immune system to prepare for travel, and increase energy levels.</p><span class="svc-ing"><b>Includes</b>Vitamin C, Zinc, B12, Magnesium</span></div>
-      <div class="svc-card reveal" style="--d:.30s"><div class="svc-img"><img src="images/infusions/vitality-nad.png" alt="Nōvuu Medspa Vitality NAD+ IV infusion bag" loading="lazy"></div><h3>Vitality NAD+</h3><p>Replenish cellular energy and support healthy aging with NAD+ IV therapy. This essential coenzyme boosts mitochondrial function, enhances mental clarity, and promotes cellular repair, helping you feel refreshed, focused, and revitalized.</p></div>
-    </div>
-  </div>
-</section>
-
 <!-- ====================== TESTIMONIALS (dark) ====================== -->
 <section class="tquote invert">
   <div class="wrap">
@@ -450,9 +450,6 @@ burger.addEventListener('click',function(){var open=links.style.display==='flex'
 <script>
 (function(){
   var bar=document.querySelector('.subnav'); if(!bar) return;
-  var nav=document.querySelector('.nav');
-  function place(){ if(nav) bar.style.top=(parseFloat(getComputedStyle(nav).top)+nav.offsetHeight+6)+'px'; }
-  place(); window.addEventListener('resize',place);
   var links=[].slice.call(bar.querySelectorAll('a[href^="#"]'));
   var secs=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
   function onScroll(){
