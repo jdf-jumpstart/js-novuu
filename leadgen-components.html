@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nōvuu — Lead-Gen Components</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Nōvuu lead-gen components — light brand (cream #E9E0D6 / black #1A1A1A), same system tokens */
+:root{
+  --bg:#F1EAE0; --surface:#E9E0D6; --surface-2:#E2D8CB;
+  --ink:#1A1A1A; --ink-2:#5E5649;
+  --accent:#1A1A1A; --accent-bright:#2B2926; --on-accent:#F1EAE0;
+  --err:#8C3B2E;
+  --line:rgba(26,26,26,.18); --line-soft:rgba(26,26,26,.10);
+  --fs-12:.75rem; --fs-14:.875rem; --fs-16:1rem; --fs-20:1.25rem; --fs-24:1.5rem; --fs-32:2rem; --fs-44:2.75rem;
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:48px; --s8:64px; --s9:96px;
+  --r-pill:999px; --r-card:20px; --r-inner:12px;
+  --arch:50% 50% var(--r-card) var(--r-card) / 22% 22% var(--r-card) var(--r-card);
+  --display:"Fraunces",Georgia,serif; --body:"Jost",system-ui,sans-serif; --ease:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:300;font-size:var(--fs-16);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:760px;margin:0 auto;padding:0 var(--s5)}
+h1,h2,h3{font-family:var(--display);font-weight:300;line-height:1.1;letter-spacing:-.01em}
+.eyebrow{font-family:var(--body);font-weight:500;font-size:var(--fs-12);letter-spacing:.22em;text-transform:uppercase;color:var(--ink);display:inline-flex;align-items:center;gap:var(--s2)}
+.eyebrow svg{width:14px;height:14px}
+p{color:var(--ink-2)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s3);font-size:var(--fs-14);font-weight:500;
+  letter-spacing:.08em;text-transform:uppercase;border-radius:var(--r-pill);cursor:pointer;border:1px solid transparent;
+  padding:var(--s3) var(--s6);transition:background .4s var(--ease),color .4s var(--ease),border-color .4s var(--ease),transform .3s var(--ease)}
+.btn:active{transform:scale(.97)}
+.btn--primary{background:var(--accent);color:var(--on-accent)}
+.btn--primary:hover{background:var(--accent-bright)}
+.btn--ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn--ghost:hover{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+
+header.bar{display:flex;justify-content:space-between;align-items:center;padding:var(--s5) 0;border-bottom:1px solid var(--line-soft)}
+.brand{font-family:var(--display);font-size:var(--fs-24);letter-spacing:.03em;display:flex;align-items:center;gap:var(--s2)}
+.brand svg{width:20px;height:20px}
+
+.intro{padding:var(--s8) 0 var(--s6)}
+.intro h1{font-size:var(--fs-44);margin:var(--s4) 0 var(--s4)}
+.intro p{max-width:54ch}
+
+section.block{padding:var(--s7) 0;border-top:1px solid var(--line-soft)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:var(--s7)}
+.card h2{font-size:var(--fs-32);margin:var(--s3) 0 var(--s2)}
+.card .sub{margin-bottom:var(--s6);max-width:50ch}
+
+/* form fields */
+.field{margin-bottom:var(--s5)}
+.field label{display:block;font-size:var(--fs-12);font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);margin-bottom:var(--s2)}
+.field input,.field select,.field textarea{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:var(--r-inner);
+  padding:var(--s4) var(--s4);font-family:var(--body);font-size:var(--fs-16);color:var(--ink);transition:border-color .3s var(--ease)}
+.field input::placeholder,.field textarea::placeholder{color:var(--ink-2);opacity:.7}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent);outline:none}
+.field textarea{resize:vertical;min-height:120px}
+.field.invalid input,.field.invalid select,.field.invalid textarea{border-color:var(--err)}
+.field .msg{font-size:var(--fs-12);color:var(--err);margin-top:var(--s2);display:none}
+.field.invalid .msg{display:block}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4)}
+.consent{display:flex;gap:var(--s3);align-items:flex-start;font-size:var(--fs-14);color:var(--ink-2);margin-bottom:var(--s5)}
+.consent input{margin-top:3px;width:16px;height:16px;flex:0 0 16px;accent-color:var(--accent)}
+.form-note{font-size:var(--fs-12);color:var(--ink-2);margin-top:var(--s4);line-height:1.5}
+
+/* success states */
+.success{display:none;text-align:center;padding:var(--s5) 0}
+.success.show{display:block}
+.success .sprig{width:40px;height:40px;color:var(--accent);margin:0 auto var(--s4)}
+.success h3{font-size:var(--fs-24);margin-bottom:var(--s3)}
+.code{display:inline-block;font-family:var(--display);font-size:var(--fs-32);letter-spacing:.08em;color:var(--ink);
+  background:var(--bg);border:1px dashed var(--line);border-radius:var(--r-inner);padding:var(--s3) var(--s6);margin:var(--s3) 0}
+
+/* modal */
+.overlay{position:fixed;inset:0;z-index:100;background:rgba(26,26,26,.55);backdrop-filter:blur(4px);
+  display:flex;align-items:center;justify-content:center;padding:var(--s5);opacity:0;pointer-events:none;transition:opacity .4s var(--ease)}
+.overlay.open{opacity:1;pointer-events:auto}
+.modal{background:var(--surface);border:1px solid var(--line);width:min(440px,100%);max-height:92vh;overflow:auto;
+  border-radius:var(--arch);padding:var(--s8) var(--s7) var(--s7);position:relative;text-align:center;
+  transform:translateY(16px) scale(.98);transition:transform .5s var(--ease)}
+.overlay.open .modal{transform:none}
+.modal .sprig{width:36px;height:36px;color:var(--accent);margin:0 auto var(--s4)}
+.modal .offer{font-family:var(--display);font-size:var(--fs-44);line-height:1;margin:var(--s2) 0 var(--s3)}
+.modal h2{font-size:var(--fs-20);margin-bottom:var(--s2)}
+.modal .sub{font-size:var(--fs-14);color:var(--ink-2);margin-bottom:var(--s6);max-width:34ch;margin-left:auto;margin-right:auto}
+.modal form .field{text-align:left}
+.modal .btn{width:100%}
+.modal .close{position:absolute;top:var(--s4);right:var(--s4);width:36px;height:36px;border-radius:var(--r-pill);
+  border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;display:grid;place-items:center}
+.modal .close:hover{background:var(--accent);color:var(--on-accent)}
+.modal .fineprint{font-size:var(--fs-12);color:var(--ink-2);margin-top:var(--s4)}
+
+@media(prefers-reduced-motion:reduce){.overlay,.modal{transition:none}}
+@media(max-width:560px){.row2{grid-template-columns:1fr}.intro h1{font-size:var(--fs-32)}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="leaf" viewBox="0 0 24 24">
+    <path d="M12 22V5" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+    <path d="M12 8c-.2-2.3-1.5-3.6-3.8-3.9.2 2.3 1.5 3.6 3.8 3.9Z" fill="currentColor"/>
+    <path d="M12 8c.2-2.3 1.5-3.6 3.8-3.9-.2 2.3-1.5 3.6-3.8 3.9Z" fill="currentColor"/>
+    <path d="M12 13c-.2-2.3-1.5-3.6-3.8-3.9.2 2.3 1.5 3.6 3.8 3.9Z" fill="currentColor"/>
+    <path d="M12 13c.2-2.3 1.5-3.6 3.8-3.9-.2 2.3-1.5 3.6-3.8 3.9Z" fill="currentColor"/>
+    <path d="M12 18c-.2-2.3-1.5-3.6-3.8-3.9.2 2.3 1.5 3.6 3.8 3.9Z" fill="currentColor"/>
+    <path d="M12 18c.2-2.3 1.5-3.6 3.8-3.9-.2 2.3-1.5 3.6-3.8 3.9Z" fill="currentColor"/>
+  </symbol>
+  <symbol id="x" viewBox="0 0 16 16"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+</svg>
+
+<header class="bar">
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center">
+    <span class="brand"><svg><use href="#leaf"/></svg> Nōvuu Medspa</span>
+    <button class="btn btn--ghost" id="reopen">Preview pop-up</button>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="intro">
+    <span class="eyebrow"><svg><use href="#leaf"/></svg> Lead generation</span>
+    <h1>Capture components.</h1>
+    <p>Two of the lead-gen tools from the brief, built in the brand system: the first-visit pop-up offer and an inquiry form. Both validate in the browser; in production they post to your CRM or email service so every submission becomes a lead.</p>
+  </section>
+
+  <!-- ===== INQUIRY / LEAD CAPTURE FORM ===== -->
+  <section class="block">
+    <div class="card">
+      <span class="eyebrow">Inquiry form</span>
+      <h2>Ask us anything</h2>
+      <p class="sub">Have a question or want to plan a treatment? Send a note and the Nōvuu team will follow up.</p>
+
+      <form id="inquiry" novalidate>
+        <div class="row2">
+          <div class="field"><label for="iname">Full name</label><input id="iname" name="name" type="text" autocomplete="name" placeholder="Jane Doe" required><span class="msg">Please enter your name.</span></div>
+          <div class="field"><label for="iphone">Phone</label><input id="iphone" name="phone" type="tel" autocomplete="tel" placeholder="(410) 000-0000" required><span class="msg">Please enter a valid phone number.</span></div>
+        </div>
+        <div class="field"><label for="iemail">Email</label><input id="iemail" name="email" type="email" autocomplete="email" placeholder="jane@email.com" required><span class="msg">Please enter a valid email.</span></div>
+        <div class="field"><label for="iservice">Service of interest</label>
+          <select id="iservice" name="service">
+            <option value="">Select one (optional)</option>
+            <option>Neurotoxin</option><option>Dermal Filler</option><option>Biostimulator</option>
+            <option>PRF / PRP</option><option>Microneedling</option><option>Chemical Peel</option>
+            <option>Medical Weight Loss</option><option>IV Infusions</option><option>Other</option>
+          </select>
+        </div>
+        <div class="field"><label for="imsg">Message</label><textarea id="imsg" name="message" placeholder="How can we help?" required></textarea><span class="msg">Please add a short message.</span></div>
+        <div class="consent"><input id="iconsent" type="checkbox" required><label for="iconsent" style="margin:0;letter-spacing:0;text-transform:none;font-size:var(--fs-14);color:var(--ink-2)">I agree to be contacted by Nōvuu Medspa about my inquiry.</label></div>
+        <button class="btn btn--primary" type="submit">Send inquiry</button>
+        <p class="form-note">Demo only — no data is sent. In production this connects to your email/CRM (e.g., via your form provider or My Aesthetic Record).</p>
+      </form>
+
+      <div class="success" id="inquiry-success">
+        <svg class="sprig"><use href="#leaf"/></svg>
+        <h3>Thank you — we'll be in touch.</h3>
+        <p>Your inquiry has been received. The Nōvuu team typically responds within one business day.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== $50 NEW-PATIENT POP-UP ===== -->
+<div class="overlay" id="offer" role="dialog" aria-modal="true" aria-labelledby="offer-title" aria-hidden="true">
+  <div class="modal">
+    <button class="close" id="offer-close" aria-label="Close"><svg style="width:14px;height:14px"><use href="#x"/></svg></button>
+    <div id="offer-form-wrap">
+      <svg class="sprig"><use href="#leaf"/></svg>
+      <span class="eyebrow" style="justify-content:center">New patient offer</span>
+      <div class="offer">$50 off</div>
+      <h2 id="offer-title">your first visit</h2>
+      <p class="sub">Enter your details and we'll reveal your welcome code — valid on your first treatment at Nōvuu.</p>
+      <form id="offer-form" novalidate>
+        <div class="field"><label for="oname">Full name</label><input id="oname" type="text" autocomplete="name" placeholder="Jane Doe" required><span class="msg">Please enter your name.</span></div>
+        <div class="field"><label for="oemail">Email</label><input id="oemail" type="email" autocomplete="email" placeholder="jane@email.com" required><span class="msg">Please enter a valid email.</span></div>
+        <div class="field"><label for="ophone">Phone</label><input id="ophone" type="tel" autocomplete="tel" placeholder="(410) 000-0000" required><span class="msg">Please enter a valid phone number.</span></div>
+        <button class="btn btn--primary" type="submit">Reveal my code</button>
+        <p class="fineprint">By submitting, you agree to receive messages from Nōvuu Medspa. One offer per new patient.</p>
+      </form>
+    </div>
+    <div class="success" id="offer-success">
+      <svg class="sprig"><use href="#leaf"/></svg>
+      <h3>Welcome to Nōvuu.</h3>
+      <p>Show this code at your first appointment:</p>
+      <div class="code" id="offer-code">WELCOME50</div>
+      <p class="fineprint">*Placeholder code — set the real promo code for the client.</p>
+      <div style="margin-top:var(--s5)"><a class="btn btn--primary" href="https://novuu.myaestheticrecord.com/online-booking">Book your visit</a></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------- shared validators ---------- */
+function valid(input){
+  var v=input.value.trim();
+  if(input.type==='email') return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  if(input.type==='tel') return v.replace(/\D/g,'').length>=10;
+  if(input.type==='checkbox') return input.checked;
+  return v.length>0;
+}
+function check(form){
+  var ok=true;
+  form.querySelectorAll('input[required],select[required],textarea[required]').forEach(function(el){
+    var f=el.closest('.field')||el.closest('.consent');
+    var good=valid(el);
+    if(f&&f.classList.contains('field')) f.classList.toggle('invalid',!good);
+    if(!good) ok=false;
+  });
+  return ok;
+}
+
+/* ---------- inquiry form ---------- */
+var iform=document.getElementById('inquiry');
+iform.addEventListener('submit',function(e){
+  e.preventDefault();
+  var consent=document.getElementById('iconsent');
+  if(check(iform)&&consent.checked){
+    iform.style.display='none';
+    document.getElementById('inquiry-success').classList.add('show');
+  } else if(!consent.checked){ consent.focus(); }
+});
+iform.querySelectorAll('input,textarea,select').forEach(function(el){
+  el.addEventListener('input',function(){var f=el.closest('.field'); if(f&&f.classList.contains('invalid')&&valid(el)) f.classList.remove('invalid');});
+});
+
+/* ---------- pop-up ---------- */
+var overlay=document.getElementById('offer'), oform=document.getElementById('offer-form'), lastFocus=null;
+function openOffer(){
+  lastFocus=document.activeElement;
+  overlay.classList.add('open'); overlay.setAttribute('aria-hidden','false');
+  var first=oform.querySelector('input'); if(first) setTimeout(function(){first.focus();},120);
+  document.addEventListener('keydown',escClose);
+}
+function closeOffer(){
+  overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true');
+  document.removeEventListener('keydown',escClose);
+  if(lastFocus) lastFocus.focus();
+}
+function escClose(e){ if(e.key==='Escape') closeOffer(); }
+overlay.addEventListener('click',function(e){ if(e.target===overlay) closeOffer(); });
+document.getElementById('offer-close').addEventListener('click',closeOffer);
+document.getElementById('reopen').addEventListener('click',openOffer);
+oform.addEventListener('submit',function(e){
+  e.preventDefault();
+  if(check(oform)){
+    document.getElementById('offer-form-wrap').style.display='none';
+    document.getElementById('offer-success').classList.add('show');
+  }
+});
+oform.querySelectorAll('input').forEach(function(el){
+  el.addEventListener('input',function(){var f=el.closest('.field'); if(f&&f.classList.contains('invalid')&&valid(el)) f.classList.remove('invalid');});
+});
+/* auto-open once on load (production: gate behind a first-visit cookie/localStorage) */
+window.addEventListener('load',function(){ setTimeout(openOffer,900); });
+</script>
+</body>
+</html>
