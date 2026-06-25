@@ -177,6 +177,22 @@ footer{padding:var(--s9) 0 var(--s6)}
 .foot-bottom{border-top:1px solid var(--line-soft);margin-top:var(--s7);padding-top:var(--s5);display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--s3);font-size:var(--fs-14);color:var(--ink-2)}
 .foot-bottom a:hover{color:var(--accent)}
 
+/* instagram */
+.ig{padding:var(--s9) 0}
+.ig .section-head{margin-left:auto;margin-right:auto;text-align:center;margin-bottom:var(--s7)}
+.ig .section-head .eyebrow{justify-content:center}
+.ig-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:var(--s3)}
+.ig-tile{position:relative;display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:var(--r-inner);overflow:hidden;color:var(--green);text-decoration:none;background:linear-gradient(155deg,var(--surface-2),var(--surface) 72%);transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.ig-tile:nth-child(even){background:linear-gradient(155deg,var(--surface),var(--surface-2) 72%)}
+.ig-tile svg{position:relative;z-index:1;width:32px;height:32px;transition:transform .5s var(--ease),color .3s var(--ease)}
+.ig-tile::after{content:"";position:absolute;inset:0;background:var(--green);opacity:0;transition:opacity .4s var(--ease)}
+.ig-tile:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(26,26,26,.14)}
+.ig-tile:hover::after{opacity:1}
+.ig-tile:hover svg{transform:scale(1.12);color:var(--on-accent)}
+.ig-cta{text-align:center;margin-top:var(--s7)}
+@media(max-width:860px){.ig-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:480px){.ig-grid{grid-template-columns:repeat(2,1fr)}}
+
 /* reveal */
 .reveal{opacity:0;transform:translateY(30px);filter:blur(6px);transition:opacity .9s var(--ease),transform .9s var(--ease),filter .9s var(--ease);transition-delay:var(--d,0s)}
 .reveal.in{opacity:1;transform:none;filter:none}
@@ -248,6 +264,7 @@ footer{padding:var(--s9) 0 var(--s6)}
   </symbol>
   <symbol id="arr" viewBox="0 0 16 16"><path d="M5 11 11 5M6.2 5H11v4.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="card" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M3 10h18" stroke="currentColor" stroke-width="1.4"/></symbol>
+  <symbol id="instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.15" fill="currentColor"/></symbol>
   <symbol id="leaf" viewBox="0 0 24 24">
     <path d="M12 22V5" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
     <path d="M12 8c-.2-2.3-1.5-3.6-3.8-3.9.2 2.3 1.5 3.6 3.8 3.9Z" fill="currentColor"/><path d="M12 8c.2-2.3 1.5-3.6 3.8-3.9-.2 2.3-1.5 3.6-3.8 3.9Z" fill="currentColor"/>
@@ -392,6 +409,39 @@ footer{padding:var(--s9) 0 var(--s6)}
       </div>
     </div>
   </div>
+</section>
+
+<!-- ====================== INSTAGRAM ====================== -->
+<section class="ig" id="instagram-feed" aria-labelledby="ig-heading">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><svg><use href="#instagram"/></svg> @novuumedspa</span>
+      <h2 id="ig-heading">Follow along.</h2>
+      <p>Treatments, real results, and behind-the-scenes moments from the Nōvuu Medspa team. Tap a tile to explore our feed on Instagram.</p>
+    </div>
+    <div class="ig-grid reveal" style="--d:.1s">
+      <a class="ig-tile" href="https://www.instagram.com/novuumedspa/" target="_blank" rel="noopener" aria-label="View Nōvuu Medspa on Instagram"><svg><use href="#instagram"/></svg></a>
+      <a class="ig-tile" href="https://www.instagram.com/novuumedspa/" target="_blank" rel="noopener" aria-label="View Nōvuu Medspa on Instagram"><svg><use href="#instagram"/></svg></a>
+      <a class="ig-tile" href="https://www.instagram.com/novuumedspa/" target="_blank" rel="noopener" aria-label="View Nōvuu Medspa on Instagram"><svg><use href="#instagram"/></svg></a>
+      <a class="ig-tile" href="https://www.instagram.com/novuumedspa/" target="_blank" rel="noopener" aria-label="View Nōvuu Medspa on Instagram"><svg><use href="#instagram"/></svg></a>
+      <a class="ig-tile" href="https://www.instagram.com/novuumedspa/" target="_blank" rel="noopener" aria-label="View Nōvuu Medspa on Instagram"><svg><use href="#instagram"/></svg></a>
+      <a class="ig-tile" href="https://www.instagram.com/novuumedspa/" target="_blank" rel="noopener" aria-label="View Nōvuu Medspa on Instagram"><svg><use href="#instagram"/></svg></a>
+    </div>
+    <div class="ig-cta reveal" style="--d:.15s">
+      <a href="https://www.instagram.com/novuumedspa/" target="_blank" rel="noopener" class="btn btn--primary" data-magnetic>Follow on Instagram <span class="dot"><svg><use href="#arr"/></svg></span></a>
+    </div>
+  </div>
+  <!--
+    LIVE FEED UPGRADE (optional)
+    To replace the tiles above with an auto-updating Instagram feed, create a free
+    widget at https://lightwidget.com (connect the @novuumedspa account), then swap
+    the .ig-grid block above for the snippet below and set YOUR_WIDGET_ID:
+
+    <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
+    <iframe src="//lightwidget.com/widgets/YOUR_WIDGET_ID.html" class="lightwidget-widget"
+            style="width:100%;border:0;overflow:hidden;border-radius:var(--r-inner)"
+            scrolling="no" allowtransparency="true"></iframe>
+  -->
 </section>
 
 <!-- ====================== CLOSING CTA (dark arched) ====================== -->
