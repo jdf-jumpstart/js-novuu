@@ -117,6 +117,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .frame .photo{position:relative;z-index:1;border-radius:var(--r-inner);
   aspect-ratio:1/1;overflow:hidden;background:linear-gradient(155deg,#E2D8CB,#E9E0D6 70%)}
 .frame .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+/* photo--fit: frame hugs the photo's natural aspect ratio so nothing gets cropped */
+.frame .photo--fit{aspect-ratio:auto}
+.frame .photo--fit img{position:static;inset:auto;width:100%;height:auto;object-fit:contain;display:block}
 .crest{display:block;height:58px;width:auto;margin-bottom:var(--s5)}
 .crest--lg{height:68px;margin:0 auto var(--s5)}
 .foot-crest{display:block;height:62px;width:auto;margin-bottom:var(--s5)}
@@ -405,7 +408,7 @@ section[id]{scroll-margin-top:150px}
     </div>
     <div class="reveal" style="--d:.12s">
       <div class="frame">
-        <div class="photo"><img src="https://www.novuumedspa.com/wp-content/uploads/2025/07/RadiesseBeforeAfter-0-1024x838.jpg" alt="Radiesse before and after at Nōvuu Medspa" loading="lazy"><span class="ss-tag">Before · After</span></div>
+        <div class="photo photo--fit"><img src="https://www.novuumedspa.com/wp-content/uploads/2025/07/RadiesseBeforeAfter-0-1024x838.jpg" alt="Radiesse before and after at Nōvuu Medspa" loading="lazy"><span class="ss-tag">Before · After</span></div>
         <a href="#treatment" class="price-tag tag-cta">What to expect <svg><use href="#arr"/></svg></a>
       </div>
     </div>
