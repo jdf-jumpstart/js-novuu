@@ -276,11 +276,12 @@ footer{padding:var(--s9) 0 var(--s6)}
 .topbar{text-align:center;font-size:var(--fs-12);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);padding:var(--s3) var(--s5);background:var(--surface);border-bottom:1px solid var(--line-soft)}
 .topbar a{color:var(--ink);border-bottom:1px solid var(--accent);padding-bottom:1px}
 /* section sub-nav */
-.subnav{position:sticky;top:calc(var(--s4) + 56px);z-index:79;margin:6px auto 0;width:max-content;display:flex;gap:4px;padding:6px;background:rgba(241,234,224,.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:var(--r-pill);box-shadow:var(--e-overlay);max-width:calc(100% - var(--s5));overflow-x:auto;scrollbar-width:none}
+.subnav{position:fixed;top:50%;left:var(--s5);transform:translateY(-50%);z-index:79;display:flex;flex-direction:column;gap:4px;padding:6px;background:rgba(241,234,224,.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--e-overlay);max-height:calc(100vh - var(--s8));overflow-y:auto;scrollbar-width:none}
 .subnav::-webkit-scrollbar{display:none}
 .subnav a{font-size:var(--fs-12);font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);white-space:nowrap;padding:8px var(--s4);border-radius:var(--r-pill);transition:color .3s var(--ease),background .3s var(--ease)}
 .subnav a:hover{color:var(--ink)}
 .subnav a.is-active{color:var(--ink);background:var(--surface)}
+@media(max-width:1120px){.subnav{display:none}}
 section[id]{scroll-margin-top:150px}
 </style>
 </head>
@@ -596,9 +597,6 @@ burger.addEventListener('click',function(){
 <script>
 (function(){
   var bar=document.querySelector('.subnav'); if(!bar) return;
-  var nav=document.querySelector('.nav');
-  function place(){ if(nav) bar.style.top=(parseFloat(getComputedStyle(nav).top)+nav.offsetHeight+6)+'px'; }
-  place(); window.addEventListener('resize',place);
   var links=[].slice.call(bar.querySelectorAll('a[href^="#"]'));
   var secs=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
   function onScroll(){
