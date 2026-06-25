@@ -13,7 +13,7 @@
    Palette from brand: cream #E9E0D6 / black #1A1A1A · single accent · 8pt · arch motif
    ============================================================================ */
 :root{
-  --bg:#F1EAE0; --surface:#E9E0D6; --surface-2:#E2D8CB;
+  --bg:#F1EAE0; --surface:#E9E0D6; --surface-2:#E2D8CB; --white:#FDFCFA;
   --ink:#1A1A1A; --ink-2:#5E5649;
   --accent:#1A1A1A; --accent-2:#2B2926; --on-accent:#F1EAE0; --green:#2B3A36;
   --line:rgba(26,26,26,.16); --line-soft:rgba(26,26,26,.09);
@@ -174,7 +174,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .facts-note{font-size:var(--fs-12);color:var(--ink-2);margin-top:var(--s3);line-height:1.5}
 
 /* ============================ GALLERY (bg) ============================ */
-.gallery{padding:var(--s10) 0}
+.gallery{padding:var(--s10) 0;background:var(--white)}
 .gallery-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:var(--s7);gap:var(--s4)}
 .gallery-head h2{max-width:16ch}
 .car-nav{display:flex;gap:var(--s3)}
@@ -200,7 +200,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .quote cite{font-style:normal;font-size:var(--fs-14);font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
 
 /* ============================ PRICING (bg) ============================ */
-.pricing{padding:var(--s10) 0}
+.pricing{padding:var(--s10) 0;background:var(--white)}
 .price-card{display:grid;grid-template-columns:1fr auto;gap:var(--s6);align-items:center;
   background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:var(--s8)}
 .price-card .eyebrow{margin-bottom:var(--s4)}
@@ -291,7 +291,7 @@ footer{padding:var(--s9) 0 var(--s6)}
 .banner-frame{margin:var(--s9) auto 0;max-width:1120px;aspect-ratio:21/9}
 @media(max-width:880px){.banner-frame{aspect-ratio:16/10}}
 @media(max-width:880px){.split{grid-template-columns:1fr;gap:var(--s7)}.split--rev .split-media{order:0}}
-.svc-areas{padding:var(--s10) 0;background:var(--surface)}
+.svc-areas{padding:var(--s10) 0;background:var(--white)}
 .svc-areas .ahead{text-align:center;margin-bottom:var(--s8)}
 .svc-areas .ahead .eyebrow{justify-content:center;margin-bottom:var(--s4)}
 .area-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--s5)}
