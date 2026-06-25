@@ -13,7 +13,7 @@
    Same design system as the dermal-filler pilot.
    ============================================================================ */
 :root{
-  --bg:#F1EAE0; --surface:#E9E0D6; --surface-2:#E2D8CB;
+  --bg:#F1EAE0; --surface:#E9E0D6; --surface-2:#E2D8CB; --white:#FDFCFA;
   --ink:#1A1A1A; --ink-2:#5E5649;
   --accent:#1A1A1A; --accent-2:#2B2926; --on-accent:#F1EAE0; --green:#2B3A36;
   --line:rgba(26,26,26,.16); --line-soft:rgba(26,26,26,.09);
@@ -123,7 +123,7 @@ section[id]{scroll-margin-top:150px}
 .vitem p{font-size:var(--fs-16)}
 
 /* services */
-.services{padding:var(--s10) 0}
+.services{padding:var(--s10) 0;background:var(--white)}
 .svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--s5)}
 .svc-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:var(--s7);display:flex;flex-direction:column;gap:var(--s3);transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s var(--ease)}
 .svc-card:hover{transform:translateY(-6px);box-shadow:var(--e-raised);border-color:var(--green)}
@@ -158,7 +158,7 @@ section[id]{scroll-margin-top:150px}
 .tcard cite{display:block;margin-top:var(--s4);font-style:normal;font-size:var(--fs-14);font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
 
 /* memberships / financing band */
-.band{padding:var(--s9) 0}
+.band{padding:var(--s9) 0;background:var(--white)}
 .band-inner{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:var(--s8);display:grid;grid-template-columns:1.3fr 1fr;gap:var(--s7);align-items:center}
 .band-inner h2{font-size:var(--fs-32)}
 .band-inner p{margin-top:var(--s3);max-width:46ch}
