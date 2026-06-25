@@ -98,7 +98,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .nav-dropdown-menu::before{content:"";position:absolute;left:0;right:0;top:-14px;height:14px}
 .nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
 .nav-dropdown-menu a{padding:10px 14px;border-radius:var(--r-pill);white-space:nowrap;text-transform:none;letter-spacing:.02em;color:var(--ink-2)}
-.nav-dropdown-menu a:hover{background:rgba(26,26,26,.05);color:var(--ink)}
+.nav-dropdown-menu a:hover{background:rgba(26,26,26,.05);color:var(--ink)}.nav-subitem{position:relative}.nav-sub-toggle{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;border-radius:var(--r-pill);white-space:nowrap;text-transform:none;letter-spacing:.02em;color:var(--ink-2);cursor:default}.nav-sub-toggle .caret-r{flex:none;opacity:.55;transition:transform .35s var(--ease)}.nav-subitem:hover .nav-sub-toggle .caret-r,.nav-subitem:focus-within .nav-sub-toggle .caret-r{transform:translateX(2px);opacity:.9}.nav-submenu{position:absolute;top:0;left:100%;min-width:220px;display:flex;flex-direction:column;gap:2px;margin-left:10px;padding:var(--s3);background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--e-overlay);opacity:0;visibility:hidden;transform:translateX(8px);transition:opacity .3s var(--ease),transform .3s var(--ease),visibility .3s var(--ease);z-index:91}.nav-submenu::before{content:"";position:absolute;left:-10px;top:0;bottom:0;width:10px}.nav-subitem:hover .nav-submenu,.nav-subitem:focus-within .nav-submenu{opacity:1;visibility:visible;transform:translateX(0)}.nav-subitem:hover>.nav-sub-toggle,.nav-subitem:focus-within>.nav-sub-toggle{background:rgba(26,26,26,.05);color:var(--ink)}.nav-submenu a{padding:10px 14px;border-radius:var(--r-pill);white-space:nowrap;text-transform:none;letter-spacing:.02em;color:var(--ink-2)}.nav-submenu a:hover{background:rgba(26,26,26,.05);color:var(--ink)}
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:var(--s2)}
 .burger span{width:24px;height:1.5px;background:var(--ink)}
 
@@ -263,7 +263,7 @@ footer{padding:var(--s9) 0 var(--s6)}
   .nav-dropdown{width:100%}
   .nav-dropdown-toggle .caret{display:none}
   .nav-dropdown-menu{position:static;transform:none;opacity:1;visibility:visible;min-width:0;margin:var(--s2) 0 0;padding:0 0 0 var(--s4);background:none;border:0;box-shadow:none}
-  .nav-dropdown-menu::before{display:none}.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{transform:none}
+  .nav-dropdown-menu::before{display:none}.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{transform:none}.nav-submenu{position:static;opacity:1;visibility:visible;transform:none;min-width:0;margin:var(--s2) 0 0;padding:0 0 0 var(--s4);background:none;border:0;box-shadow:none}.nav-submenu::before{display:none}.nav-sub-toggle .caret-r{display:none}.nav-sub-toggle{justify-content:flex-start}
   .hero-grid,.treat-layout{grid-template-columns:1fr}
   .hero{padding:var(--s9) 0 var(--s7)}
   .facts-card{position:static;margin-top:var(--s4)}
@@ -303,11 +303,12 @@ footer{padding:var(--s9) 0 var(--s6)}
 .topbar{text-align:center;font-size:var(--fs-12);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);padding:var(--s3) var(--s5);background:var(--surface);border-bottom:1px solid var(--line-soft)}
 .topbar a{color:var(--ink);border-bottom:1px solid var(--accent);padding-bottom:1px}
 /* section sub-nav */
-.subnav{position:sticky;top:calc(var(--s4) + 56px);z-index:79;margin:6px auto 0;width:max-content;display:flex;gap:4px;padding:6px;background:rgba(241,234,224,.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:var(--r-pill);box-shadow:var(--e-overlay);max-width:calc(100% - var(--s5));overflow-x:auto;scrollbar-width:none}
+.subnav{position:fixed;top:50%;left:var(--s5);transform:translateY(-50%);z-index:79;display:flex;flex-direction:column;gap:4px;padding:6px;background:rgba(241,234,224,.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--e-overlay);max-height:calc(100vh - var(--s8));overflow-y:auto;scrollbar-width:none}
 .subnav::-webkit-scrollbar{display:none}
 .subnav a{font-size:var(--fs-12);font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);white-space:nowrap;padding:8px var(--s4);border-radius:var(--r-pill);transition:color .3s var(--ease),background .3s var(--ease)}
 .subnav a:hover{color:var(--ink)}
 .subnav a.is-active{color:var(--ink);background:var(--surface)}
+@media(max-width:1120px){.subnav{display:none}}
 section[id]{scroll-margin-top:150px}
 </style>
 </head>
@@ -364,12 +365,27 @@ section[id]{scroll-margin-top:150px}
     <div class="nav-dropdown">
       <a href="index.html#services" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Services <svg class="caret" viewBox="0 0 10 6" width="10" height="6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <div class="nav-dropdown-menu" role="menu">
-        <a href="weight-loss.html" role="menuitem">Weight Loss Management</a>
-        <a href="biostimulator.html" role="menuitem">Injectables</a>
-        <a href="microneedling.html" role="menuitem">Microneedling</a>
-        <a href="chemical-peels.html" role="menuitem">Chemical Peels</a>
+        <a href="weight-loss.html" role="menuitem">Weight Loss</a>
+        <div class="nav-subitem">
+          <span class="nav-sub-toggle" role="menuitem" tabindex="0" aria-haspopup="true">Injectables <svg class="caret-r" viewBox="0 0 6 10" width="6" height="10" aria-hidden="true"><path d="M1 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="nav-submenu" role="menu">
+            <a href="neuromodulators.html" role="menuitem">Neurotoxin</a>
+            <a href="dermal-filler.html" role="menuitem">Dermal Filler</a>
+            <a href="facial-balancing.html" role="menuitem">Facial Balancing</a>
+            <a href="prf-ez-gel.html" role="menuitem">PRF EZ Gel</a>
+            <a href="biostimulator.html" role="menuitem">Radiesse</a>
+          </div>
+        </div>
+        <a href="infusions.html" role="menuitem">Infusions</a>
+        <div class="nav-subitem">
+          <span class="nav-sub-toggle" role="menuitem" tabindex="0" aria-haspopup="true">Skin Health Treatments <svg class="caret-r" viewBox="0 0 6 10" width="6" height="10" aria-hidden="true"><path d="M1 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="nav-submenu" role="menu">
+            <a href="microneedling.html" role="menuitem">Microneedling</a>
+            <a href="chemical-peels.html" role="menuitem">Chemical Peels</a>
+            <a href="dermaglo-hydrofacials.html" role="menuitem">DermaGlo Hydrofacials</a>
+          </div>
+        </div>
         <a href="prf-hair-restorations.html" role="menuitem">PRF Hair Restoration</a>
-        <a href="infusions.html" role="menuitem">IV Infusions</a>
         <a href="wellness-shots.html" role="menuitem">Wellness Injections</a>
       </div>
     </div>
@@ -518,9 +534,6 @@ burger.addEventListener('click',function(){
 <script>
 (function(){
   var bar=document.querySelector('.subnav'); if(!bar) return;
-  var nav=document.querySelector('.nav');
-  function place(){ if(nav) bar.style.top=(parseFloat(getComputedStyle(nav).top)+nav.offsetHeight+6)+'px'; }
-  place(); window.addEventListener('resize',place);
   var links=[].slice.call(bar.querySelectorAll('a[href^="#"]'));
   var secs=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
   function onScroll(){
