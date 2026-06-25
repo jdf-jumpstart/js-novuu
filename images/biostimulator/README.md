@@ -7,10 +7,10 @@ block on `biostimulator.html`. The dots and labels (Temples, Cheeks, Smile
 lines, Jawline, Chin, Neck) are baked into this image.
 
 - **Expected path:** `images/biostimulator/treatment-areas.png`
-- **Native size used by the markup:** 1131 × 1414 px (portrait)
+- **Native size used by the markup:** 1176 × 1338 px (portrait)
 
 The pulse animation is **not** part of the image. It is an SVG overlay in
-`biostimulator.html` (`.pulse-overlay`) whose `viewBox` is `0 0 1131 1414`, so
+`biostimulator.html` (`.pulse-overlay`) whose `viewBox` is `0 0 1176 1338`, so
 each `<circle class="halo">` is positioned in the image's native pixel space and
 maps 1:1 onto the baked-in dots.
 

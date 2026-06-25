@@ -117,6 +117,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .frame .photo{position:relative;z-index:1;border-radius:var(--r-inner);
   aspect-ratio:1/1;overflow:hidden;background:linear-gradient(155deg,#E2D8CB,#E9E0D6 70%)}
 .frame .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+/* photo--fit: frame hugs the photo's natural aspect ratio so nothing gets cropped */
+.frame .photo--fit{aspect-ratio:auto}
+.frame .photo--fit img{position:static;inset:auto;width:100%;height:auto;object-fit:contain;display:block}
 .crest{display:block;height:58px;width:auto;margin-bottom:var(--s5)}
 .crest--lg{height:68px;margin:0 auto var(--s5)}
 .foot-crest{display:block;height:62px;width:auto;margin-bottom:var(--s5)}
@@ -409,7 +412,7 @@ section[id]{scroll-margin-top:150px}
     </div>
     <div class="reveal" style="--d:.12s">
       <div class="frame">
-        <div class="photo"><img src="https://www.novuumedspa.com/wp-content/uploads/2025/07/RadiesseBeforeAfter-0-1024x838.jpg" alt="Radiesse before and after at Nōvuu Medspa" loading="lazy"><span class="ss-tag">Before · After</span></div>
+        <div class="photo photo--fit"><img src="https://www.novuumedspa.com/wp-content/uploads/2025/07/RadiesseBeforeAfter-0-1024x838.jpg" alt="Radiesse before and after at Nōvuu Medspa" loading="lazy"><span class="ss-tag">Before · After</span></div>
         <a href="#treatment" class="price-tag tag-cta">What to expect <svg><use href="#arr"/></svg></a>
       </div>
     </div>
@@ -449,21 +452,21 @@ section[id]{scroll-margin-top:150px}
           </ul>
           <figure class="area-figure reveal">
             <div class="area-photo">
-              <img src="images/biostimulator/treatment-areas.png" alt="Diagram highlighting biostimulator treatment areas: temples, cheeks, smile lines, jawline, chin and neck" loading="lazy" width="1131" height="1414">
+              <img src="images/biostimulator/treatment-areas.png" alt="Diagram highlighting biostimulator treatment areas: temples, cheeks, smile lines, jawline, chin and neck" loading="lazy" width="1176" height="1338">
               <!-- Pulse rings overlaid on the baked-in dots. viewBox matches the
-                   image's native pixel dimensions so coordinates map 1:1. -->
-              <svg class="pulse-overlay" viewBox="0 0 1131 1414" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-                <circle class="halo" cx="410" cy="345" r="16" style="--ad:.12s"/>
-                <circle class="halo" cx="730" cy="345" r="16" style="--ad:.12s"/>
-                <circle class="halo" cx="405" cy="578" r="16" style="--ad:.22s"/>
-                <circle class="halo" cx="728" cy="578" r="16" style="--ad:.22s"/>
-                <circle class="halo" cx="495" cy="658" r="16" style="--ad:.32s"/>
-                <circle class="halo" cx="648" cy="652" r="16" style="--ad:.32s"/>
-                <circle class="halo" cx="452" cy="800" r="16" style="--ad:.42s"/>
-                <circle class="halo" cx="680" cy="800" r="16" style="--ad:.42s"/>
-                <circle class="halo" cx="572" cy="856" r="16" style="--ad:.52s"/>
-                <circle class="halo" cx="512" cy="1015" r="16" style="--ad:.62s"/>
-                <circle class="halo" cx="628" cy="1015" r="16" style="--ad:.62s"/>
+                   image's native pixel dimensions (1176x1338) so coordinates map 1:1. -->
+              <svg class="pulse-overlay" viewBox="0 0 1176 1338" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                <circle class="halo" cx="447" cy="337" r="13" style="--ad:.12s"/>
+                <circle class="halo" cx="741" cy="337" r="13" style="--ad:.12s"/>
+                <circle class="halo" cx="449" cy="526" r="13" style="--ad:.22s"/>
+                <circle class="halo" cx="736" cy="526" r="13" style="--ad:.22s"/>
+                <circle class="halo" cx="527" cy="620" r="13" style="--ad:.32s"/>
+                <circle class="halo" cx="665" cy="620" r="13" style="--ad:.32s"/>
+                <circle class="halo" cx="485" cy="711" r="13" style="--ad:.42s"/>
+                <circle class="halo" cx="710" cy="709" r="13" style="--ad:.42s"/>
+                <circle class="halo" cx="596" cy="775" r="13" style="--ad:.52s"/>
+                <circle class="halo" cx="524" cy="964" r="13" style="--ad:.62s"/>
+                <circle class="halo" cx="665" cy="964" r="13" style="--ad:.62s"/>
               </svg>
             </div>
           </figure>
@@ -564,6 +567,7 @@ section[id]{scroll-margin-top:150px}
         <li><a href="tel:410-205-6160">(410) 205-6160</a></li>
         <li><a href="mailto:info@novuumedspa.com">info@novuumedspa.com</a></li>
         <li>3725B Old Court Rd<br>Pikesville, MD 21208</li>
+        <li style="margin-top:var(--s3);line-height:1.7">Mon / Thu / Fri: 9:30 AM – 5 PM<br>Wed: 9:30 AM – 6 PM<br>Tue / Sat / Sun: Closed</li>
         <li><a href="https://www.instagram.com/novuumedspa/">Instagram</a> · <a href="https://www.facebook.com/p/Nōvuu-Medspa-61560241439072/">Facebook</a></li>
       </ul></div>
     </div>
