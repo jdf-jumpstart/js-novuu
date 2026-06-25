@@ -71,6 +71,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 /* nav */
 .topbar{text-align:center;font-size:var(--fs-12);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);padding:var(--s3) var(--s5);background:var(--surface);border-bottom:1px solid var(--line-soft)}
 .topbar a{color:var(--ink);border-bottom:1px solid var(--accent);padding-bottom:1px}
+/* section sub-nav */
+.subnav{position:sticky;top:calc(var(--s4) + 56px);z-index:79;margin:6px auto 0;width:max-content;display:flex;gap:4px;padding:6px;background:rgba(241,234,224,.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:var(--r-pill);box-shadow:var(--e-overlay);max-width:calc(100% - var(--s5));overflow-x:auto;scrollbar-width:none}
+.subnav::-webkit-scrollbar{display:none}
+.subnav a{font-size:var(--fs-12);font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);white-space:nowrap;padding:8px var(--s4);border-radius:var(--r-pill);transition:color .3s var(--ease),background .3s var(--ease)}
+.subnav a:hover{color:var(--ink)}
+.subnav a.is-active{color:var(--ink);background:var(--surface)}
+section[id]{scroll-margin-top:150px}
 .nav{position:sticky;top:var(--s4);margin:var(--s4) auto 0;z-index:80;width:min(94%,var(--maxw));display:flex;align-items:center;justify-content:space-between;padding:var(--s3) var(--s3) var(--s3) var(--s5);background:rgba(241,234,224,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:var(--r-pill);box-shadow:var(--e-overlay)}
 .brand-logo{height:30px;width:auto;color:var(--ink);display:block}
 .nav-links{display:flex;gap:var(--s6);align-items:center}
@@ -248,14 +255,17 @@ footer{padding:var(--s9) 0 var(--s6)}
         <a href="wellness-shots.html" role="menuitem">Wellness Injections</a>
       </div>
     </div>
-    
-    <a href="#menu">Menu</a><a href="#benefits">Benefits</a><a href="#memberships">Memberships</a><a href="faqs.html">FAQ</a>
+    <a href="index.html#results">Results</a><a href="index.html#memberships">Memberships</a><a href="faqs.html">FAQ</a>
+
   </div>
   <div style="display:flex;align-items:center;gap:var(--s2)">
     <a href="https://novuu.myaestheticrecord.com/online-booking" class="btn btn--primary">Book Now <span class="dot"><svg><use href="#arr"/></svg></span></a>
     <button class="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
+<div class="subnav" aria-label="Page sections">
+  <a href="#menu">Menu</a><a href="#benefits">Benefits</a><a href="#memberships">Memberships</a>
+</div>
 
 <!-- ====================== HERO ====================== -->
 <header class="hero">
@@ -411,6 +421,23 @@ var burger=document.querySelector('.burger'), links=document.querySelector('.nav
 burger.addEventListener('click',function(){var open=links.style.display==='flex';
   links.style.cssText=open?'':'display:flex;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:var(--surface);padding:var(--s5);border-radius:var(--r-card);gap:var(--s4);box-shadow:var(--e-overlay);border:1px solid var(--line)';
   burger.setAttribute('aria-expanded',!open);});
+</script>
+<script>
+(function(){
+  var bar=document.querySelector('.subnav'); if(!bar) return;
+  var nav=document.querySelector('.nav');
+  function place(){ if(nav) bar.style.top=(parseFloat(getComputedStyle(nav).top)+nav.offsetHeight+6)+'px'; }
+  place(); window.addEventListener('resize',place);
+  var links=[].slice.call(bar.querySelectorAll('a[href^="#"]'));
+  var secs=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+  function onScroll(){
+    var y=window.scrollY+170, cur=-1;
+    for(var i=0;i<secs.length;i++){ if(secs[i]&&secs[i].offsetTop<=y) cur=i; }
+    links.forEach(function(a,i){a.classList.toggle('is-active',i===cur);});
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+})();
 </script>
 </body>
 </html>
