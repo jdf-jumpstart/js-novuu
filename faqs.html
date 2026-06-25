@@ -90,6 +90,15 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .nav-links{display:flex;gap:var(--s6);align-items:center}
 .nav-links a{font-size:var(--fs-14);font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);transition:color .4s var(--ease)}
 .nav-links a:hover{color:var(--ink)}
+.nav-dropdown{position:relative}
+.nav-dropdown-toggle{display:inline-flex;align-items:center;gap:6px}
+.nav-dropdown-toggle .caret{transition:transform .35s var(--ease)}
+.nav-dropdown:hover .nav-dropdown-toggle .caret,.nav-dropdown:focus-within .nav-dropdown-toggle .caret{transform:rotate(180deg)}
+.nav-dropdown-menu{position:absolute;top:100%;left:50%;min-width:240px;display:flex;flex-direction:column;gap:2px;margin-top:14px;padding:var(--s3);background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--e-overlay);opacity:0;visibility:hidden;transform:translateX(-50%) translateY(8px);transition:opacity .3s var(--ease),transform .3s var(--ease),visibility .3s var(--ease);z-index:90}
+.nav-dropdown-menu::before{content:"";position:absolute;left:0;right:0;top:-14px;height:14px}
+.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.nav-dropdown-menu a{padding:10px 14px;border-radius:var(--r-pill);white-space:nowrap;text-transform:none;letter-spacing:.02em;color:var(--ink-2)}
+.nav-dropdown-menu a:hover{background:rgba(26,26,26,.05);color:var(--ink)}
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:var(--s2)}
 .burger span{width:24px;height:1.5px;background:var(--ink)}
 
@@ -251,6 +260,10 @@ footer{padding:var(--s9) 0 var(--s6)}
 /* ============================ RESPONSIVE ============================ */
 @media(max-width:900px){
   .nav-links{display:none}.burger{display:flex}
+  .nav-dropdown{width:100%}
+  .nav-dropdown-toggle .caret{display:none}
+  .nav-dropdown-menu{position:static;transform:none;opacity:1;visibility:visible;min-width:0;margin:var(--s2) 0 0;padding:0 0 0 var(--s4);background:none;border:0;box-shadow:none}
+  .nav-dropdown-menu::before{display:none}
   .hero-grid,.treat-layout{grid-template-columns:1fr}
   .hero{padding:var(--s9) 0 var(--s7)}
   .facts-card{position:static;margin-top:var(--s4)}
@@ -303,7 +316,20 @@ footer{padding:var(--s9) 0 var(--s6)}
 <!-- ====================== NAV ====================== -->
 <nav class="nav">
   <a href="index.html" aria-label="Nōvuu Medspa home"><svg class="brand-logo"><use href="#logo"/></svg></a>
-  <div class="nav-links"><a href="#treatment">Treatment</a><a href="#gallery">Gallery</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a></div>
+  <div class="nav-links">
+    <div class="nav-dropdown">
+      <a href="index.html#services" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Services <svg class="caret" viewBox="0 0 10 6" width="10" height="6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="nav-dropdown-menu" role="menu">
+        <a href="weight-loss.html" role="menuitem">Weight Loss Management</a>
+        <a href="biostimulator.html" role="menuitem">Injectables</a>
+        <a href="microneedling.html" role="menuitem">Microneedling</a>
+        <a href="chemical-peels.html" role="menuitem">Chemical Peels</a>
+        <a href="prf-hair-restorations.html" role="menuitem">PRF Hair Restoration</a>
+        <a href="infusions.html" role="menuitem">IV Infusions</a>
+        <a href="wellness-shots.html" role="menuitem">Wellness Injections</a>
+      </div>
+    </div>
+    <a href="#treatment">Treatment</a><a href="#gallery">Gallery</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a></div>
   <div style="display:flex;align-items:center;gap:var(--s2)">
     <a href="https://novuu.myaestheticrecord.com/online-booking" class="btn btn--primary">Book Now <span class="dot"><svg><use href="#arr"/></svg></span></a>
     <button class="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
