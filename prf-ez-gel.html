@@ -310,6 +310,14 @@ footer{padding:var(--s9) 0 var(--s6)}
 .subnav a.is-active{color:var(--ink);background:var(--surface)}
 @media(max-width:1120px){.subnav{display:none}}
 section[id]{scroll-margin-top:150px}
+
+/* ============================ CARE INSTRUCTIONS ============================ */
+.care{padding:var(--s10) 0;background:var(--bg)}
+.care-head{max-width:560px;margin-bottom:var(--s7)}
+.care-head .eyebrow{margin-bottom:var(--s4)}
+.care-cols{display:grid;grid-template-columns:1fr 1fr;gap:var(--s8);align-items:start}
+.care-col-head{font-family:var(--display);font-weight:300;font-size:var(--fs-24);color:var(--ink);margin-bottom:var(--s5)}
+@media(max-width:700px){.care-cols{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -395,7 +403,7 @@ section[id]{scroll-margin-top:150px}
   </div>
 </nav>
 <div class="subnav" aria-label="Page sections">
-  <a href="#overview">Overview</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a><a href="#results">Results</a>
+  <a href="#overview">Overview</a><a href="#pricing">Pricing</a><a href="#care">Care</a><a href="#faq">FAQ</a><a href="#results">Results</a>
 </div>
 <header class="hero">
   <div class="wrap" style="max-width:840px;margin:0 auto;text-align:center">
@@ -443,20 +451,59 @@ section[id]{scroll-margin-top:150px}
   <div style="text-align:center;margin-top:var(--s7)"><a href="https://novuu.myaestheticrecord.com/online-booking" class="btn btn--primary btn--lg" data-magnetic>Book Now <span class="dot"><svg><use href="#arr"/></svg></span></a></div>
 </div></section>
 
+<section class="care" id="care"><div class="wrap">
+  <div class="care-head"><span class="eyebrow"><svg><use href="#leaf"/></svg> CARE INSTRUCTIONS</span><h2>Pre &amp; post care</h2></div>
+  <div class="care-cols">
+    <div class="care-col">
+      <h3 class="care-col-head">Pre-Treatment</h3>
+      <ul class="blist">
+        <li><svg><use href="#leaf"/></svg>Stay well hydrated and eat a balanced, nutrient-rich meal before your appointment — the quality of your PRF is directly influenced by the quality of your blood, so proper hydration and nutrition in the days leading up to your treatment will support optimal results</li>
+        <li><svg><use href="#leaf"/></svg>Avoid alcohol for at least 24–48 hours before your appointment</li>
+        <li><svg><use href="#leaf"/></svg>Avoid blood-thinning and anti-inflammatory medications (aspirin, ibuprofen, fish oil, vitamin E, ginkgo biloba) for 3 days prior, if medically safe to do so</li>
+        <li><svg><use href="#leaf"/></svg>Arrive with a clean face, free of makeup (we have makeup wipes &amp; face wash at the office if needed)</li>
+        <li><svg><use href="#leaf"/></svg>Avoid scheduling within 2 weeks of a major event</li>
+        <li><svg><use href="#leaf"/></svg>Inform your provider of any medications, supplements, or medical conditions</li>
+      </ul>
+    </div>
+    <div class="care-col">
+      <h3 class="care-col-head">Post-Treatment</h3>
+      <ul class="blist">
+        <li><svg><use href="#leaf"/></svg>Expect swelling, redness, and possible bruising for 3–5 days; this is normal and part of the healing process — please plan special events accordingly</li>
+        <li><svg><use href="#leaf"/></svg>Avoid anti-inflammatory medications (NSAIDs, Advil, Aspirin), ice, and Arnica as these can suppress the regenerative process — Tylenol is OK</li>
+        <li><svg><use href="#leaf"/></svg>Avoid touching, rubbing, or massaging the treated area for 24 hours</li>
+        <li><svg><use href="#leaf"/></svg>Avoid strenuous exercise and excessive sweating for 48 hours</li>
+        <li><svg><use href="#leaf"/></svg>Avoid alcohol for 24–48 hours</li>
+        <li><svg><use href="#leaf"/></svg>Avoid extreme heat (saunas, steam rooms, hot yoga) for 48–72 hours</li>
+        <li><svg><use href="#leaf"/></svg>No makeup in the treatment area for 24 hours</li>
+        <li><svg><use href="#leaf"/></svg>Avoid laser treatments, chemical peels, or microneedling for 1 week</li>
+        <li><svg><use href="#leaf"/></svg>Results develop gradually over 4–12 weeks as your body produces new collagen and elastin</li>
+        <li><svg><use href="#leaf"/></svg>A series of 3 treatments spaced 4–6 weeks apart is usually recommended for optimal results</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
 <section class="faq" id="faq"><div class="wrap">
   <div class="faq-head"><span class="eyebrow"><svg><use href="#leaf"/></svg> FAQ</span><h2>Questions, answered</h2></div>
   <div class="acc">
     <div class="acc-item">
-      <button class="acc-q" aria-expanded="false">How is PRF EZ Gel different from PRP or traditional fillers?<span class="plus"></span></button>
-      <div class="acc-a"><p>Unlike PRP (platelet-rich plasma), PRF contains more white blood cells and fibrin, which allows for a slower release of growth factors and longer-lasting results. Compared to traditional dermal fillers, PRF EZ Gel is 100% natural and focuses on regeneration rather than just volume replacement.</p></div>
+      <button class="acc-q" aria-expanded="false">What is PRF Ez Gel?<span class="plus"></span></button>
+      <div class="acc-a"><p>PRF Ez Gel is an advanced, all-natural filler alternative made entirely from your own blood. We draw a small amount of blood, process it to concentrate the platelet-rich fibrin, and then heat it to create a gel-like consistency that can be injected to restore volume, stimulate collagen, and rejuvenate the skin from the inside out.</p></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-q" aria-expanded="false">How is PRF Ez Gel different from PRP or traditional fillers?<span class="plus"></span></button>
+      <div class="acc-a"><p>Unlike PRP (platelet-rich plasma), PRF contains more white blood cells and fibrin, which allows for a slower release of growth factors and longer-lasting results. Unlike traditional dermal fillers, PRF Ez Gel is 100% autologous — from your own body with no synthetic ingredients — and actively improves skin quality, texture, and tone over time.</p></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-q" aria-expanded="false">What areas can be treated with PRF Ez Gel?<span class="plus"></span></button>
+      <div class="acc-a"><p>PRF Ez Gel is commonly used to address volume loss in the under eyes, cheeks, temples, jawline, and smile lines. It is also an excellent option for skin laxity and overall facial rejuvenation.</p></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-q" aria-expanded="false">What can I expect after my PRF Ez Gel treatment?<span class="plus"></span></button>
+      <div class="acc-a"><p>Swelling, redness, and bruising in the treated areas is normal and typically resolves within a few days to a week. Because PRF Ez Gel is derived from your own blood, the risk of allergic reaction or rejection is extremely low. Final results are typically visible around 4–6 weeks post-treatment as collagen remodeling continues.</p></div>
     </div>
     <div class="acc-item">
       <button class="acc-q" aria-expanded="false">How many sessions will I need, and how long do results last?<span class="plus"></span></button>
-      <div class="acc-a"><p>Most clients see noticeable improvement after one session, but a series of 2–3 treatments spaced 4–6 weeks apart is often recommended for optimal results. The effects can last 6–12 months, at times longer, depending on your skin health, age, and lifestyle.</p></div>
-    </div>
-    <div class="acc-item">
-      <button class="acc-q" aria-expanded="false">What can I expect after the treatment?<span class="plus"></span></button>
-      <div class="acc-a"><p>Swelling, redness, or bruising may occur. Results appear gradually over a few weeks as collagen rebuilds.</p></div>
+      <div class="acc-a"><p>You may see improvement after a single session, though a series of 3 treatments spaced 4–6 weeks apart is often recommended for optimal and longer-lasting results. Effects can last 6–12 months or longer, depending on your skin health, age, and lifestyle.</p></div>
     </div>
   </div>
 </div></section>

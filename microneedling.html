@@ -319,6 +319,14 @@ footer{padding:var(--s9) 0 var(--s6)}
 .subnav a.is-active{color:var(--ink);background:var(--surface)}
 @media(max-width:1120px){.subnav{display:none}}
 section[id]{scroll-margin-top:150px}
+
+/* ============================ CARE INSTRUCTIONS ============================ */
+.care{padding:var(--s10) 0;background:var(--bg)}
+.care-head{max-width:560px;margin-bottom:var(--s7)}
+.care-head .eyebrow{margin-bottom:var(--s4)}
+.care-cols{display:grid;grid-template-columns:1fr 1fr;gap:var(--s8);align-items:start}
+.care-col-head{font-family:var(--display);font-weight:300;font-size:var(--fs-24);color:var(--ink);margin-bottom:var(--s5)}
+@media(max-width:700px){.care-cols{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -404,7 +412,7 @@ section[id]{scroll-margin-top:150px}
   </div>
 </nav>
 <div class="subnav" aria-label="Page sections">
-  <a href="#overview">Overview</a><a href="#treatment">Treatment</a><a href="#pricing">Pricing</a><a href="#benefits">Benefits</a><a href="#gallery">Gallery</a><a href="#faq">FAQ</a>
+  <a href="#overview">Overview</a><a href="#treatment">Treatment</a><a href="#pricing">Pricing</a><a href="#benefits">Benefits</a><a href="#gallery">Gallery</a><a href="#care">Care</a><a href="#faq">FAQ</a>
 </div>
 <header class="hero">
   <div class="wrap" style="max-width:840px;margin:0 auto;text-align:center">
@@ -528,27 +536,71 @@ section[id]{scroll-margin-top:150px}
 
 
 <!-- ====================== FAQ ====================== -->
-<section class="faq" id="faq">
-  <div class="wrap">
-    <div class="faq-head reveal"><span class="eyebrow"><svg><use href="#leaf"/></svg> FAQ</span><h2 style="margin-top:var(--s4)">Microneedling questions, answered</h2></div>
-    <div class="acc reveal">
-      <div class="acc-item"><button class="acc-q" aria-expanded="false">Does microneedling hurt?<span class="plus"></span></button>
-        <div class="acc-a"><p>Most clients are surprised by how comfortable it is. We apply a strong medical-grade numbing cream before your session, so you'll typically feel light pressure and vibration rather than pain. Any sensitivity fades quickly once treatment is complete.</p></div></div>
-      <div class="acc-item"><button class="acc-q" aria-expanded="false">How much downtime should I plan for?<span class="plus"></span></button>
-        <div class="acc-a"><p>Downtime is minimal. Most people experience redness and mild swelling that looks and feels like a light sunburn, usually settling within 1–3 days. Many clients return to normal activities the next day. We'll send you home with simple aftercare guidance.</p></div></div>
-      <div class="acc-item"><button class="acc-q" aria-expanded="false">How many sessions will I need?<span class="plus"></span></button>
-        <div class="acc-a"><p>For most concerns we recommend a series of three treatments spaced 4–6 weeks apart, which is why we offer packages of three at a saving. Your provider will tailor the exact plan to your skin and goals during your consultation.</p></div></div>
-      <div class="acc-item"><button class="acc-q" aria-expanded="false">When will I see results?<span class="plus"></span></button>
-        <div class="acc-a"><p>You'll often notice a healthy glow and smoother texture within a few days. Because microneedling works by stimulating your own collagen, the most meaningful improvements in tone, firmness, and scarring build gradually over the weeks following each session.</p></div></div>
-      <div class="acc-item"><button class="acc-q" aria-expanded="false">Is microneedling safe for my skin tone?<span class="plus"></span></button>
-        <div class="acc-a"><p>Yes. SkinPen microneedling is safe for all skin types and tones, including deeper complexions, because it works mechanically rather than with heat or light. We'll review your skin and history beforehand to make sure it's the right fit for you.</p></div></div>
-      <div class="acc-item"><button class="acc-q" aria-expanded="false">What's the difference between the HA, PRF, and VAMP options?<span class="plus"></span></button>
-        <div class="acc-a"><p>All three use the same SkinPen microneedling, paired with a different boost. Hyaluronic Acid focuses on hydration and glow and is ideal for first-timers. PRF uses your body's own growth factors for natural regeneration and firmness. VAMP adds vitamins, amino acids, minerals, and PDRN for the deepest renewal. Not sure which to choose? We'll guide you at your consultation.</p></div></div>
-      <div class="acc-item"><button class="acc-q" aria-expanded="false">How should I prepare and care for my skin afterward?<span class="plus"></span></button>
-        <div class="acc-a"><p>Arrive with clean skin and avoid retinoids, exfoliants, and excess sun for a few days beforehand. Afterward, keep your skincare gentle, stay hydrated, and protect your skin with SPF. Avoid intense workouts, heat, and direct sun for 24–48 hours to let your skin recover beautifully.</p></div></div>
+<section class="care" id="care"><div class="wrap">
+  <div class="care-head"><span class="eyebrow"><svg><use href="#leaf"/></svg> CARE INSTRUCTIONS</span><h2>Pre &amp; post care</h2></div>
+  <div class="care-cols">
+    <div class="care-col">
+      <h3 class="care-col-head">Pre-Treatment</h3>
+      <ul class="blist">
+        <li><svg><use href="#leaf"/></svg>Avoid retinoids (tretinoin, retinol) for 5–7 days before treatment</li>
+        <li><svg><use href="#leaf"/></svg>Avoid blood thinners and supplements (aspirin, ibuprofen, fish oil, vitamin E) for 3 days prior, if medically safe to do so</li>
+        <li><svg><use href="#leaf"/></svg>Avoid active skin infections, irritation, open wounds, sunburn, or severe breakouts in the treatment area — call us to reschedule</li>
+        <li><svg><use href="#leaf"/></svg>Avoid sun exposure and tanning for at least 2 weeks before treatment</li>
+        <li><svg><use href="#leaf"/></svg>Do not use exfoliating acids (AHA, BHA, glycolic) for 3 days prior</li>
+        <li><svg><use href="#leaf"/></svg>Arrive with a clean face, free of makeup (we have makeup wipes &amp; face wash at the office if needed)</li>
+        <li><svg><use href="#leaf"/></svg>Stay well hydrated leading up to your appointment</li>
+        <li><svg><use href="#leaf"/></svg>Inform your provider of any history of cold sores or keloid scarring</li>
+      </ul>
+    </div>
+    <div class="care-col">
+      <h3 class="care-col-head">Post-Treatment</h3>
+      <ul class="blist">
+        <li><svg><use href="#leaf"/></svg>Skin will appear red and feel similar to a mild sunburn for 24–72 hours; this is normal</li>
+        <li><svg><use href="#leaf"/></svg>Change your pillowcase</li>
+        <li><svg><use href="#leaf"/></svg>Do not wash your face or apply any products for at least 4–6 hours post-treatment (if you received microneedling with PRF or VAMP, please wait 12–24 hours before washing your face)</li>
+        <li><svg><use href="#leaf"/></svg>You will be given a topical skin hydrator at your appointment to use for the first 24 hours — we do not recommend any other products during this time</li>
+        <li><svg><use href="#leaf"/></svg>Avoid retinoids, exfoliating acids, and active skincare ingredients for 7 days until your skin is healed</li>
+        <li><svg><use href="#leaf"/></svg>Avoid direct sun exposure and wear SPF 30 or higher daily (after 24 hours)</li>
+        <li><svg><use href="#leaf"/></svg>Avoid strenuous exercise, sweating, and heat exposure for 24–48 hours</li>
+        <li><svg><use href="#leaf"/></svg>You may experience some peeling on days 3–5; do NOT pick any flaking skin</li>
+        <li><svg><use href="#leaf"/></svg>Results improve progressively — optimal results are typically seen after a series of 3 treatments spaced 4–6 weeks apart</li>
+      </ul>
     </div>
   </div>
-</section>
+</div></section>
+<section class="faq" id="faq"><div class="wrap">
+  <div class="faq-head"><span class="eyebrow"><svg><use href="#leaf"/></svg> FAQ</span><h2>Questions, answered</h2></div>
+  <div class="acc">
+    <div class="acc-item">
+      <button class="acc-q" aria-expanded="false">Does microneedling hurt?<span class="plus"></span></button>
+      <div class="acc-a"><p>Most clients are surprised by how comfortable it is. We apply a strong medical-grade numbing cream before your session, so you&rsquo;ll typically feel light pressure and vibration rather than pain. Most patients report little to no pain during the procedure.</p></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-q" aria-expanded="false">How much downtime should I plan for?<span class="plus"></span></button>
+      <div class="acc-a"><p>Downtime is minimal. Most people experience redness and mild swelling that looks and feels like a light sunburn, usually settling within 1–3 days. Many clients return to work the same day or the day after.</p></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-q" aria-expanded="false">How many sessions will I need?<span class="plus"></span></button>
+      <div class="acc-a"><p>We typically recommend a series of three treatments spaced 4–6 weeks apart. After this series is completed, you can maintain your results with a treatment every 3–4 months.</p></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-q" aria-expanded="false">When will I see results?<span class="plus"></span></button>
+      <div class="acc-a"><p>You&rsquo;ll often notice a healthy glow and smoother texture within a few days. Because microneedling works by stimulating your own collagen, the most meaningful improvements in tone, firmness, and scars appear over 4–6 weeks and continue to build with each session.</p></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-q" aria-expanded="false">What is a good candidate for microneedling?<span class="plus"></span></button>
+      <div class="acc-a"><p>Microneedling works for all skin types. It should be avoided by people who are pregnant or breastfeeding, and those with active acne in the treatment area.</p></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-q" aria-expanded="false">Is microneedling safe for my skin tone?<span class="plus"></span></button>
+      <div class="acc-a"><p>Yes. SkinPen microneedling is safe for all skin types and tones, including deeper complexions, because it works mechanically rather than with heat or light.</p></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-q" aria-expanded="false">What&rsquo;s the difference between the HA, PRF, and VAMP options?<span class="plus"></span></button>
+      <div class="acc-a"><p>All three use the same SkinPen microneedling, paired with a different boost. Hyaluronic Acid focuses on hydration and glow and is ideal for most skin types. PRF uses your own platelet-rich fibrin for deeper regeneration and collagen support. VAMP combines microneedling with PRF injected directly into the skin for even more intensive repair.</p></div>
+    </div>
+  </div>
+</div></section>
 
 <section class="closing invert">
   <div class="wrap inner reveal">

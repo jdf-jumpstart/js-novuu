@@ -306,6 +306,14 @@ footer{padding:var(--s9) 0 var(--s6)}
 .subnav a.is-active{color:var(--ink);background:var(--surface)}
 @media(max-width:1120px){.subnav{display:none}}
 section[id]{scroll-margin-top:150px}
+
+/* ============================ CARE INSTRUCTIONS ============================ */
+.care{padding:var(--s10) 0;background:var(--bg)}
+.care-head{max-width:560px;margin-bottom:var(--s7)}
+.care-head .eyebrow{margin-bottom:var(--s4)}
+.care-cols{display:grid;grid-template-columns:1fr 1fr;gap:var(--s8);align-items:start}
+.care-col-head{font-family:var(--display);font-weight:300;font-size:var(--fs-24);color:var(--ink);margin-bottom:var(--s5)}
+@media(max-width:700px){.care-cols{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -391,7 +399,7 @@ section[id]{scroll-margin-top:150px}
   </div>
 </nav>
 <div class="subnav" aria-label="Page sections">
-  <a href="#treatment">Treatment</a><a href="#gallery">Gallery</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a>
+  <a href="#treatment">Treatment</a><a href="#gallery">Gallery</a><a href="#pricing">Pricing</a><a href="#care">Care</a><a href="#faq">FAQ</a>
 </div>
 
 <!-- ====================== HERO ====================== -->
@@ -512,19 +520,75 @@ section[id]{scroll-margin-top:150px}
 </section>
 
 <!-- ====================== FAQ ====================== -->
-<section class="faq" id="faq">
-  <div class="wrap">
-    <div class="faq-head reveal"><span class="eyebrow"><svg><use href="#leaf"/></svg> FAQ</span><h2 style="margin-top:var(--s4)">Frequently asked questions</h2></div>
-    <div class="acc reveal">
-      <div class="acc-item"><button class="acc-q" aria-expanded="false">Is there any downtime or side effects after Radiesse treatment?<span class="plus"></span></button>
-        <div class="acc-a"><p>Most clients experience minimal downtime. Common side effects include swelling, redness, or bruising at the injection site, which usually resolve within a few days.</p></div></div>
-      <div class="acc-item"><button class="acc-q" aria-expanded="false">How long do Radiesse results typically last?<span class="plus"></span></button>
-        <div class="acc-a"><p>Results from Radiesse can last 12 to 18 months, sometimes longer, depending on your metabolism and the treatment area. Because it stimulates collagen production, results often improve over time before gradually diminishing.</p></div></div>
-      <div class="acc-item"><button class="acc-q" aria-expanded="false">How is Radiesse different from hyaluronic acid dermal fillers?<span class="plus"></span></button>
-        <div class="acc-a"><p>Radiesse not only provides immediate lift but also stimulates your body’s natural collagen production, leading to longer-lasting, more natural-looking results that can extend 12 to 18 months or beyond. In contrast, hyaluronic acid (HA) fillers do not stimulate collagen, they simply restore volume and hydration.</p></div></div>
+<section class="care" id="care"><div class="wrap">
+  <div class="care-head"><span class="eyebrow"><svg><use href="#leaf"/></svg> CARE INSTRUCTIONS</span><h2>Pre &amp; post care</h2></div>
+  <div class="care-cols">
+    <div class="care-col">
+      <h3 class="care-col-head">Pre-Treatment</h3>
+      <ul class="blist">
+        <li><svg><use href="#leaf"/></svg>Avoid alcohol for at least 24–48 hours before your appointment</li>
+        <li><svg><use href="#leaf"/></svg>Avoid blood thinners and supplements (aspirin, ibuprofen, fish oil, vitamin E, ginkgo biloba) for 3 days prior, if medically safe to do so</li>
+        <li><svg><use href="#leaf"/></svg>Stay well hydrated in the days leading up to your appointment</li>
+        <li><svg><use href="#leaf"/></svg>Arrive with a clean face, free of makeup (we have makeup wipes &amp; face wash at the office if needed)</li>
+        <li><svg><use href="#leaf"/></svg>Inform your provider of any medications, supplements, or medical conditions</li>
+      </ul>
+    </div>
+    <div class="care-col">
+      <h3 class="care-col-head">Post-Treatment</h3>
+      <ul class="blist">
+        <li><svg><use href="#leaf"/></svg>You may have swelling, tenderness, and bruising for up to 2 weeks post-treatment</li>
+        <li><svg><use href="#leaf"/></svg>Do not massage treated areas unless instructed by your provider</li>
+        <li><svg><use href="#leaf"/></svg>Avoid NSAIDs; Tylenol is OK</li>
+        <li><svg><use href="#leaf"/></svg>Avoid strenuous exercise for 48 hours</li>
+        <li><svg><use href="#leaf"/></svg>Avoid alcohol for 24 hours</li>
+        <li><svg><use href="#leaf"/></svg>Avoid extreme heat (saunas, steam rooms, hot yoga) for 48 hours</li>
+        <li><svg><use href="#leaf"/></svg>Results develop gradually over 4–12 weeks as collagen production is stimulated</li>
+        <li><svg><use href="#leaf"/></svg>A series of treatments may be recommended for optimal results</li>
+      </ul>
     </div>
   </div>
-</section>
+</div></section>
+<section class="faq" id="faq"><div class="wrap">
+  <div class="faq-head"><span class="eyebrow"><svg><use href="#leaf"/></svg> FAQ</span><h2>Questions, answered</h2></div>
+  <div class="acc">
+    <div class="acc-item">
+      <button class="acc-q" aria-expanded="false">What is Radiesse?<span class="plus"></span></button>
+      <div class="acc-a"><p>Radiesse is an FDA-approved biostimulatory filler made of calcium hydroxylapatite (CaHA) microspheres. It provides immediate volume while stimulating your body&rsquo;s own collagen production for longer-lasting results.</p></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-q" aria-expanded="false">What can Radiesse treat?<span class="plus"></span></button>
+      <div class="acc-a"><p>Common treatment areas include the cheeks, jawline, nasolabial folds, marionette lines, and hands.</p></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-q" aria-expanded="false">How is Radiesse different from hyaluronic acid fillers?<span class="plus"></span></button>
+      <div class="acc-a"><p>Radiesse is a biostimulator, meaning it actively triggers new collagen and elastin production in addition to adding volume. Unlike HA fillers, it is not reversible with hyaluronidase.</p></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-q" aria-expanded="false">How long do results last?<span class="plus"></span></button>
+      <div class="acc-a"><p>Most patients enjoy results for 12–18 months or longer. Because Radiesse stimulates collagen, results can continue to improve over time and may last even longer with maintenance sessions.</p></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-q" aria-expanded="false">When will I see results?<span class="plus"></span></button>
+      <div class="acc-a"><p>Most patients begin to notice improvements within a few weeks, with optimal results visible around 3–6 months after treatment as collagen builds.</p></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-q" aria-expanded="false">Is there any downtime?<span class="plus"></span></button>
+      <div class="acc-a"><p>Little to none. You may experience mild swelling, redness, or bruising for a few days. We recommend avoiding strenuous exercise, alcohol, and excessive heat for 24–48 hours.</p></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-q" aria-expanded="false">Who is a good candidate for Radiesse?<span class="plus"></span></button>
+      <div class="acc-a"><p>Most healthy adults looking to restore volume, improve skin laxity, or address moderate to severe wrinkles are great candidates. It is not recommended for patients who are pregnant, breastfeeding, or have active skin infections at the treatment site.</p></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-q" aria-expanded="false">Can Radiesse be combined with other treatments?<span class="plus"></span></button>
+      <div class="acc-a"><p>Absolutely. Radiesse pairs well with neurotoxin, other dermal fillers, PRF Ez Gel, and skin-rejuvenating treatments. Your provider will create a personalized plan during your consultation.</p></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-q" aria-expanded="false">Is Radiesse safe?<span class="plus"></span></button>
+      <div class="acc-a"><p>Yes. Radiesse has been FDA approved since 2006 and has a strong safety record. All treatments at Nōvuu Medspa are performed by Jess, a board-certified nurse practitioner with advanced aesthetic training.</p></div>
+    </div>
+  </div>
+</div></section>
 
 <!-- ====================== CLOSING CTA (dark, arched) ====================== -->
 <section class="closing invert">

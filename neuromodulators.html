@@ -311,6 +311,14 @@ footer{padding:var(--s9) 0 var(--s6)}
 .subnav a.is-active{color:var(--ink);background:var(--surface)}
 @media(max-width:1120px){.subnav{display:none}}
 section[id]{scroll-margin-top:150px}
+
+/* ============================ CARE INSTRUCTIONS ============================ */
+.care{padding:var(--s10) 0;background:var(--bg)}
+.care-head{max-width:560px;margin-bottom:var(--s7)}
+.care-head .eyebrow{margin-bottom:var(--s4)}
+.care-cols{display:grid;grid-template-columns:1fr 1fr;gap:var(--s8);align-items:start}
+.care-col-head{font-family:var(--display);font-weight:300;font-size:var(--fs-24);color:var(--ink);margin-bottom:var(--s5)}
+@media(max-width:700px){.care-cols{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -396,7 +404,7 @@ section[id]{scroll-margin-top:150px}
   </div>
 </nav>
 <div class="subnav" aria-label="Page sections">
-  <a href="#overview">Overview</a><a href="#areas">Areas</a><a href="#results">Results</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a>
+  <a href="#overview">Overview</a><a href="#areas">Areas</a><a href="#results">Results</a><a href="#pricing">Pricing</a><a href="#care">Care</a><a href="#faq">FAQ</a>
 </div>
 <header class="hero">
   <div class="wrap"><div class="hero-grid"><div>
@@ -490,20 +498,55 @@ section[id]{scroll-margin-top:150px}
   </div>
 </div></section>
 
+<section class="care" id="care"><div class="wrap">
+  <div class="care-head"><span class="eyebrow"><svg><use href="#leaf"/></svg> CARE INSTRUCTIONS</span><h2>Pre &amp; post care</h2></div>
+  <div class="care-cols">
+    <div class="care-col">
+      <h3 class="care-col-head">Pre-Treatment</h3>
+      <ul class="blist">
+        <li><svg><use href="#leaf"/></svg>Avoid alcohol for at least 24 hours before your appointment</li>
+        <li><svg><use href="#leaf"/></svg>Avoid blood-thinning medications and supplements (aspirin, ibuprofen, fish oil, vitamin E, ginkgo biloba) for 3 days prior, if medically safe to do so</li>
+        <li><svg><use href="#leaf"/></svg>Arrive with a clean face, free of makeup (we have makeup wipes &amp; face wash at the office if needed)</li>
+        <li><svg><use href="#leaf"/></svg>Avoid scheduling your appointment within 2 weeks before a major event</li>
+        <li><svg><use href="#leaf"/></svg>Inform your provider of any medications, supplements, or medical conditions</li>
+      </ul>
+    </div>
+    <div class="care-col">
+      <h3 class="care-col-head">Post-Treatment</h3>
+      <ul class="blist">
+        <li><svg><use href="#leaf"/></svg>Do not rub, massage, or apply pressure to treated areas for 24 hours</li>
+        <li><svg><use href="#leaf"/></svg>Stay upright for at least 4 hours after treatment</li>
+        <li><svg><use href="#leaf"/></svg>Avoid strenuous exercise for 24 hours</li>
+        <li><svg><use href="#leaf"/></svg>Avoid heat exposure (saunas, hot tubs, hot yoga) for 24 hours</li>
+        <li><svg><use href="#leaf"/></svg>Avoid alcohol for 24 hours</li>
+        <li><svg><use href="#leaf"/></svg>Do not receive facials, massages, or laser treatments for 24 hours</li>
+        <li><svg><use href="#leaf"/></svg>Full results appear after 2 weeks — if you feel you need a touch-up, call our office to schedule between 2–3 weeks post injection</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
 <section class="faq" id="faq"><div class="wrap">
   <div class="faq-head"><span class="eyebrow"><svg><use href="#leaf"/></svg> FAQ</span><h2>Questions, answered</h2></div>
   <div class="acc">
     <div class="acc-item">
-      <button class="acc-q" aria-expanded="false">When will I see results?<span class="plus"></span></button>
-      <div class="acc-a"><p>You may begin to see results within 3–5 days, with full effects typically visible 14 days after treatment.</p></div>
+      <button class="acc-q" aria-expanded="false">How long will my results last?<span class="plus"></span></button>
+      <div class="acc-a"><p>Tox results can vary from person to person, but on average you can expect your treatment to last 3–4 months, with results peaking around 6–8 weeks.</p></div>
     </div>
     <div class="acc-item">
-      <button class="acc-q" aria-expanded="false">How long do results last?<span class="plus"></span></button>
-      <div class="acc-a"><p>Results from neuromodulators are not permanent. Effects usually last about 3–4 months.</p></div>
+      <button class="acc-q" aria-expanded="false">How quickly will I notice a difference?<span class="plus"></span></button>
+      <div class="acc-a"><p>Neurotoxins take up to 14 days to fully settle, but you may begin to feel the effects in as little as 24 hours.</p></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-q" aria-expanded="false">What if I need more units?<span class="plus"></span></button>
+      <div class="acc-a"><p>Please schedule a follow-up appointment 2–3 weeks after your treatment so we can assess your movement and perform a dosage adjustment as needed.</p></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-q" aria-expanded="false">How many units will I need?<span class="plus"></span></button>
+      <div class="acc-a"><p>Everyone&rsquo;s anatomy and aesthetic goals are different. A general guideline is around 20 units for each of the upper facial muscles (forehead, &ldquo;eleven lines,&rdquo; and crow&rsquo;s feet).</p></div>
     </div>
     <div class="acc-item">
       <button class="acc-q" aria-expanded="false">Is there any downtime after a tox treatment?<span class="plus"></span></button>
-      <div class="acc-a"><p>Treatment is quick and there’s little to no downtime. You can return to most normal activities right away. Minor redness or swelling at the injection site is possible but typically resolves within a few hours. Bruising is possible, so plan two weeks ahead of any events or vacations.</p></div>
+      <div class="acc-a"><p>Treatment is quick and there&rsquo;s little to no downtime. You can return to most normal activities right away. Minor redness or swelling at the injection site is possible but typically resolves within a few hours. Bruising is possible, so plan two weeks ahead of any events or vacations.</p></div>
     </div>
   </div>
 </div></section>
