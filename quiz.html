@@ -231,7 +231,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 @media(max-width:600px){.share-grid{grid-template-columns:1fr}}
 
 </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </head>
 <body>
 
@@ -452,26 +452,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             </div>
             <div class="share-text">
-              <div class="share-title">Save as PDF</div>
-              <div class="share-sub">Download an aesthetic copy for your records</div>
+              <div class="share-title">Download a copy for your records.</div>
+              <div class="share-sub">Opens a print-ready page — save as PDF</div>
             </div>
           </button>
         </div>
       </div>
 
-      <!-- hidden PDF template -->
-      <div id="pdfTemplate" style="display:none;position:absolute;left:-9999px;top:0;width:800px;font-family:'Georgia',serif;background:#F1EAE0;padding:48px">
-        <div style="border-bottom:2px solid #1A1A1A;margin-bottom:32px;padding-bottom:24px">
-          <div style="font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#2B3A36;margin-bottom:12px">Nōvuu Medspa · Treatment Finder</div>
-          <div style="font-size:36px;font-weight:300;line-height:1.1;color:#1A1A1A;margin-bottom:8px">Your Personalized<br><em>Treatment Plan</em></div>
-          <div style="font-size:13px;color:#5E5649" id="pdfSubtitle"></div>
-        </div>
-        <div id="pdfCards"></div>
-        <div style="margin-top:40px;padding-top:24px;border-top:1px solid rgba(26,26,26,.2);font-size:11px;color:#5E5649;display:flex;justify-content:space-between">
-          <span>novuumedspa.com &nbsp;·&nbsp; info@novuumedspa.com &nbsp;·&nbsp; (410) 205-6160</span>
-          <span id="pdfDate"></span>
-        </div>
-      </div>
 
       <div class="restart-wrap">
         <p style="margin-bottom:var(--s4)">Not sure? Our team is always happy to guide you.</p>
@@ -851,49 +838,68 @@ function doEmailNovuu() {
 
 function doSavePDF() {
   var subtitle = document.getElementById('resultsSubtitle').textContent;
-  document.getElementById('pdfSubtitle').textContent = subtitle;
-  document.getElementById('pdfDate').textContent = new Date().toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+  var today = new Date().toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
 
-  var pdfCards = document.getElementById('pdfCards');
-  pdfCards.innerHTML = '';
-
+  var rows = '';
   document.querySelectorAll('#resultsBody tr').forEach(function(row) {
-    var concern = row.querySelector('.rt-concern-pill') ? row.querySelector('.rt-concern-pill').textContent : '';
+    var concern = row.querySelector('.rt-concern-pill') ? row.querySelector('.rt-concern-pill').textContent.trim() : '';
+    var svcs = '';
     row.querySelectorAll('.rt-svc').forEach(function(svcEl) {
-      var name  = svcEl.querySelector('.rt-svc-name')  ? svcEl.querySelector('.rt-svc-name').textContent  : '';
-      var desc  = svcEl.querySelector('.rt-svc-desc')  ? svcEl.querySelector('.rt-svc-desc').textContent  : '';
-      var price = svcEl.querySelector('.rt-svc-price') ? svcEl.querySelector('.rt-svc-price').textContent : '';
+      var name  = svcEl.querySelector('.rt-svc-name')  ? svcEl.querySelector('.rt-svc-name').textContent.trim()  : '';
+      var desc  = svcEl.querySelector('.rt-svc-desc')  ? svcEl.querySelector('.rt-svc-desc').textContent.trim()  : '';
+      var price = svcEl.querySelector('.rt-svc-price') ? svcEl.querySelector('.rt-svc-price').textContent.trim() : '';
       var aTag  = svcEl.querySelector('a');
       var url   = aTag ? aTag.href : '';
-
-      var tagHtml = '<span style="display:inline-block;font-size:9px;letter-spacing:.18em;text-transform:uppercase;padding:3px 9px;border-radius:99px;border:1px solid #2B3A36;color:#2B3A36;margin:0 4px 4px 0">' + concern + '</span>';
-
-      var cardEl = document.createElement('div');
-      cardEl.style.cssText = 'background:#E9E0D6;border-radius:12px;padding:24px;margin-bottom:20px;page-break-inside:avoid';
-      cardEl.innerHTML = '<div style="margin-bottom:10px">' + tagHtml + '</div>'
-        + '<div style="font-size:20px;font-weight:300;color:#1A1A1A;margin-bottom:8px">' + name + '</div>'
-        + '<div style="font-size:12px;color:#5E5649;line-height:1.65;margin-bottom:10px">' + desc + '</div>'
-        + '<div style="font-size:11px;color:#5E5649;padding-top:10px;border-top:1px solid rgba(26,26,26,.15)">'
-        + price + ' &nbsp;&middot;&nbsp; novuumedspa.com/' + url.split('/').pop()
+      svcs += '<div style="background:#fff;border:1px solid #d8cfc4;border-radius:10px;padding:16px 18px;margin-bottom:10px">'
+        + '<div style="font-size:17px;font-weight:300;font-family:Georgia,serif;color:#1A1A1A;margin-bottom:4px">' + name + '</div>'
+        + '<div style="font-size:12px;color:#5E5649;line-height:1.6;margin-bottom:8px">' + desc + '</div>'
+        + '<div style="font-size:11px;color:#888">' + price + '</div>'
         + '</div>';
-      pdfCards.appendChild(cardEl);
     });
+    rows += '<tr style="border-bottom:1px solid #e0d8cf">'
+      + '<td style="padding:18px 16px;vertical-align:top;width:26%">'
+      +   '<span style="display:inline-block;font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;padding:5px 12px;border-radius:99px;background:#E9E0D6;color:#2B3A36;border:1px solid #c5b9a8">' + concern + '</span>'
+      + '</td>'
+      + '<td style="padding:18px 16px;vertical-align:top">' + svcs + '</td>'
+      + '</tr>';
   });
 
-  var el = document.getElementById('pdfTemplate');
-  el.style.display = 'block';
+  var html = '<!DOCTYPE html><html><head><meta charset="UTF-8">'
+    + '<title>Nōvuu Medspa — Treatment Recommendations</title>'
+    + '<style>'
+    + 'body{margin:0;padding:40px;background:#F1EAE0;font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;color:#1A1A1A;-webkit-print-color-adjust:exact;print-color-adjust:exact}'
+    + 'h1{font-family:Georgia,serif;font-weight:300;font-size:30px;letter-spacing:-.01em;margin:0 0 6px;color:#1A1A1A}'
+    + 'table{width:100%;border-collapse:collapse;background:#E9E0D6;border-radius:12px;overflow:hidden;border:1px solid #ccc4b8}'
+    + 'thead th{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#2B3A36;padding:12px 16px;background:#E2D8CB;text-align:left;border-bottom:1px solid #ccc4b8}'
+    + '@media print{'
+    +   'body{padding:20px;background:#F1EAE0!important}'
+    +   '.no-print{display:none}'
+    +   '@page{margin:15mm}'
+    + '}'
+    + '</style>'
+    + '</head><body>'
+    + '<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:28px;padding-bottom:20px;border-bottom:2px solid #1A1A1A">'
+    +   '<div>'
+    +     '<div style="font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#2B3A36;margin-bottom:10px">Nōvuu Medspa · Treatment Finder</div>'
+    +     '<h1>Your Personalized<br><em>Treatment Plan</em></h1>'
+    +     '<div style="font-size:13px;color:#5E5649;margin-top:8px">' + subtitle + '</div>'
+    +   '</div>'
+    +   '<div style="text-align:right;font-size:11px;color:#888">' + today + '<br>novuumedspa.com<br>info@novuumedspa.com<br>(410) 205-6160</div>'
+    + '</div>'
+    + '<table>'
+    +   '<thead><tr><th style="width:26%">Your Concern</th><th>Recommended Treatments</th></tr></thead>'
+    +   '<tbody>' + rows + '</tbody>'
+    + '</table>'
+    + '<div style="margin-top:32px;font-size:11px;color:#888;text-align:center">Bring this to your consultation — our team will walk you through every option in detail.</div>'
+    + '<div class="no-print" style="margin-top:24px;text-align:center">'
+    +   '<button onclick="window.print()" style="background:#1A1A1A;color:#F1EAE0;border:none;padding:10px 28px;border-radius:99px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer">Save as PDF / Print</button>'
+    + '</div>'
+    + '</body></html>';
 
-  var opt = {
-    margin:      [12, 12, 12, 12],
-    filename:    'novuu-treatment-recommendations.pdf',
-    image:       { type: 'jpeg', quality: 0.96 },
-    html2canvas: { scale: 2, useCORS: true, backgroundColor: '#F1EAE0' },
-    jsPDF:       { unit: 'mm', format: 'a4', orientation: 'portrait' }
-  };
-
-  html2pdf().set(opt).from(el).save().then(function() {
-    el.style.display = 'none';
-  });
+  var win = window.open('', '_blank', 'width=900,height=700');
+  win.document.write(html);
+  win.document.close();
+  win.focus();
 }
 
 document.head.insertAdjacentHTML('beforeend', '<style>.reveal{opacity:0;transform:translateY(14px);transition:opacity .55s var(--ease),transform .55s var(--ease)}.reveal.in{opacity:1;transform:none}</style>');
