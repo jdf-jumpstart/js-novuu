@@ -347,6 +347,14 @@ footer{padding:var(--s9) 0 var(--s6)}
 .subnav a.is-active{color:var(--ink);background:var(--surface)}
 @media(max-width:1120px){.subnav{display:none}}
 section[id]{scroll-margin-top:150px}
+
+/* ============================ CARE INSTRUCTIONS ============================ */
+.care{padding:var(--s10) 0;background:var(--bg)}
+.care-head{max-width:560px;margin-bottom:var(--s7)}
+.care-head .eyebrow{margin-bottom:var(--s4)}
+.care-cols{display:grid;grid-template-columns:1fr 1fr;gap:var(--s8);align-items:start}
+.care-col-head{font-family:var(--display);font-weight:300;font-size:var(--fs-24);color:var(--ink);margin-bottom:var(--s5)}
+@media(max-width:700px){.care-cols{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -432,7 +440,7 @@ section[id]{scroll-margin-top:150px}
   </div>
 </nav>
 <div class="subnav" aria-label="Page sections">
-  <a href="#treatment">Treatment</a><a href="#gallery">Gallery</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a><a href="#results">Results</a>
+  <a href="#treatment">Treatment</a><a href="#gallery">Gallery</a><a href="#pricing">Pricing</a><a href="#care">Care</a><a href="#faq">FAQ</a><a href="#results">Results</a>
 </div>
 
 <!-- ====================== HERO ====================== -->
@@ -553,19 +561,71 @@ section[id]{scroll-margin-top:150px}
 </section>
 
 <!-- ====================== FAQ ====================== -->
-<section class="faq" id="faq">
-  <div class="wrap">
-    <div class="faq-head reveal"><span class="eyebrow"><svg><use href="#leaf"/></svg> FAQ</span><h2 style="margin-top:var(--s4)">Frequently asked questions</h2></div>
-    <div class="acc reveal">
-      <div class="acc-item"><button class="acc-q" aria-expanded="false">How long do dermal filler results last?<span class="plus"></span></button>
-        <div class="acc-a"><p>Results are visible immediately and typically last 6 to 18 months, depending on the type of filler used, the area treated, and individual factors like metabolism and lifestyle. Some fillers, like those used in the cheeks or jawline, may last even longer.</p></div></div>
-      <div class="acc-item"><button class="acc-q" aria-expanded="false">Is there any downtime or side effects after filler treatment?<span class="plus"></span></button>
-        <div class="acc-a"><p>You might notice mild swelling, redness, or bruising at the injection sites, which usually resolves within a few days or may take up to 2 weeks. You can return to most normal activities the same day, though we recommend avoiding intense exercise, prolonged heat &amp; sun exposure.</p></div></div>
-      <div class="acc-item"><button class="acc-q" aria-expanded="false">Will my results look natural?<span class="plus"></span></button>
-        <div class="acc-a"><p>Dermal fillers enhance your features in a subtle, balanced way. At our medspa, we focus on achieving natural-looking results that complement your facial structure, so you look refreshed, not overdone.</p></div></div>
+<section class="care" id="care"><div class="wrap">
+  <div class="care-head"><span class="eyebrow"><svg><use href="#leaf"/></svg> CARE INSTRUCTIONS</span><h2>Pre &amp; post care</h2></div>
+  <div class="care-cols">
+    <div class="care-col">
+      <h3 class="care-col-head">Pre-Treatment</h3>
+      <ul class="blist">
+        <li><svg><use href="#leaf"/></svg>Avoid alcohol for at least 24 hours before your appointment</li>
+        <li><svg><use href="#leaf"/></svg>Avoid blood thinners and supplements (aspirin, ibuprofen, fish oil, vitamin E, ginkgo biloba) for 3 days prior, if medically safe to do so</li>
+        <li><svg><use href="#leaf"/></svg>Stay well hydrated in the days leading up to your appointment</li>
+        <li><svg><use href="#leaf"/></svg>Avoid scheduling within 1–2 months of a major event if possible</li>
+        <li><svg><use href="#leaf"/></svg>Inform your provider of any history of cold sores if treating the lip area</li>
+        <li><svg><use href="#leaf"/></svg>Arrive with a clean face, free of makeup (we have makeup wipes &amp; face wash at the office if needed)</li>
+      </ul>
+    </div>
+    <div class="care-col">
+      <h3 class="care-col-head">Post-Treatment</h3>
+      <ul class="blist">
+        <li><svg><use href="#leaf"/></svg>Expect mild swelling, bruising, and tenderness for up to 14 days</li>
+        <li><svg><use href="#leaf"/></svg>No makeup for 24 hours</li>
+        <li><svg><use href="#leaf"/></svg>Avoid NSAIDs; Tylenol is OK</li>
+        <li><svg><use href="#leaf"/></svg>Do not massage or apply pressure to treated areas unless specifically instructed</li>
+        <li><svg><use href="#leaf"/></svg>Avoid strenuous exercise for 24–48 hours</li>
+        <li><svg><use href="#leaf"/></svg>Avoid alcohol for 24–48 hours</li>
+        <li><svg><use href="#leaf"/></svg>Avoid extreme heat or cold (saunas, hot tubs, ice packs directly on skin) for 48 hours</li>
+        <li><svg><use href="#leaf"/></svg>Sleep on your back with your head slightly elevated for the first 2 nights</li>
+        <li><svg><use href="#leaf"/></svg>Avoid dental procedures, surgeries, and vaccines for 2 weeks following filler</li>
+        <li><svg><use href="#leaf"/></svg>Avoid laser treatments, facials, massages, or face treatments for 2 weeks</li>
+        <li><svg><use href="#leaf"/></svg>Final results are visible once swelling fully resolves, typically within 2–4 weeks — don&rsquo;t love it or hate it for 2 weeks!</li>
+      </ul>
     </div>
   </div>
-</section>
+</div></section>
+<section class="faq" id="faq"><div class="wrap">
+  <div class="faq-head"><span class="eyebrow"><svg><use href="#leaf"/></svg> FAQ</span><h2>Questions, answered</h2></div>
+  <div class="acc">
+    <div class="acc-item">
+      <button class="acc-q" aria-expanded="false">Am I going to swell or bruise?<span class="plus"></span></button>
+      <div class="acc-a"><p>Dermal fillers are introduced into the body via a needle or cannula, and because of this mild trauma most people can expect bruising and swelling to some degree.</p></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-q" aria-expanded="false">How long will I be swollen or bruised?<span class="plus"></span></button>
+      <div class="acc-a"><p>The extent of your bruising and/or swelling is unique to you, but most people are able to resume regular daily activities after 24–48 hours. Arnica gel and Tylenol will be provided after your appointment, along with aftercare do&rsquo;s and don&rsquo;ts to ensure safe and healthy healing.</p></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-q" aria-expanded="false">How long do dermal filler results last?<span class="plus"></span></button>
+      <div class="acc-a"><p>Results are visible immediately and typically last 6–18 months, depending on the type of filler used, the area treated, and individual factors like metabolism and lifestyle.</p></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-q" aria-expanded="false">How many syringes will I need?<span class="plus"></span></button>
+      <div class="acc-a"><p>That depends entirely on your current anatomy and aesthetic goals. You and your provider will create a treatment plan together so we can help you achieve the look you&rsquo;re going for.</p></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-q" aria-expanded="false">Can I pay for a half syringe?<span class="plus"></span></button>
+      <div class="acc-a"><p>We do not offer half syringes, but we will keep any leftover filler from your syringe for 2 weeks. After two weeks, you&rsquo;ll come in for a follow-up and any remaining filler can be used at that visit.</p></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-q" aria-expanded="false">What if I don&rsquo;t like my results?<span class="plus"></span></button>
+      <div class="acc-a"><p>The good news is that dermal fillers are long-lasting but temporary. You can wait for your body to naturally metabolize the filler, or you can come in to have it dissolved with a special filler-dissolving agent.</p></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-q" aria-expanded="false">Will my results look natural?<span class="plus"></span></button>
+      <div class="acc-a"><p>Absolutely. At Nōvuu Medspa we focus on achieving balanced, natural-looking results that complement your facial structure — so you look refreshed, not overdone.</p></div>
+    </div>
+  </div>
+</div></section>
 
 <!-- ====================== CLOSING CTA (dark, arched) ====================== -->
 
