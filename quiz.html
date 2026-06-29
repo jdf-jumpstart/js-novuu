@@ -169,6 +169,22 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .restart-wrap{text-align:center;margin-top:var(--s6)}
 .no-results{text-align:center;padding:var(--s8);background:var(--surface);border-radius:var(--r-card);max-width:560px;margin:0 auto}
 
+/* results table */
+.res-table-wrap{max-width:960px;margin:0 auto var(--s8);overflow-x:auto}
+.res-table{width:100%;border-collapse:separate;border-spacing:0;background:var(--surface);border-radius:var(--r-card);overflow:hidden;border:1px solid var(--line)}
+.res-table th{font-family:var(--body);font-size:var(--fs-12);font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--green);padding:var(--s4) var(--s5);text-align:left;background:var(--surface-2);border-bottom:1px solid var(--line)}
+.res-table td{padding:var(--s4) var(--s5);vertical-align:top;border-bottom:1px solid var(--line-soft)}
+.res-table tr:last-child td{border-bottom:none}
+.res-table tbody tr{transition:background .25s}
+.res-table tbody tr:hover{background:rgba(26,26,26,.03)}
+.rt-concern-pill{display:inline-flex;align-items:center;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:5px 12px;border-radius:var(--r-pill);background:var(--surface-2);color:var(--green);white-space:nowrap}
+.rt-treatment{display:flex;flex-direction:column;gap:var(--s3)}
+.rt-svc{background:var(--bg);border:1px solid var(--line);border-radius:var(--r-inner);padding:var(--s3) var(--s4)}
+.rt-svc-name{font-family:var(--display);font-size:var(--fs-16);font-weight:300;color:var(--ink);margin-bottom:3px}
+.rt-svc-desc{font-size:var(--fs-12);color:var(--ink-2);line-height:1.5;margin-bottom:var(--s2)}
+.rt-svc-price{font-size:11px;color:var(--ink-2);letter-spacing:.04em;margin-bottom:var(--s2)}
+.rt-svc-actions{display:flex;gap:var(--s2);flex-wrap:wrap}
+
 /* mobile */
 @media(max-width:768px){
   .nav-links{display:none}
@@ -184,7 +200,38 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
   .foot-grid{grid-template-columns:1fr}
   .q-label{display:none}
 }
+/* ======= PRINT / PDF ======= */
+.pdf-card{display:none}
+@media print{
+  .topbar,.nav,.quiz-hero,.quiz-progress,.step-nav,.restart-wrap,footer,.results-head p,body::after{display:none!important}
+  body{background:#fff;color:#1A1A1A;font-size:11pt}
+  .quiz-shell{padding:0}
+  .results-head{text-align:left;margin-bottom:24pt}
+  .results-head h2{font-size:22pt;color:#1A1A1A}
+  .results-grid{display:block}
+  .res-card{border:1px solid #ccc;border-radius:8pt;padding:14pt;margin-bottom:14pt;page-break-inside:avoid;background:#fff}
+  .res-name{font-size:16pt;color:#1A1A1A}
+  .res-desc{font-size:10pt;color:#444}
+  .res-tag{border:1px solid #2B3A36;color:#2B3A36;padding:2pt 6pt;border-radius:99pt;font-size:8pt}
+  .res-actions,.res-price{display:none}
+  .print-header{display:block!important;margin-bottom:20pt;padding-bottom:12pt;border-bottom:1.5pt solid #1A1A1A}
+}
+.print-header{display:none}
+
+/* share actions */
+.share-actions{max-width:860px;margin:0 auto var(--s8);text-align:center}
+.share-label{font-size:var(--fs-14);letter-spacing:.12em;text-transform:uppercase;font-weight:500;color:var(--ink-2);margin-bottom:var(--s5)}
+.share-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4)}
+.share-card{background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r-card);padding:var(--s5);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:var(--s3);text-align:center;transition:border-color .35s var(--ease),box-shadow .35s var(--ease),background .35s var(--ease);font:inherit}
+.share-card:hover{border-color:var(--ink);box-shadow:var(--e-raised)}
+.share-icon{width:48px;height:48px;border-radius:var(--r-pill);background:var(--surface-2);display:grid;place-items:center}
+.share-icon svg{width:22px;height:22px;color:var(--ink)}
+.share-title{font-family:var(--display);font-size:var(--fs-16);font-weight:300;color:var(--ink);margin-bottom:2px}
+.share-sub{font-size:var(--fs-12);color:var(--ink-2);line-height:1.5}
+@media(max-width:600px){.share-grid{grid-template-columns:1fr}}
+
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
 
@@ -359,12 +406,73 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 
     <!-- STEP 3: Results -->
     <div class="quiz-step" id="step3">
+      <div class="print-header" style="display:none">
+        <div style="font-size:var(--fs-12);letter-spacing:.24em;text-transform:uppercase;color:var(--green);margin-bottom:var(--s3)">Nōvuu Medspa · Treatment Finder</div>
+        <p style="font-size:var(--fs-14);color:var(--ink-2);margin-top:var(--s2)">Bring this summary to your consultation. Our team will walk you through each option in detail.</p>
+      </div>
       <div class="results-head">
         <span class="eyebrow" style="justify-content:center;margin-bottom:var(--s4)">Your Personalized Recommendations</span>
         <h2>Treatments matched to you</h2>
         <p id="resultsSubtitle">Based on your concerns, here's what we'd recommend exploring.</p>
       </div>
-      <div class="results-grid" id="resultsGrid"></div>
+      <div class="res-table-wrap" id="resultsTableWrap">
+        <table class="res-table">
+          <thead>
+            <tr>
+              <th style="width:28%">Your Concern</th>
+              <th>Recommended Treatments</th>
+            </tr>
+          </thead>
+          <tbody id="resultsBody"></tbody>
+        </table>
+      </div>
+      <div class="share-actions" id="shareActions">
+        <p class="share-label">What would you like to do with your results?</p>
+        <div class="share-grid">
+          <button class="share-card" onclick="doPrint()">
+            <div class="share-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            </div>
+            <div class="share-text">
+              <div class="share-title">Print for Consultation</div>
+              <div class="share-sub">Bring a clean summary to your appointment</div>
+            </div>
+          </button>
+          <button class="share-card" onclick="doEmailNovuu()">
+            <div class="share-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="share-text">
+              <div class="share-title">Email Nōvuu</div>
+              <div class="share-sub">Send your results directly to our team</div>
+            </div>
+          </button>
+          <button class="share-card" onclick="doSavePDF()">
+            <div class="share-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </div>
+            <div class="share-text">
+              <div class="share-title">Save as PDF</div>
+              <div class="share-sub">Download an aesthetic copy for your records</div>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- hidden PDF template -->
+      <div id="pdfTemplate" style="display:none;position:absolute;left:-9999px;top:0;width:800px;font-family:'Georgia',serif;background:#F1EAE0;padding:48px">
+        <div style="border-bottom:2px solid #1A1A1A;margin-bottom:32px;padding-bottom:24px">
+          <div style="font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#2B3A36;margin-bottom:12px">Nōvuu Medspa · Treatment Finder</div>
+          <div style="font-size:36px;font-weight:300;line-height:1.1;color:#1A1A1A;margin-bottom:8px">Your Personalized<br><em>Treatment Plan</em></div>
+          <div style="font-size:13px;color:#5E5649" id="pdfSubtitle"></div>
+        </div>
+        <div id="pdfCards"></div>
+        <div style="margin-top:40px;padding-top:24px;border-top:1px solid rgba(26,26,26,.2);font-size:11px;color:#5E5649;display:flex;justify-content:space-between">
+          <span>novuumedspa.com &nbsp;·&nbsp; info@novuumedspa.com &nbsp;·&nbsp; (410) 205-6160</span>
+          <span id="pdfDate"></span>
+        </div>
+      </div>
+
       <div class="restart-wrap">
         <p style="margin-bottom:var(--s4)">Not sure? Our team is always happy to guide you.</p>
         <div style="display:flex;gap:var(--s4);justify-content:center;flex-wrap:wrap">
@@ -590,39 +698,47 @@ function toggleConcern(card) {
 function goResults() {
   if (state.concerns.length === 0) return;
 
-  var scores = {};
-  var matches = {};
-  Object.keys(SERVICES).forEach(function(key) {
-    var svc = SERVICES[key];
-    var matched = state.concerns.filter(function(c) { return svc.concerns.indexOf(c) !== -1; });
-    if (matched.length > 0) { scores[key] = matched.length; matches[key] = matched; }
+  var tbody = document.getElementById('resultsBody');
+  tbody.innerHTML = '';
+  var hasResults = false;
+
+  state.concerns.forEach(function(concernId) {
+    var concernLabel = CONCERN_LABELS[concernId] || concernId;
+    var matchingServices = Object.keys(SERVICES).filter(function(key) {
+      return SERVICES[key].concerns.indexOf(concernId) !== -1;
+    });
+    if (matchingServices.length === 0) return;
+    hasResults = true;
+
+    // sort: services matching more of the user's selected concerns appear first
+    matchingServices.sort(function(a, b) {
+      var sA = SERVICES[a].concerns.filter(function(c){ return state.concerns.indexOf(c) !== -1; }).length;
+      var sB = SERVICES[b].concerns.filter(function(c){ return state.concerns.indexOf(c) !== -1; }).length;
+      return sB - sA;
+    });
+
+    var svcHtml = matchingServices.map(function(key) {
+      var svc = SERVICES[key];
+      return '<div class="rt-svc">'
+        + '<div class="rt-svc-name">' + svc.name + '</div>'
+        + '<div class="rt-svc-desc">' + svc.desc + '</div>'
+        + '<div class="rt-svc-price">Starting at ' + svc.price + '</div>'
+        + '<div class="rt-svc-actions">'
+        +   '<a href="' + svc.url + '" class="btn btn--ghost btn--sm" style="font-size:11px;padding:6px 14px">Learn More</a>'
+        +   '<a href="https://novuu.myaestheticrecord.com/online-booking" class="btn btn--primary btn--sm" style="font-size:11px;padding:6px 14px">Book Now</a>'
+        + '</div></div>';
+    }).join('');
+
+    var row = document.createElement('tr');
+    row.className = 'reveal';
+    row.innerHTML = '<td><span class="rt-concern-pill">' + concernLabel + '</span></td>'
+      + '<td><div class="rt-treatment">' + svcHtml + '</div></td>';
+    tbody.appendChild(row);
   });
 
-  var ranked = Object.keys(scores).sort(function(a, b) { return scores[b] - scores[a]; });
-
-  var grid = document.getElementById('resultsGrid');
-  grid.innerHTML = '';
-
-  if (ranked.length === 0) {
-    grid.innerHTML = '<div class="no-results"><p>We\'d love to help find the right treatment \u2014 book a complimentary consultation and our team will guide you.</p></div>';
-  } else {
-    ranked.forEach(function(key) {
-      var svc = SERVICES[key];
-      var matchedLabels = matches[key].map(function(c) { return CONCERN_LABELS[c] || c; });
-      var card = document.createElement('div');
-      card.className = 'res-card reveal';
-      var tagsHtml = matchedLabels.map(function(l) { return '<span class="res-tag">' + l + '</span>'; }).join('');
-      card.innerHTML = '<div class="res-badge">' + tagsHtml + '</div>'
-        + '<div class="res-name">' + svc.name + '</div>'
-        + '<div class="res-desc">' + svc.desc + '</div>'
-        + '<div class="res-why"><strong>Addresses:</strong> ' + matchedLabels.join(', ') + '</div>'
-        + '<div class="res-price">Starting at <span>' + svc.price + '</span></div>'
-        + '<div class="res-actions">'
-        +   '<a href="' + svc.url + '" class="btn btn--ghost btn--sm">Learn More</a>'
-        +   '<a href="https://novuu.myaestheticrecord.com/online-booking" class="btn btn--primary btn--sm">Book Now <span class="dot" style="width:22px;height:22px"><svg style="width:12px;height:12px"><use href="#arr"/></svg></span></a>'
-        + '</div>';
-      grid.appendChild(card);
-    });
+  if (!hasResults) {
+    document.getElementById('resultsTableWrap').innerHTML =
+      '<div class="no-results"><p>We\'d love to help find the right treatment — book a complimentary consultation and our team will guide you.</p></div>';
   }
 
   var catLabels = state.cats.map(function(c) {
@@ -636,8 +752,8 @@ function goResults() {
   setTimeout(function() {
     var io = new IntersectionObserver(function(entries) {
       entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: .1 });
-    document.querySelectorAll('#resultsGrid .reveal').forEach(function(el) { io.observe(el); });
+    }, { threshold: .05 });
+    document.querySelectorAll('#resultsBody .reveal').forEach(function(el) { io.observe(el); });
   }, 100);
 }
 
@@ -685,6 +801,100 @@ burger.addEventListener('click', function() {
   links.style.cssText = open ? '' : 'display:flex;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:var(--surface);padding:var(--s5);border-radius:var(--r-card);gap:var(--s4);box-shadow:var(--e-overlay);border:1px solid var(--line)';
   burger.setAttribute('aria-expanded', !open);
 });
+
+// ============================================================
+// SHARE / EXPORT FUNCTIONS
+// ============================================================
+
+// helper: build plain-text results summary
+function buildSummaryText() {
+  var lines = ['YOUR NOVUU TREATMENT RECOMMENDATIONS', ''];
+  var catMap = { face:'Face & Injectables', skin:'Skin Health', hair:'Hair Restoration', wellness:'Body & Wellness' };
+  lines.push('Areas of concern: ' + state.cats.map(function(c){ return catMap[c]; }).join(', '));
+  lines.push('Concerns selected: ' + state.concerns.map(function(c){ return CONCERN_LABELS[c] || c; }).join(', '));
+  lines.push('');
+  lines.push('RECOMMENDED TREATMENTS:');
+  lines.push('');
+  document.querySelectorAll('#resultsBody tr').forEach(function(card, i) {
+    var name = card.querySelector('.rt-svc-name') ? card.querySelector('.rt-svc-name').textContent : '';
+    var desc = card.querySelector('.rt-svc-desc') ? card.querySelector('.rt-svc-desc').textContent : '';
+    var why  = card.querySelector('.rt-concern-pill') ? 'Concern: ' + card.querySelector('.rt-concern-pill').textContent : '';
+    var price = card.querySelector('.rt-svc-price') ? card.querySelector('.rt-svc-price').textContent : '';
+    lines.push((i+1) + '. ' + name);
+    lines.push('   ' + desc);
+    lines.push('   ' + why);
+    lines.push('   ' + price);
+    lines.push('');
+  });
+  lines.push('—');
+  lines.push('Nōvuu Medspa | novuumedspa.com | info@novuumedspa.com | (410) 205-6160');
+  return lines.join('\n');
+}
+
+function doPrint() {
+  // Show print header
+  var hdr = document.querySelector('.print-header');
+  if (hdr) hdr.style.display = 'block';
+  window.print();
+  setTimeout(function(){ if(hdr) hdr.style.display = 'none'; }, 500);
+}
+
+function doEmailNovuu() {
+  var subject = encodeURIComponent('Treatment Inquiry from Quiz');
+  var body = encodeURIComponent(
+    'Hi Nōvuu team,\n\nI completed your treatment quiz and would love to learn more about the following recommendations:\n\n'
+    + buildSummaryText()
+    + '\n\nPlease feel free to reach out to schedule a consultation. Thank you!'
+  );
+  window.location.href = 'mailto:info@novuumedspa.com?subject=' + subject + '&body=' + body;
+}
+
+function doSavePDF() {
+  var subtitle = document.getElementById('resultsSubtitle').textContent;
+  document.getElementById('pdfSubtitle').textContent = subtitle;
+  document.getElementById('pdfDate').textContent = new Date().toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+
+  var pdfCards = document.getElementById('pdfCards');
+  pdfCards.innerHTML = '';
+
+  document.querySelectorAll('#resultsBody tr').forEach(function(row) {
+    var concern = row.querySelector('.rt-concern-pill') ? row.querySelector('.rt-concern-pill').textContent : '';
+    row.querySelectorAll('.rt-svc').forEach(function(svcEl) {
+      var name  = svcEl.querySelector('.rt-svc-name')  ? svcEl.querySelector('.rt-svc-name').textContent  : '';
+      var desc  = svcEl.querySelector('.rt-svc-desc')  ? svcEl.querySelector('.rt-svc-desc').textContent  : '';
+      var price = svcEl.querySelector('.rt-svc-price') ? svcEl.querySelector('.rt-svc-price').textContent : '';
+      var aTag  = svcEl.querySelector('a');
+      var url   = aTag ? aTag.href : '';
+
+      var tagHtml = '<span style="display:inline-block;font-size:9px;letter-spacing:.18em;text-transform:uppercase;padding:3px 9px;border-radius:99px;border:1px solid #2B3A36;color:#2B3A36;margin:0 4px 4px 0">' + concern + '</span>';
+
+      var cardEl = document.createElement('div');
+      cardEl.style.cssText = 'background:#E9E0D6;border-radius:12px;padding:24px;margin-bottom:20px;page-break-inside:avoid';
+      cardEl.innerHTML = '<div style="margin-bottom:10px">' + tagHtml + '</div>'
+        + '<div style="font-size:20px;font-weight:300;color:#1A1A1A;margin-bottom:8px">' + name + '</div>'
+        + '<div style="font-size:12px;color:#5E5649;line-height:1.65;margin-bottom:10px">' + desc + '</div>'
+        + '<div style="font-size:11px;color:#5E5649;padding-top:10px;border-top:1px solid rgba(26,26,26,.15)">'
+        + price + ' &nbsp;&middot;&nbsp; novuumedspa.com/' + url.split('/').pop()
+        + '</div>';
+      pdfCards.appendChild(cardEl);
+    });
+  });
+
+  var el = document.getElementById('pdfTemplate');
+  el.style.display = 'block';
+
+  var opt = {
+    margin:      [12, 12, 12, 12],
+    filename:    'novuu-treatment-recommendations.pdf',
+    image:       { type: 'jpeg', quality: 0.96 },
+    html2canvas: { scale: 2, useCORS: true, backgroundColor: '#F1EAE0' },
+    jsPDF:       { unit: 'mm', format: 'a4', orientation: 'portrait' }
+  };
+
+  html2pdf().set(opt).from(el).save().then(function() {
+    el.style.display = 'none';
+  });
+}
 
 document.head.insertAdjacentHTML('beforeend', '<style>.reveal{opacity:0;transform:translateY(14px);transition:opacity .55s var(--ease),transform .55s var(--ease)}.reveal.in{opacity:1;transform:none}</style>');
 </script>
