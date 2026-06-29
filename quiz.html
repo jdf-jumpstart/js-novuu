@@ -827,13 +827,32 @@ function doPrint() {
 }
 
 function doEmailNovuu() {
-  var subject = encodeURIComponent('Treatment Inquiry from Quiz');
-  var body = encodeURIComponent(
-    'Hi Nōvuu team,\n\nI completed your treatment quiz and would love to learn more about the following recommendations:\n\n'
-    + buildSummaryText()
-    + '\n\nPlease feel free to reach out to schedule a consultation. Thank you!'
-  );
-  window.location.href = 'mailto:info@novuumedspa.com?subject=' + subject + '&body=' + body;
+  var concerns = state.concerns.map(function(c){ return CONCERN_LABELS[c] || c; });
+
+  // Collect unique treatment names matching any selected concern
+  var seen = {};
+  var treatments = [];
+  state.concerns.forEach(function(c) {
+    Object.keys(SERVICES).forEach(function(key) {
+      if (!seen[key] && SERVICES[key].concerns.indexOf(c) !== -1) {
+        seen[key] = true;
+        treatments.push(SERVICES[key].name);
+      }
+    });
+  });
+
+  var NL = '%0A';
+  var body = 'Hi N%C5%8Dvuu team,' + NL + NL
+    + 'I completed your treatment quiz and would like to learn more about booking a consultation.' + NL + NL
+    + 'My concerns:' + NL
+    + concerns.map(function(c){ return '  • ' + c; }).join(NL) + NL + NL
+    + 'Treatments I’m interested in:' + NL
+    + treatments.map(function(t){ return '  • ' + t; }).join(NL) + NL + NL
+    + 'Please feel free to reach out to schedule a time. Thank you!';
+
+  window.location.href = 'mailto:info@novuumedspa.com'
+    + '?subject=' + encodeURIComponent('Consultation Request')
+    + '&body=' + body;
 }
 
 function doSavePDF() {
