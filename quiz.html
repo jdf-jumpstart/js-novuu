@@ -604,7 +604,7 @@ function goResults() {
   grid.innerHTML = '';
 
   if (ranked.length === 0) {
-    grid.innerHTML = '<div class="no-results"><p>We'd love to help find the right treatment — book a complimentary consultation and our team will guide you.</p></div>';
+    grid.innerHTML = '<div class="no-results"><p>We\'d love to help find the right treatment \u2014 book a complimentary consultation and our team will guide you.</p></div>';
   } else {
     ranked.forEach(function(key) {
       var svc = SERVICES[key];
@@ -629,7 +629,7 @@ function goResults() {
     return { face:'face & injectables', skin:'skin health', hair:'hair restoration', wellness:'body & wellness' }[c];
   });
   document.getElementById('resultsSubtitle').textContent =
-    'Based on your ' + catLabels.join(' and ') + ' concerns, here's what we'd recommend.';
+    'Based on your ' + catLabels.join(' and ') + ' concerns, here\'s what we\'d recommend.';
 
   goStep(3);
 
