@@ -111,7 +111,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .q-label.active{color:var(--ink)}
 
 /* quiz container */
-.quiz-shell{padding:0 0 var(--s10)}
+.quiz-shell{padding:0 0 200px}
 .quiz-step{display:none}
 .quiz-step.is-visible{display:block;animation:fadeUp .45s var(--ease) both}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
@@ -822,7 +822,7 @@ function doEmailNovuu() {
     });
   });
 
-  var NL = '%0A';
+  var NL = '%0D%0A';
   var body = 'Hi N%C5%8Dvuu team,' + NL + NL
     + 'I completed your treatment quiz and would like to learn more about booking a consultation.' + NL + NL
     + 'My concerns:' + NL
