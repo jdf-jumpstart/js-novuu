@@ -200,10 +200,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
   .foot-grid{grid-template-columns:1fr}
   .q-label{display:none}
 }
-/* ======= PRINT / PDF ======= */
-.pdf-card{display:none}
-@media print{
-  .topbar,.nav,.quiz-hero,.quiz-progress,.step-nav,.restart-wrap,footer,.results-head p,body::after{display:none!important}
+
   body{background:#fff;color:#1A1A1A;font-size:11pt}
   .quiz-shell{padding:0}
   .results-head{text-align:left;margin-bottom:24pt}
@@ -221,7 +218,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 /* share actions */
 .share-actions{max-width:860px;margin:0 auto var(--s8);text-align:center}
 .share-label{font-size:var(--fs-14);letter-spacing:.12em;text-transform:uppercase;font-weight:500;color:var(--ink-2);margin-bottom:var(--s5)}
-.share-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4)}
+.share-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s4);max-width:600px;margin:0 auto}
 .share-card{background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r-card);padding:var(--s5);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:var(--s3);text-align:center;transition:border-color .35s var(--ease),box-shadow .35s var(--ease),background .35s var(--ease);font:inherit}
 .share-card:hover{border-color:var(--ink);box-shadow:var(--e-raised)}
 .share-icon{width:48px;height:48px;border-radius:var(--r-pill);background:var(--surface-2);display:grid;place-items:center}
@@ -429,15 +426,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
       <div class="share-actions" id="shareActions">
         <p class="share-label">What would you like to do with your results?</p>
         <div class="share-grid">
-          <button class="share-card" onclick="doPrint()">
-            <div class="share-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-            </div>
-            <div class="share-text">
-              <div class="share-title">Print for Consultation</div>
-              <div class="share-sub">Bring a clean summary to your appointment</div>
-            </div>
-          </button>
           <button class="share-card" onclick="doEmailNovuu()">
             <div class="share-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -453,7 +441,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
             </div>
             <div class="share-text">
               <div class="share-title">Download a copy for your records.</div>
-              <div class="share-sub">Opens a print-ready page — save as PDF</div>
+              <div class="share-sub">Opens a page you can save as PDF or print</div>
             </div>
           </button>
         </div>
@@ -818,13 +806,6 @@ function buildSummaryText() {
   return lines.join('\n');
 }
 
-function doPrint() {
-  // Show print header
-  var hdr = document.querySelector('.print-header');
-  if (hdr) hdr.style.display = 'block';
-  window.print();
-  setTimeout(function(){ if(hdr) hdr.style.display = 'none'; }, 500);
-}
 
 function doEmailNovuu() {
   var concerns = state.concerns.map(function(c){ return CONCERN_LABELS[c] || c; });
