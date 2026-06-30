@@ -214,6 +214,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 }
 .print-header{display:none}
 
+/* results photo */
+.results-photo{max-width:860px;margin:0 auto var(--s8);border-radius:var(--r-card);overflow:hidden}
+.results-photo img{width:100%;height:420px;object-fit:cover;object-position:center 30%;display:block}
+@media(max-width:600px){.results-photo img{height:260px}}
+
 /* share actions */
 .share-actions{max-width:860px;margin:0 auto var(--s8);text-align:center}
 .share-label{font-size:var(--fs-14);letter-spacing:.12em;text-transform:uppercase;font-weight:500;color:var(--ink-2);margin-bottom:var(--s5)}
@@ -446,6 +451,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
         </div>
       </div>
 
+
+      <div class="results-photo">
+        <img src="images/DSC04213.jpg" alt="Nōvuu provider reviewing treatment options with a patient" loading="lazy">
+      </div>
 
       <div class="restart-wrap">
         <p style="margin-bottom:var(--s4)">Not sure? Our team is always happy to guide you.</p>
