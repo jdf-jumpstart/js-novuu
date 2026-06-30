@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "novuu",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-l", "4321", "/Users/jumpstart/Documents/GitHub/js-novuu"],
+      "port": 4321
+    }
+  ]
+}
