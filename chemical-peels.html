@@ -152,7 +152,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .crest{display:block;height:58px;width:auto;margin-bottom:var(--s5)}
 .crest--lg{height:68px;margin:0 auto var(--s5)}
 .foot-crest{display:block;height:62px;width:auto;margin-bottom:var(--s5)}
-.slideshow{position:relative}
+.slideshow{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:var(--r-inner);background:linear-gradient(155deg,#E2D8CB,#E9E0D6 70%)}
 .ss-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;transition:opacity 1s var(--ease)}
 .ss-slide.is-active{opacity:1}
 .ss-tag{position:absolute;z-index:4;top:var(--s4);left:var(--s4);background:rgba(241,234,224,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:6px 14px;border-radius:var(--r-pill);font-size:var(--fs-12);font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
@@ -344,13 +344,12 @@ footer{padding:var(--s9) 0 var(--s6)}
 .topbar{text-align:center;font-size:var(--fs-12);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);padding:var(--s3) var(--s5);background:var(--surface);border-bottom:1px solid var(--line-soft)}
 .topbar a{color:var(--ink);border-bottom:1px solid var(--accent);padding-bottom:1px}
 /* section sub-nav */
-.subnav{position:fixed;top:50%;left:var(--s5);transform:translateY(-50%);z-index:79;display:flex;flex-direction:column;gap:4px;padding:6px;background:rgba(241,234,224,.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--e-overlay);max-height:calc(100vh - var(--s8));overflow-y:auto;scrollbar-width:none}
+.subnav{position:sticky;top:0;z-index:79;display:flex;flex-direction:row;gap:0;padding:0 var(--s5);background:rgba(241,234,224,.95);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
 .subnav::-webkit-scrollbar{display:none}
-.subnav a{font-size:var(--fs-12);font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);white-space:nowrap;padding:8px var(--s4);border-radius:var(--r-pill);transition:color .3s var(--ease),background .3s var(--ease)}
+.subnav a{font-size:var(--fs-12);font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);white-space:nowrap;padding:14px var(--s5);border-bottom:2px solid transparent;transition:color .3s var(--ease),border-color .3s var(--ease)}
 .subnav a:hover{color:var(--ink)}
-.subnav a.is-active{color:var(--ink);background:var(--surface)}
-@media(max-width:1120px){.subnav{display:none}}
-section[id]{scroll-margin-top:150px}
+.subnav a.is-active{color:var(--ink);border-bottom-color:var(--accent)}
+section[id]{scroll-margin-top:120px}
 
 /* ============================ CARE INSTRUCTIONS ============================ */
 .care{padding:var(--s10) 0;background:var(--bg)}
@@ -452,9 +451,6 @@ section[id]{scroll-margin-top:150px}
     <button class="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
-<div class="subnav" aria-label="Page sections">
-  <a href="#overview">Overview</a><a href="#benefits">Benefits</a><a href="#care">Care</a><a href="#faq">FAQ</a>
-</div>
 <header class="hero">
   <div class="wrap hero-grid">
     <div class="reveal">
@@ -467,14 +463,16 @@ section[id]{scroll-margin-top:150px}
     <div class="reveal" style="--d:.12s">
       <div class="frame">
         <div class="slideshow" aria-label="Chemical peel treatment photos">
-          <img class="ss-slide is-active" src="images/DSC04415.jpg" alt="Chemical peel treatment at Nōvuu Medspa" loading="eager">
-          <img class="ss-slide" src="images/DSC04431.jpg" alt="VI Peel treatment at Nōvuu Medspa" loading="lazy">
-          <img class="ss-slide" src="images/DSC04210.jpg" alt="Skin peel results at Nōvuu Medspa" loading="lazy">
+          <img class="ss-slide is-active" src="images/chemical-peels/chemical-peels-hero.jpg" alt="Chemical peel consultation at Nōvuu Medspa" loading="eager">
+          <img class="ss-slide" src="images/chemical-peels/chemical-peels-mirror.jpg" alt="Client reviewing skin results at Nōvuu Medspa" loading="lazy">
         </div>
       </div>
     </div>
   </div>
 </header>
+<div class="subnav" aria-label="Page sections">
+  <a href="#overview">Overview</a><a href="#benefits">Benefits</a><a href="#care">Care</a><a href="#faq">FAQ</a>
+</div>
 <section class="svc-lead" id="overview"><div class="wrap">
   <span class="eyebrow"><svg><use href="#leaf"/></svg> What is a chemical peel</span>
   <p>The VI Peel is a medical-grade chemical peel designed to improve skin tone, texture, and clarity with minimal downtime. This powerful yet gentle treatment penetrates deep into the skin to target signs of aging, sun damage, acne, and hyperpigmentation.</p>
