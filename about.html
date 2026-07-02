@@ -141,6 +141,22 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .ss-dots{position:absolute;z-index:4;left:50%;bottom:var(--s4);transform:translateX(-50%);display:flex;gap:var(--s2);align-items:center;background:rgba(241,234,224,.7);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:8px 12px;border-radius:var(--r-pill)}
 .ss-dot{width:7px;height:7px;border-radius:var(--r-pill);border:0;background:rgba(26,26,26,.32);cursor:pointer;padding:0;transition:background .4s var(--ease),width .4s var(--ease)}
 .ss-dot.is-active{background:var(--ink);width:20px}
+/* ============================ TEAM & OFFICE GALLERY ============================ */
+.tg{padding:var(--s10) 0;background:var(--bg)}
+.tg-frame{position:relative;border-radius:var(--r-card);padding:var(--s2);
+  background:var(--surface);border:1px solid var(--line);box-shadow:var(--e-raised)}
+.tg-stage{position:relative;border-radius:var(--r-inner);overflow:hidden;
+  aspect-ratio:3/2;background:linear-gradient(155deg,#E2D8CB,#E9E0D6 70%);outline:none}
+@media(max-width:640px){.tg-stage{aspect-ratio:4/3}}
+.ss-arrow{position:absolute;z-index:5;top:50%;transform:translateY(-50%);width:48px;height:48px;
+  border-radius:var(--r-pill);border:1px solid var(--line);background:rgba(241,234,224,.72);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:var(--ink);cursor:pointer;
+  display:grid;place-items:center;transition:background .4s var(--ease),color .4s var(--ease),transform .4s var(--ease)}
+.ss-arrow:hover{background:var(--accent);color:var(--on-accent)}
+.ss-arrow svg{width:18px;height:18px}
+.ss-arrow--prev{left:var(--s4)}
+.ss-arrow--next{right:var(--s4)}.ss-arrow--next svg{transform:scaleX(-1)}
+@media(max-width:640px){.ss-arrow{width:40px;height:40px}}
 .space{padding:var(--s10) 0}
 .space-frame{border:1px solid var(--line);box-shadow:var(--e-raised);overflow:hidden;aspect-ratio:16/9;
   border-radius:240px 240px var(--r-card) var(--r-card)/80px 80px var(--r-card) var(--r-card)}
@@ -458,6 +474,34 @@ footer.invert{padding:var(--s8) 0 var(--s6);background:var(--surface);border-top
   </div>
 </section>
 
+<!-- ====================== TEAM & OFFICE GALLERY ====================== -->
+<section class="tg" id="gallery">
+  <div class="wrap">
+    <div class="section-head reveal"><span class="eyebrow"><svg><use href="#leaf"/></svg> Inside Nōvuu</span><h2>Our team &amp; space.</h2></div>
+    <div class="tg-frame reveal">
+      <div class="slideshow tg-stage" tabindex="0" role="group" aria-roledescription="carousel" aria-label="Photos of the Nōvuu team and office">
+        <img class="ss-slide is-active" src="images/about/team-front-desk.jpg" alt="Nōvuu Medspa team members Jess and Alexandra together at the front desk" loading="lazy" width="1800" height="1200">
+        <img class="ss-slide" src="images/about/office-reception.jpg" alt="The bright, welcoming Nōvuu Medspa reception and retail area" loading="lazy" width="1800" height="1200">
+        <img class="ss-slide" src="images/about/team-consultation.jpg" alt="A Nōvuu Medspa provider walking a client through a consultation" loading="lazy" width="1800" height="1200">
+        <img class="ss-slide" src="images/about/office-waiting-nook.jpg" alt="A calm waiting nook inside Nōvuu Medspa with a linen chair and greenery" loading="lazy" width="1800" height="1200">
+        <img class="ss-slide" src="images/about/team-finishing-touches.jpg" alt="A Nōvuu Medspa team member sharing the final result with a client" loading="lazy" width="1800" height="1200">
+        <img class="ss-slide" src="images/about/office-treatment-room.jpg" alt="A private treatment room at Nōvuu Medspa" loading="lazy" width="1800" height="1200">
+        <span class="ss-tag">Inside Nōvuu</span>
+        <button class="ss-arrow ss-arrow--prev" type="button" data-ss-dir="-1" aria-label="Previous photo"><svg><use href="#chev"/></svg></button>
+        <button class="ss-arrow ss-arrow--next" type="button" data-ss-dir="1" aria-label="Next photo"><svg><use href="#chev"/></svg></button>
+        <div class="ss-dots" role="tablist" aria-label="Choose photo">
+          <button class="ss-dot is-active" type="button" aria-label="Go to photo 1"></button>
+          <button class="ss-dot" type="button" aria-label="Go to photo 2"></button>
+          <button class="ss-dot" type="button" aria-label="Go to photo 3"></button>
+          <button class="ss-dot" type="button" aria-label="Go to photo 4"></button>
+          <button class="ss-dot" type="button" aria-label="Go to photo 5"></button>
+          <button class="ss-dot" type="button" aria-label="Go to photo 6"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="reviews" id="reviews">
   <div class="wrap">
     <div class="section-head reveal"><span class="eyebrow"><svg><use href="#leaf"/></svg> Reviews</span><h2>What our clients say.</h2></div>
@@ -542,6 +586,11 @@ document.querySelectorAll('.acc-q').forEach(function(btn){
   function start(){ if(reduce) return; stop(); timer=setInterval(function(){go(i+1);},3500); }
   function stop(){ if(timer){clearInterval(timer);timer=null;} }
   dots.forEach(function(d,n){ d.addEventListener('click',function(){go(n);start();}); });
+  box.querySelectorAll('[data-ss-dir]').forEach(function(b){ b.addEventListener('click',function(){go(i+parseInt(b.dataset.ssDir,10));start();}); });
+  box.addEventListener('keydown',function(e){ if(e.key==='ArrowRight'){go(i+1);start();} if(e.key==='ArrowLeft'){go(i-1);start();} });
+  var sx=null;
+  box.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
+  box.addEventListener('touchend',function(e){ if(sx==null)return; var dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>40){go(i+(dx<0?1:-1));start();} sx=null; });
   box.addEventListener('mouseenter',stop); box.addEventListener('mouseleave',start);
   box.addEventListener('focusin',stop); box.addEventListener('focusout',start);
   start();
