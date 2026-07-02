@@ -296,11 +296,22 @@ footer{padding:var(--s9) 0 var(--s6)}
   .concern-block{grid-template-columns:1fr;gap:var(--s3)}
   .gallery-head{flex-direction:column;align-items:flex-start}
   .price-card{grid-template-columns:1fr}
+  .stat-band{grid-template-columns:1fr;text-align:center}
   .foot-grid{grid-template-columns:1fr;gap:var(--s6)}
   .frame{max-width:380px;margin:0 auto var(--s6)}
   .closing{border-radius:50% 50% 0 0 / 60px 60px 0 0}
 }
 
+.values{padding:var(--s9) 0 0}
+.vgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s6);margin-bottom:var(--s7)}
+.vitem .vico{width:44px;height:44px;border-radius:var(--r-pill);border:1px solid var(--line);display:grid;place-items:center;color:var(--green);margin-bottom:var(--s4)}
+.vitem .vico svg{width:20px;height:20px}
+.vitem h3{font-size:var(--fs-20);margin-bottom:var(--s2)}
+.vitem p{font-size:var(--fs-16)}
+.stat-band{background:var(--accent);color:var(--on-accent);border-radius:var(--r-card);padding:var(--s7) var(--s8);display:grid;grid-template-columns:auto 1fr;gap:var(--s7);align-items:center}
+.stat-band-num{font-family:var(--display);font-weight:300;font-size:clamp(var(--fs-44),6vw,var(--fs-64));line-height:1;color:var(--on-accent);white-space:nowrap}
+.stat-band-num span{display:block;font-family:var(--body);font-size:var(--fs-12);letter-spacing:.16em;text-transform:uppercase;color:rgba(241,234,224,.7);margin-top:var(--s2)}
+.stat-band p{color:rgba(241,234,224,.85);font-size:var(--fs-16);margin:0}
 .mwrap{padding:var(--s10) 0;background:var(--white)}
 .mgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:var(--s6);align-items:stretch}
 .mcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:var(--s8);display:flex;flex-direction:column}
@@ -427,6 +438,36 @@ footer{padding:var(--s9) 0 var(--s6)}
     </div>
   </div>
 </header>
+<section class="values">
+  <div class="wrap">
+    <div class="section-head reveal" style="margin-left:auto;margin-right:auto;text-align:center">
+      <span class="eyebrow" style="justify-content:center"><svg><use href="#leaf"/></svg> Member benefits</span>
+      <h2>More care, more savings, less to think about</h2>
+      <p>Every Nōvuu membership bundles your regular treatments with real, ongoing discounts — here's what that means for you.</p>
+    </div>
+    <div class="vgrid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+      <div class="vitem reveal">
+        <span class="vico"><svg><use href="#leaf"/></svg></span>
+        <h3>15–20% off, every visit</h3>
+        <p>Skin members save 15% on all services; Wellness members save 20% on additional IV infusions — automatically, no coupons needed.</p>
+      </div>
+      <div class="vitem reveal" style="--d:.06s">
+        <span class="vico"><svg><use href="#card"/></svg></span>
+        <h3>Treatments on autopilot</h3>
+        <p>Neurotoxin, IV infusions, and wellness injections are built into your plan on a set schedule, so upkeep never slips.</p>
+      </div>
+      <div class="vitem reveal" style="--d:.12s">
+        <span class="vico"><svg><use href="#leaf"/></svg></span>
+        <h3>Complimentary extras</h3>
+        <p>Skin members also receive two full-size medical-grade skincare products and a free Hydrofacial every year, on us.</p>
+      </div>
+    </div>
+    <div class="stat-band reveal" style="--d:.18s">
+      <div class="stat-band-num">$650<span>Retail value / quarter</span></div>
+      <p>That's the retail value of the 50 units of Daxxify® or Xeomin® (at our $13/unit starting price) included in every Nōvuu Skin Membership every 3 months — more than the $537 you'd pay in dues over that same quarter, before your 15% service discount, free Hydrofacial, and skincare products are even counted.</p>
+    </div>
+  </div>
+</section>
 <section class="mwrap">
   <div class="wrap">
     <div class="mgrid">
