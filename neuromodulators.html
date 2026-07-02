@@ -388,7 +388,8 @@ footer.invert{padding:var(--s8) 0 var(--s6);background:var(--surface);border-top
 .topbar{text-align:center;font-size:var(--fs-12);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);padding:var(--s3) var(--s5);background:var(--surface);border-bottom:1px solid var(--line-soft)}
 .topbar a{color:var(--ink);border-bottom:1px solid var(--accent);padding-bottom:1px}
 /* section sub-nav */
-.subnav{position:fixed;top:50%;left:var(--s5);transform:translateY(-50%);z-index:79;display:flex;flex-direction:column;gap:4px;padding:6px;background:rgba(241,234,224,.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--e-overlay);max-height:calc(100vh - var(--s8));overflow-y:auto;scrollbar-width:none}
+.subnav{position:fixed;top:50%;left:var(--s5);transform:translateY(-50%);z-index:79;display:flex;flex-direction:column;gap:4px;padding:6px;background:rgba(241,234,224,.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--e-overlay);max-height:calc(100vh - var(--s8));overflow-y:auto;scrollbar-width:none;visibility:hidden}
+.subnav.is-positioned{visibility:visible}
 .subnav::-webkit-scrollbar{display:none}
 .subnav a{font-size:var(--fs-12);font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);white-space:nowrap;padding:8px var(--s4);border-radius:var(--r-pill);transition:color .3s var(--ease),background .3s var(--ease)}
 .subnav a:hover{color:var(--ink)}
@@ -742,6 +743,17 @@ if(!window.matchMedia('(prefers-reduced-motion:reduce)').matches){
   }
   window.addEventListener('scroll',onScroll,{passive:true});
   onScroll();
+  var wrap=document.querySelector('.wrap');
+  function place(){
+    if(!wrap){ bar.classList.remove('is-positioned'); return; }
+    var left=wrap.getBoundingClientRect().left-bar.offsetWidth-24;
+    if(left<24){ bar.classList.remove('is-positioned'); return; }
+    bar.style.left=left+'px';
+    bar.classList.add('is-positioned');
+  }
+  window.addEventListener('resize',place,{passive:true});
+  window.addEventListener('load',place);
+  place();
 })();
 </script>
 </body>
