@@ -738,7 +738,7 @@ function goResults() {
       return '<div class="rt-svc">'
         + '<div class="rt-svc-name">' + svc.name + '</div>'
         + '<div class="rt-svc-desc">' + svc.desc + '</div>'
-        + '<div class="rt-svc-price">Starting at ' + svc.price + '</div>'
+        + '<div class="rt-svc-price">' + (svc.price === 'Ask for pricing' ? svc.price : 'Starting at ' + svc.price) + '</div>'
         + '<div class="rt-svc-actions">'
         +   '<a href="' + svc.url + '" class="btn btn--ghost btn--sm" style="font-size:11px;padding:6px 14px">Learn More</a>'
         +   '<a href="https://novuu.myaestheticrecord.com/online-booking" class="btn btn--primary btn--sm" style="font-size:11px;padding:6px 14px">Book Now</a>'
