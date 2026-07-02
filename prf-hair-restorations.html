@@ -242,6 +242,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 
 /* ============================ PRICING (bg) ============================ */
 .pricing{padding:var(--s10) 0;background:var(--white)}
+.price-tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--s5)}
+.ptier{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:var(--s7) var(--s6);text-align:center;display:flex;flex-direction:column;gap:var(--s4)}
+.pt-name{font-size:var(--fs-16);color:var(--ink-2);min-height:2.8em;display:flex;align-items:center;justify-content:center;line-height:1.4}
+.pt-price{font-family:var(--display);font-weight:300;font-size:var(--fs-44);color:var(--ink);line-height:1}
 .price-card{display:grid;grid-template-columns:1fr auto;gap:var(--s6);align-items:center;
   background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:var(--s8)}
 .price-card .eyebrow{margin-bottom:var(--s4)}
@@ -482,7 +486,7 @@ section[id]{scroll-margin-top:150px}
 </nav>
 <div class="subnav" aria-label="Page sections">
   <a href="#treatment">Treatment</a><a href="#nutrafol">Nutrafol</a><a href="#benefits">Benefits</a>
-<a href="#care">Care</a><a href="#faq">FAQ</a></div>
+<a href="#pricing">Pricing</a><a href="#care">Care</a><a href="#faq">FAQ</a></div>
 <header class="hero">
   <div class="wrap hero-grid">
     <div class="reveal">
@@ -538,6 +542,16 @@ section[id]{scroll-margin-top:150px}
     <div class="bcard"><div class="bnum">4</div><h3>Non-surgical option</h3><p>Unlike hair transplant surgery, PRF hair restoration is a non-invasive procedure with minimal downtime.</p></div>
   </div>
   <div style="text-align:center;margin-top:var(--s8)"><a href="https://novuu.myaestheticrecord.com/online-booking" class="btn btn--primary btn--lg" data-magnetic>Book Now <span class="dot"><svg><use href="#arr"/></svg></span></a></div>
+</div></section>
+
+<!-- ============ PRICING ============ -->
+<section class="pricing" id="pricing"><div class="wrap">
+  <div class="ahead" style="text-align:center;margin-bottom:var(--s8)"><span class="eyebrow" style="justify-content:center"><svg><use href="#leaf"/></svg> Pricing</span></div>
+  <div class="price-tiers">
+    <div class="ptier"><div class="pt-name">Single session</div><div class="pt-price">$700</div></div>
+    <div class="ptier"><div class="pt-name">Package of 3 sessions</div><div class="pt-price">$1,800</div></div>
+  </div>
+  <div style="text-align:center;margin-top:var(--s7)"><a href="https://novuu.myaestheticrecord.com/online-booking" class="btn btn--primary btn--lg" data-magnetic>Book Now <span class="dot"><svg><use href="#arr"/></svg></span></a></div>
 </div></section>
 
 <!-- ============ CARE (placeholder) ============ -->
