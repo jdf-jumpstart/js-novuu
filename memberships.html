@@ -112,6 +112,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .nav-backdrop{display:none;position:fixed;inset:0;z-index:74;background:rgba(26,26,26,.35);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .35s var(--ease)}
 .nav-backdrop.is-open{opacity:1;pointer-events:auto}
 .nav-book-now{display:none}
+@media(min-width:1025px) and (max-width:1300px){
+  .nav{padding:var(--s3) var(--s2) var(--s3) var(--s4)}
+  .nav-links{gap:var(--s4)}
+  .nav-links>a[href="quiz.html"]{display:none}
+}
 
 /* ============================ HERO ============================ */
 .hero{padding:var(--s7) 0 var(--s9);position:relative;overflow:hidden}
