@@ -65,7 +65,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .topbar{text-align:center;font-size:var(--fs-12);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);padding:var(--s3) var(--s5);background:var(--surface);border-bottom:1px solid var(--line-soft)}
 .topbar a{color:var(--ink);border-bottom:1px solid var(--accent);padding-bottom:1px}
 .nav{position:sticky;top:var(--s4);margin:var(--s4) auto 0;z-index:80;width:min(94%,var(--maxw));display:flex;align-items:center;justify-content:space-between;padding:var(--s3) var(--s3) var(--s3) var(--s5);background:rgba(241,234,224,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:var(--r-pill);box-shadow:var(--e-overlay)}
-.brand-logo{height:30px;width:auto;color:var(--ink);display:block}
+.brand-logo{height:30px;width:auto;aspect-ratio:695/245;color:var(--ink);display:block}
 .nav-links{display:flex;gap:var(--s6);align-items:center}
 .nav-links a{font-size:var(--fs-14);font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);transition:color .4s var(--ease)}
 .nav-links a:hover{color:var(--ink)}
@@ -87,6 +87,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .nav-backdrop{display:none;position:fixed;inset:0;z-index:74;background:rgba(26,26,26,.35);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .35s var(--ease)}
 .nav-backdrop.is-open{opacity:1;pointer-events:auto}
 .nav-book-now{display:none}
+@media(min-width:1025px) and (max-width:1300px){
+  .nav{padding:var(--s3) var(--s2) var(--s3) var(--s4)}
+  .nav-links{gap:var(--s4)}
+  .nav-links>a[href="quiz.html"]{display:none}
+}
 
 /* footer */
 .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:var(--s7);padding:var(--s9) 0 var(--s7)}

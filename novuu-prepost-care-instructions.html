@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Nōvuu Medspa — Pre &amp; Post Care Instructions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#2B3A36; --sage:#9DB0A2; --ink:#22201E; --cream:#F1EAE0;
+    --muted:#6A716B; --line:#DED6C8;
+  }
+  @page{ size: Letter; margin: 15mm 16mm 16mm; }
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; }
+  body{
+    font-family:'Jost',-apple-system,Segoe UI,sans-serif;
+    color:var(--ink); font-size:9.3pt; line-height:1.42;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* cover */
+  header.cover{ text-align:center; padding-top:4mm; margin-bottom:9mm; }
+  header.cover .logo{ width:172px; height:auto; fill:var(--green); display:block; margin:0 auto; }
+  header.cover .subtitle{
+    font-family:'Cormorant Garamond',serif; font-size:15pt; font-style:italic;
+    color:var(--muted); margin:7mm 0 0;
+  }
+  header.cover .divider{ width:58px; height:1px; background:var(--sage); margin:6mm auto 0; }
+
+  .section-title{ text-align:center; margin:0 0 9mm; }
+  .section-title .eyebrow{
+    font-size:7.6pt; letter-spacing:.26em; text-transform:uppercase; color:var(--sage);
+  }
+  .section-title h1{
+    font-family:'Cormorant Garamond',serif; font-weight:500; font-size:30pt;
+    color:var(--green); margin:2mm 0 0;
+  }
+  .section-title .divider{ width:58px; height:1px; background:var(--sage); margin:5mm auto 0; }
+
+  /* treatment / topic blocks — kept whole (never split across pages) */
+  section.treatment, section.topic{ break-inside:avoid; margin-bottom:7mm; }
+  h2.svc{
+    font-family:'Cormorant Garamond',serif; font-weight:500; font-size:19pt;
+    color:var(--green); margin:0; line-height:1.1;
+  }
+  h2.svc small{ font-size:11pt; color:var(--muted); font-style:italic; }
+  .svc-rule{ height:1px; background:var(--line); margin:2.2mm 0 3.4mm; }
+
+  .cols{ display:grid; grid-template-columns:1fr 1fr; column-gap:9mm; }
+  .col h3{
+    font-size:8.1pt; letter-spacing:.16em; text-transform:uppercase; color:var(--green);
+    margin:0 0 2.2mm; font-weight:600;
+  }
+  ul{ list-style:none; margin:0; padding:0; }
+  li{ position:relative; padding-left:4.5mm; margin-bottom:1.7mm; }
+  li::before{ content:'•'; position:absolute; left:0.3mm; color:var(--sage); font-size:9pt; }
+
+  /* FAQ */
+  .qa{ margin-bottom:2.4mm; }
+  .qa .q{ margin:2.2mm 0 0.5mm; color:var(--green); font-weight:500; font-size:9.4pt; }
+  .qa .a{ margin:0; color:var(--ink); }
+
+  .closing{
+    text-align:center; margin-top:6mm; color:var(--muted);
+    font-family:'Cormorant Garamond',serif; font-style:italic; font-size:12.5pt;
+  }
+  .page-break{ break-before:page; }
+</style>
+</head>
+<body>
+  <header class="cover">
+    <svg class="logo" viewBox="230 262 695 245" xmlns="http://www.w3.org/2000/svg">
+    <path  d="M237.4,404.4V290.5l-9-9.6h30.3v70.2c0.4-9.4,1.4-18.4,3.2-26.9c1.8-8.5,4.5-16,8.3-22.5c3.7-6.5,8.6-11.7,14.6-15.6c6-3.9,13.5-5.8,22.4-5.8c7.8,0,14.6,1.2,20.5,3.7c5.8,2.5,10.8,6,14.7,10.5c4,4.5,7,9.9,9,16.2c2,6.3,3.1,13.1,3.1,20.6v72.9l9,9.6H324l9-9.6l-0.5-72.9c0-8.9-1-16.3-3.1-22.4c-2-6-4.7-10.9-8-14.5c-3.3-3.6-6.9-6.2-11.1-7.8c-4.1-1.6-8.1-2.3-12.2-2.1c-8.5,0.4-15.3,3.6-20.3,9.6c-5.1,6-9,13.6-11.7,22.6c-2.7,9-4.6,18.9-5.6,29.7c-1,10.7-1.7,21-2,31v26.9l9,9.6h-39.3L237.4,404.4z"/>
+    <path  d="M757.4,290.3v113.8l9,9.8h-30.3v-70.4c-0.4,9.2-1.4,18.1-3.2,26.7c-1.8,8.6-4.5,16.1-8.3,22.6c-3.7,6.5-8.6,11.7-14.6,15.6c-6,3.9-13.5,5.8-22.4,5.8c-7.6,0-14.4-1.3-20.3-3.9c-6-2.6-10.9-6.1-14.9-10.6c-4-4.5-7-9.9-9-16.1c-2-6.2-3-13-3-20.5v-72.9l-9-9.6h39.4l-9,9.6l0.5,72.9c0,8.9,1,16.3,3.1,22.4c2,6,4.7,10.9,8,14.5c3.3,3.6,6.9,6.2,11.1,7.9c4.1,1.6,8.1,2.3,12.2,2.1c8.5-0.4,15.3-3.6,20.3-9.6c5.1-6,9-13.6,11.7-22.6c2.7-9,4.6-19,5.6-29.8c1-10.8,1.7-21.1,2-30.9v-26.9l-9-9.6h39.4l-9,9.6L757.4,290.3z"/>
+    <path  d="M908.6,290.3v113.8l9,9.8h-30.3v-70.4c-0.4,9.2-1.4,18.1-3.2,26.7c-1.8,8.6-4.5,16.1-8.3,22.6c-3.8,6.5-8.6,11.7-14.6,15.6c-6,3.9-13.5,5.8-22.4,5.8c-7.6,0-14.4-1.3-20.3-3.9c-6-2.6-10.9-6.1-14.9-10.6c-4-4.5-7-9.9-9-16.1c-2-6.2-3.1-13-3.1-20.5v-72.9l-9-9.6h39.4l-9,9.6l0.5,72.9c0,8.9,1,16.3,3,22.4c2,6,4.7,10.9,8,14.5s6.9,6.2,11.1,7.9c4.1,1.6,8.1,2.3,12.2,2.1c8.5-0.4,15.3-3.6,20.3-9.6c5.1-6,9-13.6,11.7-22.6c2.7-9,4.6-19,5.6-29.8c1-10.8,1.7-21.1,2-30.9v-26.9l-9-9.6h39.4l-9,9.6L908.6,290.3z"/>
+    <path  d="M367.6,347.4c0-9.2,1.7-17.8,5.2-25.9c3.4-8.1,8.2-15.1,14.2-21.2c6-6,13.1-10.8,21.2-14.2c8.1-3.4,16.7-5.2,25.9-5.2c9.2,0,17.9,1.7,25.9,5.2c8.1,3.4,15.1,8.2,21.2,14.2c6,6,10.8,13.1,14.2,21.2c3.5,8.1,5.2,16.7,5.2,25.9c0,9.2-1.7,17.8-5.2,25.9c-3.4,8.1-8.2,15.1-14.2,21.2c-6,6-13.1,10.8-21.2,14.2c-8.1,3.4-16.7,5.2-25.9,5.2c-9.2,0-17.9-1.7-25.9-5.2c-8.1-3.4-15.1-8.2-21.2-14.2c-6-6-10.8-13.1-14.2-21.2C369.4,365.3,367.6,356.6,367.6,347.4z M388.3,347.7c0,8.5,1.2,16.6,3.6,24.3c2.4,7.7,5.7,14.5,9.9,20.2c4.2,5.8,9,10.4,14.5,13.8c5.5,3.4,11.4,5.2,17.9,5.2c6.4,0,12.3-1.7,17.8-5.2c5.5-3.5,10.4-8.1,14.5-14c4.1-5.8,7.4-12.6,9.9-20.3c2.4-7.7,3.6-15.8,3.6-24.3c0-8.5-1.2-16.6-3.6-24.2c-2.4-7.6-5.7-14.3-9.9-20.1c-4.2-5.8-9-10.4-14.5-13.7c-5.5-3.4-11.4-5.1-17.8-5.1c-6.4,0-12.3,1.7-17.9,5.1c-5.5,3.4-10.4,7.9-14.5,13.7c-4.2,5.8-7.4,12.5-9.9,20.2C389.5,331,388.3,339.2,388.3,347.7z"/>
+    <rect x="392.4" y="267.8"  width="83.5" height="3.3"/>
+    <path  d="M606.3,281c3.1,3.2,6.2,6.5,9.2,9.8c-15.3,39.7-30.6,79.3-45.9,119c-15.1-39.8-30.2-79.5-45.3-119.2l8.8-9.6h-40.7l8.6,9.2l47.2,123.6h22.9c17-44.3,34.1-88.5,51.1-132.8H606.3z"/>
+    <polygon  points="451.5,493.7 451.4,493.7 436.2,457.2 431.3,457.2 431.3,499.5 435.3,499.5 435.3,465.7 449.5,499.4 449.5,499.5 453.3,499.5 467.4,465.7 467.4,499.5 471.5,499.5 471.5,457.2 466.7,457.2"/>
+    <polygon  points="498,480.2 517.2,480.2 517.2,476.3 498,476.3 498,461 518.5,461 518.5,457.2 493.7,457.2 493.7,499.3 493.9,499.3 493.9,499.4 518.9,499.4 518.9,495.6 498,495.6"/>
+    <path  d="M563.1,459.7c-2.9-1.7-6.4-2.5-10.4-2.5h-13.2v42.3H552c4.2,0,7.8-0.9,10.8-2.6c3-1.7,5.3-4.2,6.8-7.3c1.6-3.1,2.4-6.9,2.4-11.4c0-4.4-0.8-8.1-2.3-11.3C568.2,463.7,566,461.3,563.1,459.7z M567.9,478.3c0,3.5-0.6,6.6-1.8,9.3c-1.2,2.6-3,4.6-5.4,6c-2.4,1.4-5.3,2.1-8.9,2.1h-8.1V461h8.8c3.4,0,6.2,0.7,8.5,2.1c2.2,1.3,4,3.2,5.2,5.9C567.3,471.7,567.9,474.8,567.9,478.3z"/>
+    <path  d="M615.9,480.3c-1.1-0.9-2.4-1.6-3.7-2.2c-1.2-0.5-2.5-1-4-1.4l-4.4-1.3c-1.1-0.3-2-0.6-3-1.1c-0.9-0.4-1.9-0.9-2.6-1.5c-0.9-0.7-1.5-1.4-1.9-2.1c-0.4-0.8-0.7-1.8-0.7-2.8c0-1.4,0.4-2.7,1.2-3.9c0.7-1.1,1.9-2,3.4-2.7c1.4-0.7,3.1-1,5.1-1c2.8,0,5,0.7,6.8,2.1c1.8,1.4,2.8,3.1,3,5.4v0.4h4.1l0-0.2c-0.1-2.2-0.7-4.2-1.9-5.8c-1.2-1.7-2.8-3.1-4.8-4c-2.1-1-4.5-1.5-7-1.5c-2.6,0-5,0.5-7.1,1.5c-2.1,1-3.8,2.3-5,4.1c-1.2,1.8-1.9,3.8-1.9,6.1c0,2.8,0.9,5,2.8,6.8c1.9,1.7,4.4,3.1,7.8,4.1l5,1.5c1.7,0.5,3.2,1.1,4.5,1.7c1.2,0.6,2.2,1.4,3,2.4c0.7,0.9,1,2.1,1,3.4c0,1.7-0.4,3-1.4,4.3c-0.9,1.2-2.2,2.2-3.8,2.9c-1.5,0.7-3.3,1.1-5.5,1.1c-1.8,0-3.5-0.3-5.1-0.9c-1.5-0.6-2.7-1.4-3.7-2.5c-0.9-1.1-1.5-2.5-1.6-4.1l0-0.2h-4.3l0,0.2c0.2,2.4,0.9,4.3,2.1,5.9c1.2,1.7,2.9,3.1,5,4c2.1,1,4.6,1.4,7.5,1.4c3,0,5.6-0.5,7.9-1.6c2.3-1.1,3.9-2.5,5.1-4.3c1.2-1.8,1.7-3.9,1.7-6.1c0-1.8-0.3-3.3-1-4.6C618,482.3,617.1,481.3,615.9,480.3z"/>
+    <path  d="M661.5,458.9c-2-1.2-4.5-1.7-7.5-1.7h-13.7v42.5h4.2v-16.1h9.5c3,0,5.5-0.6,7.5-1.7c2-1.2,3.6-2.8,4.6-4.7c1-2,1.5-4.2,1.5-6.7c0-2.5-0.5-4.7-1.5-6.7C665.1,461.7,663.5,460.1,661.5,458.9z M644.4,461.1h9.4c2.2,0,4,0.4,5.4,1.2c1.5,0.8,2.5,1.9,3.2,3.3c0.7,1.5,1.1,3.1,1.1,4.8c0,1.7-0.3,3.3-1.1,4.8c-0.7,1.4-1.8,2.5-3.2,3.3c-1.4,0.8-3.2,1.2-5.4,1.2h-9.5V461.1z"/>
+    <path  d="M699.3,457.3l0-0.1h-4.3l-15.3,42.1l-0.1,0.3h4.3v-0.2l0.1,0l4.5-12.5h17.4l4.5,12.5l0,0.1h4.4L699.3,457.3z M689.7,483l7.3-20.5h0l7.3,20.5H689.7z"/>
+  </svg>
+    <p class="subtitle">Pre &amp; Post Care Instructions</p>
+    <div class="divider"></div>
+  </header>
+
+  <section class="treatment">
+  <h2 class="svc">Neurotoxin <small>(Botox / Dysport / Daxxify / Xeomin)</small></h2>
+  <div class="svc-rule"></div>
+  <div class="cols">
+    <div class="col">
+      <h3>Pre-Treatment</h3>
+      <ul><li>Avoid alcohol for at least 24 hours before your appointment</li>
+<li>Avoid blood-thinning medications and supplements (aspirin, ibuprofen, fish oil, vitamin E, ginkgo biloba) for 3 days prior, if medically safe to do so</li>
+<li>Arrive with a clean face, free of makeup (we have makeup wipes &amp; face wash at the office if needed)</li>
+<li>Avoid scheduling your appointment within 2 weeks before a major event</li>
+<li>Inform your provider of any medications, supplements, or medical conditions</li></ul>
+    </div>
+    <div class="col">
+      <h3>Post-Treatment</h3>
+      <ul><li>Do not rub, massage, or apply pressure to treated areas for 24 hours</li>
+<li>Stay upright for at least 4 hours after treatment</li>
+<li>Avoid strenuous exercise for 24 hours</li>
+<li>Avoid heat exposure (saunas, hot tubs, hot yoga) for 24 hours</li>
+<li>Avoid alcohol for 24 hours</li>
+<li>Do not receive facials, massages, or laser treatments for 24 hours</li>
+<li>Full results appear after 2 weeks — if you feel you need a touch-up, call our office to schedule between 2–3 weeks post injection</li></ul>
+    </div>
+  </div>
+</section>
+<section class="treatment">
+  <h2 class="svc">Dermal Filler</h2>
+  <div class="svc-rule"></div>
+  <div class="cols">
+    <div class="col">
+      <h3>Pre-Treatment</h3>
+      <ul><li>Avoid alcohol for at least 24 hours before your appointment</li>
+<li>Avoid blood thinners and supplements (aspirin, ibuprofen, fish oil, vitamin E, ginkgo biloba) for 3 days prior, if medically safe to do so</li>
+<li>Stay well hydrated in the days leading up to your appointment</li>
+<li>Avoid scheduling within 1–2 months of a major event if possible</li>
+<li>Inform your provider of any history of cold sores if treating the lip area</li>
+<li>Arrive with a clean face, free of makeup (we have makeup wipes &amp; face wash at the office if needed)</li></ul>
+    </div>
+    <div class="col">
+      <h3>Post-Treatment</h3>
+      <ul><li>Expect mild swelling, bruising, and tenderness for up to 14 days</li>
+<li>No makeup for 24 hours</li>
+<li>Avoid NSAIDs; Tylenol is OK</li>
+<li>Do not massage or apply pressure to treated areas unless specifically instructed</li>
+<li>Avoid strenuous exercise for 24–48 hours</li>
+<li>Avoid alcohol for 24–48 hours</li>
+<li>Avoid extreme heat or cold (saunas, hot tubs, ice packs directly on skin) for 48 hours</li>
+<li>Sleep on your back with your head slightly elevated for the first 2 nights</li>
+<li>Avoid dental procedures, surgeries, and vaccines for 2 weeks following filler</li>
+<li>Avoid laser treatments, facials, massages, or face treatments for 2 weeks</li>
+<li>Final results are visible once swelling fully resolves, typically within 2–4 weeks — don’t love it or hate it for 2 weeks!</li></ul>
+    </div>
+  </div>
+</section>
+<section class="treatment">
+  <h2 class="svc">Biostimulators <small>(Radiesse)</small></h2>
+  <div class="svc-rule"></div>
+  <div class="cols">
+    <div class="col">
+      <h3>Pre-Treatment</h3>
+      <ul><li>Avoid alcohol for at least 24–48 hours before your appointment</li>
+<li>Avoid blood thinners and supplements (aspirin, ibuprofen, fish oil, vitamin E, ginkgo biloba) for 3 days prior, if medically safe to do so</li>
+<li>Stay well hydrated in the days leading up to your appointment</li>
+<li>Arrive with a clean face, free of makeup (we have makeup wipes &amp; face wash at the office if needed)</li>
+<li>Inform your provider of any medications, supplements, or medical conditions</li></ul>
+    </div>
+    <div class="col">
+      <h3>Post-Treatment</h3>
+      <ul><li>You may have swelling, tenderness, and bruising for up to 2 weeks post-treatment</li>
+<li>Do not massage treated areas unless instructed by your provider</li>
+<li>Avoid NSAIDs; Tylenol is OK</li>
+<li>Avoid strenuous exercise for 48 hours</li>
+<li>Avoid alcohol for 24 hours</li>
+<li>Avoid extreme heat (saunas, steam rooms, hot yoga) for 48 hours</li>
+<li>Results develop gradually over 4–12 weeks as collagen production is stimulated</li>
+<li>A series of treatments may be recommended for optimal results</li></ul>
+    </div>
+  </div>
+</section>
+<section class="treatment">
+  <h2 class="svc">Microneedling</h2>
+  <div class="svc-rule"></div>
+  <div class="cols">
+    <div class="col">
+      <h3>Pre-Treatment</h3>
+      <ul><li>Avoid retinoids (tretinoin, retinol) for 5–7 days before treatment</li>
+<li>Avoid blood thinners and supplements (aspirin, ibuprofen, fish oil, vitamin E) for 3 days prior, if medically safe to do so</li>
+<li>Avoid active skin infections, irritation, open wounds, sunburn, or severe breakouts in the treatment area — call us to reschedule</li>
+<li>Avoid sun exposure and tanning for at least 2 weeks before treatment</li>
+<li>Do not use exfoliating acids (AHA, BHA, glycolic) for 3 days prior</li>
+<li>Arrive with a clean face, free of makeup (we have makeup wipes &amp; face wash at the office if needed)</li>
+<li>Stay well hydrated leading up to your appointment</li>
+<li>Inform your provider of any history of cold sores or keloid scarring</li></ul>
+    </div>
+    <div class="col">
+      <h3>Post-Treatment</h3>
+      <ul><li>Skin will appear red and feel similar to a mild sunburn for 24–72 hours; this is normal</li>
+<li>Change your pillowcase</li>
+<li>Do not wash your face or apply any products for at least 4–6 hours post-treatment (if you received microneedling with PRF or VAMP, please wait 12–24 hours before washing your face)</li>
+<li>You will be given a topical skin hydrator at your appointment to use for the first 24 hours — we do not recommend any other products during this time</li>
+<li>Avoid retinoids, exfoliating acids, and active skincare ingredients for 7 days until your skin is healed</li>
+<li>Avoid direct sun exposure and wear SPF 30 or higher daily (after 24 hours)</li>
+<li>Avoid strenuous exercise, sweating, and heat exposure for 24–48 hours</li>
+<li>You may experience some peeling on days 3–5; do NOT pick any flaking skin</li>
+<li>Results improve progressively — optimal results are typically seen after a series of 3 treatments spaced 4–6 weeks apart</li></ul>
+    </div>
+  </div>
+</section>
+<section class="treatment">
+  <h2 class="svc">PRF EZ Gel</h2>
+  <div class="svc-rule"></div>
+  <div class="cols">
+    <div class="col">
+      <h3>Pre-Treatment</h3>
+      <ul><li>Stay well hydrated and eat a balanced, nutrient-rich meal before your appointment — the quality of your PRF is directly influenced by the quality of your blood, so proper hydration and nutrition in the days leading up to your treatment will support optimal results</li>
+<li>Avoid alcohol for at least 24–48 hours before your appointment</li>
+<li>Avoid blood-thinning and anti-inflammatory medications (aspirin, ibuprofen, fish oil, vitamin E, ginkgo biloba) for 3 days prior, if medically safe to do so</li>
+<li>Arrive with a clean face, free of makeup (we have makeup wipes &amp; face wash at the office if needed)</li>
+<li>Avoid scheduling within 2 weeks of a major event</li>
+<li>Inform your provider of any medications, supplements, or medical conditions</li></ul>
+    </div>
+    <div class="col">
+      <h3>Post-Treatment</h3>
+      <ul><li>Expect swelling, redness, and possible bruising for 3–5 days; this is normal and part of the healing process — please plan special events accordingly</li>
+<li>Avoid anti-inflammatory medications (NSAIDs, Advil, Aspirin), ice, and Arnica as these can suppress the regenerative process — Tylenol is OK</li>
+<li>Avoid touching, rubbing, or massaging the treated area for 24 hours</li>
+<li>Avoid strenuous exercise and excessive sweating for 48 hours</li>
+<li>Avoid alcohol for 24–48 hours</li>
+<li>Avoid extreme heat (saunas, steam rooms, hot yoga) for 48–72 hours</li>
+<li>No makeup in the treatment area for 24 hours</li>
+<li>Avoid laser treatments, chemical peels, or microneedling for 1 week</li>
+<li>Results develop gradually over 4–12 weeks as your body produces new collagen and elastin</li>
+<li>A series of 3 treatments spaced 4–6 weeks apart is usually recommended for optimal results</li></ul>
+    </div>
+  </div>
+</section>
+<section class="treatment">
+  <h2 class="svc">VI Chemical Peel</h2>
+  <div class="svc-rule"></div>
+  <div class="cols">
+    <div class="col">
+      <h3>Pre-Treatment</h3>
+      <ul><li>Avoid retinoids (tretinoin, retinol) for 5–7 days before your peel</li>
+<li>Avoid exfoliating acids (AHA, BHA, glycolic, salicylic) for 5–7 days prior</li>
+<li>Avoid waxing, threading, or laser treatments on the face for at least 2 weeks before your peel</li>
+<li>Avoid prolonged sun exposure and tanning for at least 2 weeks before treatment; arrive without a sunburn</li>
+<li>Discontinue use of any prescription topicals unless advised otherwise by your provider</li>
+<li>Arrive with a clean face, free of makeup (we have makeup wipes &amp; face wash at the office if needed)</li>
+<li>Inform your provider of any history of cold sores; antiviral prophylaxis may be recommended</li>
+<li>Inform your provider of any current medications, especially Accutane (you must be off Accutane for at least 6 months before receiving a chemical peel)</li></ul>
+    </div>
+    <div class="col">
+      <h3>Post-Treatment</h3>
+      <ul><li>Leave the peel solution on for the time instructed by your provider; do not wash your face early</li>
+<li>Peeling typically begins on days 2–3 and can last through day 7; this is expected and normal</li>
+<li>Do not pick, pull, or peel flaking skin; allow it to shed naturally to avoid scarring or hyperpigmentation</li>
+<li>Use only the post-peel kit products provided; do not introduce any other skincare during the healing period</li>
+<li>Avoid direct sun exposure entirely during the peeling phase; wear SPF 30 or higher every day once healed</li>
+<li>Avoid strenuous exercise and sweating for the first 48 hours</li>
+<li>Avoid alcohol for 24–48 hours</li>
+<li>Avoid retinoids, exfoliating acids, and active skincare for at least 7–10 days post-peel</li>
+<li>Avoid laser treatments, microneedling, or waxing for 4 weeks</li>
+<li>Avoid swimming pools and hot tubs during the healing process</li>
+<li>Final results are visible once peeling is complete, typically within 7–10 days — skin will appear brighter, smoother, and more even in tone</li></ul>
+    </div>
+  </div>
+</section>
+
+  <div class="page-break"></div>
+  <div class="section-title">
+    <p class="eyebrow">Frequently Asked Questions</p>
+    <h1>Questions, Answered</h1>
+    <div class="divider"></div>
+  </div>
+
+  <section class="topic">
+  <h2 class="svc">Neurotoxin</h2>
+  <div class="svc-rule"></div>
+  <div class="qa"><p class="q">How long will my results last?</p><p class="a">Tox results can vary from person to person, but on average you can expect your treatment to last 3–4 months, with results peaking around 6–8 weeks.</p></div>
+<div class="qa"><p class="q">How quickly will I notice a difference?</p><p class="a">Neurotoxins take up to 14 days to fully settle, but you may begin to feel the effects in as little as 24 hours.</p></div>
+<div class="qa"><p class="q">What if I need more units?</p><p class="a">Please schedule a follow-up appointment 2–3 weeks after your treatment so we can assess your movement and perform a dosage adjustment as needed.</p></div>
+<div class="qa"><p class="q">How many units will I need?</p><p class="a">Everyone’s anatomy and aesthetic goals are different. A general guideline is around 20 units for each of the upper facial muscles (forehead, “eleven lines,” and crow’s feet).</p></div>
+</section>
+<section class="topic">
+  <h2 class="svc">Dermal Filler</h2>
+  <div class="svc-rule"></div>
+  <div class="qa"><p class="q">Am I going to swell or bruise?</p><p class="a">Dermal fillers are introduced into the body via a needle or cannula, and because of this mild trauma most people can expect bruising and swelling to some degree.</p></div>
+<div class="qa"><p class="q">How long will I be swollen or bruised?</p><p class="a">The extent of your bruising and/or swelling is unique to you, but most people are able to resume regular daily activities after 24–48 hours. Arnica gel and Tylenol will be provided after your appointment, along with aftercare do’s and don’ts to ensure safe and healthy healing.</p></div>
+<div class="qa"><p class="q">How long do dermal filler results last?</p><p class="a">Results are visible immediately and typically last 6–18 months, depending on the type of filler used, the area treated, and individual factors like metabolism and lifestyle.</p></div>
+<div class="qa"><p class="q">How many syringes will I need?</p><p class="a">That depends entirely on your current anatomy and aesthetic goals. You and your provider will create a treatment plan together so we can help you achieve the look you’re going for.</p></div>
+<div class="qa"><p class="q">Can I pay for a half syringe?</p><p class="a">We do not offer half syringes, but we will keep any leftover filler from your syringe for 2 weeks. After two weeks, you’ll come in for a follow-up and any remaining filler can be used at that visit.</p></div>
+<div class="qa"><p class="q">What if I don’t like my results?</p><p class="a">The good news is that dermal fillers are long-lasting but temporary. You can wait for your body to naturally metabolize the filler, or you can come in to have it dissolved with a special filler-dissolving agent.</p></div>
+</section>
+<section class="topic">
+  <h2 class="svc">Microneedling</h2>
+  <div class="svc-rule"></div>
+  <div class="qa"><p class="q">Does microneedling hurt?</p><p class="a">Most clients are surprised by how comfortable it is. We apply a strong medical-grade numbing cream before your session, so you’ll typically feel light pressure and vibration rather than pain. Most patients report little to no pain during the procedure.</p></div>
+<div class="qa"><p class="q">How many sessions will I need?</p><p class="a">We typically recommend a series of three treatments spaced 4–6 weeks apart. After this series is completed, you can maintain your results with a treatment every 3–4 months.</p></div>
+<div class="qa"><p class="q">What does microneedling do?</p><p class="a">Microneedling creates channels in the skin using sterile needles. These channels allow skincare products to penetrate more deeply and signal the body to produce more collagen — a foundational building block of the skin that creates tighter, firmer, more supple skin.</p></div>
+<div class="qa"><p class="q">When will I see results?</p><p class="a">You’ll often notice a healthy glow and smoother texture within a few days. Because microneedling works by stimulating your own collagen, the most meaningful improvements in tone, firmness, and scars appear over 4–6 weeks and continue to build with each session.</p></div>
+<div class="qa"><p class="q">What is a good candidate for microneedling?</p><p class="a">Microneedling works for all skin types and tones. It should be avoided by people who are pregnant or breastfeeding, and those with active acne in the treatment area.</p></div>
+</section>
+<section class="topic">
+  <h2 class="svc">Chemical Peels</h2>
+  <div class="svc-rule"></div>
+  <div class="qa"><p class="q">What is a chemical peel?</p><p class="a">A chemical peel consists of skin-friendly chemicals that are expertly applied to your skin, chemically exfoliating the outer layer to reveal fresher, healthier skin beneath.</p></div>
+<div class="qa"><p class="q">What are chemical peels good for?</p><p class="a">Chemical peels can treat a wide variety of skin conditions, including fine lines and wrinkles, post-inflammatory hyperpigmentation (PIH), acne scarring, uneven skin tone, and dullness. Talk to your provider about your aesthetic goals.</p></div>
+<div class="qa"><p class="q">Do chemical peels hurt?</p><p class="a">Not at all. Chemical peels are a completely painless procedure.</p></div>
+<div class="qa"><p class="q">What is the downtime like?</p><p class="a">After your chemical peel, you will typically begin to peel around day 3 and be finished by day 7. The severity of peeling depends on the prior condition of your skin and whether you regularly use retinoids or active skincare ingredients.</p></div>
+</section>
+<section class="topic">
+  <h2 class="svc">IV Hydration</h2>
+  <div class="svc-rule"></div>
+  <div class="qa"><p class="q">What are IVs for?</p><p class="a">An IV can be great for replenishing and rebalancing electrolytes, helping soothe migraines, easing body aches, relieving nausea, boosting immunity before travel, and cutting colds short!</p></div>
+<div class="qa"><p class="q">How long does a session take?</p><p class="a">Most IV drips take between 30 and 40 minutes, depending on the blend selected. You can relax comfortably during your session in our IV lounge, making it an easy addition to your self-care routine.</p></div>
+<div class="qa"><p class="q">What can IV hydration help with?</p><p class="a">IV hydration can support a wide range of goals and concerns, including fatigue and low energy, dehydration, immune support, hangover recovery, brain fog, athletic recovery, skin health and glow, jet lag, and general wellness maintenance.</p></div>
+<div class="qa"><p class="q">Are there any contraindications?</p><p class="a">Certain medical conditions such as kidney disease, heart failure, or fluid-sensitive conditions may make IV hydration inappropriate. This is why we complete a thorough health history review before every session. If you have questions about whether it’s right for you, feel free to reach out before booking.</p></div>
+<div class="qa"><p class="q">Who is a good candidate for IV hydration?</p><p class="a">IV hydration is a great option for busy professionals, athletes, frequent travelers, those feeling run down or under the weather, or anyone looking to optimize their overall wellness. A brief health intake is completed prior to your first session to confirm it’s appropriate for you.</p></div>
+</section>
+<section class="topic">
+  <h2 class="svc">PRF EZ Gel</h2>
+  <div class="svc-rule"></div>
+  <div class="qa"><p class="q">What is PRF EZ Gel?</p><p class="a">PRF EZ Gel is an advanced, all-natural filler alternative made entirely from your own blood. We draw a small amount of blood, process it to concentrate the platelet-rich fibrin, and then heat it to create a gel-like consistency that can be injected to restore volume, stimulate collagen, and rejuvenate the skin from the inside out.</p></div>
+<div class="qa"><p class="q">How is PRF EZ Gel different from PRP or traditional fillers?</p><p class="a">Unlike PRP (platelet-rich plasma), PRF contains more white blood cells and fibrin, which allows for a slower release of growth factors and longer-lasting results. Unlike traditional dermal fillers, PRF EZ Gel is 100% autologous — from your own body with no synthetic ingredients — and actively improves skin quality, texture, and tone over time.</p></div>
+<div class="qa"><p class="q">What areas can be treated with PRF EZ Gel?</p><p class="a">PRF EZ Gel is commonly used to address volume loss in the under eyes, cheeks, temples, jawline, and smile lines. It is also an excellent option for skin laxity and overall facial rejuvenation.</p></div>
+<div class="qa"><p class="q">What can I expect after my PRF EZ Gel treatment?</p><p class="a">Swelling, redness, and bruising in the treated areas is normal and typically resolves within a few days to a week. Because PRF EZ Gel is derived from your own blood, the risk of allergic reaction or rejection is extremely low. Final results are typically visible around 4–6 weeks post-treatment as collagen remodeling continues.</p></div>
+<div class="qa"><p class="q">How many sessions will I need, and how long do results last?</p><p class="a">You may see improvement after a single session, though a series of 3 treatments spaced 4–6 weeks apart is often recommended for optimal and longer-lasting results. Effects can last 6–12 months or longer, depending on your skin health, age, and lifestyle.</p></div>
+</section>
+<section class="topic">
+  <h2 class="svc">Radiesse</h2>
+  <div class="svc-rule"></div>
+  <div class="qa"><p class="q">What is Radiesse?</p><p class="a">Radiesse is an FDA-approved biostimulatory filler made of calcium hydroxylapatite (CaHA) microspheres. It provides immediate volume while stimulating your body’s own collagen production for longer-lasting results.</p></div>
+<div class="qa"><p class="q">What can Radiesse treat?</p><p class="a">Common treatment areas include the cheeks, jawline, nasolabial folds, marionette lines, and hands.</p></div>
+<div class="qa"><p class="q">How is Radiesse different from hyaluronic acid fillers?</p><p class="a">Radiesse is a biostimulator, meaning it actively triggers new collagen and elastin production in addition to adding volume. Unlike HA fillers, it is not reversible with hyaluronidase.</p></div>
+<div class="qa"><p class="q">How long do results last?</p><p class="a">Most patients enjoy results for 12–18 months or longer. Because Radiesse stimulates collagen, results can continue to improve over time and may last even longer with maintenance sessions.</p></div>
+<div class="qa"><p class="q">When will I see results?</p><p class="a">Most patients begin to notice improvements within a few weeks, with optimal results visible around 3–6 months after treatment as collagen builds.</p></div>
+<div class="qa"><p class="q">Is there any downtime?</p><p class="a">Little to none. You may experience mild swelling, redness, or bruising for a few days. We recommend avoiding strenuous exercise, alcohol, and excessive heat for 24–48 hours.</p></div>
+<div class="qa"><p class="q">Who is a good candidate for Radiesse?</p><p class="a">Most healthy adults looking to restore volume, improve skin laxity, or address moderate to severe wrinkles are great candidates. It is not recommended for patients who are pregnant, breastfeeding, or have active skin infections at the treatment site.</p></div>
+<div class="qa"><p class="q">Can Radiesse be combined with other treatments?</p><p class="a">Absolutely. Radiesse pairs well with neurotoxin, other dermal fillers, PRF EZ Gel, and skin-rejuvenating treatments. Your provider will create a personalized plan during your consultation.</p></div>
+<div class="qa"><p class="q">Is Radiesse safe?</p><p class="a">Yes. Radiesse has been FDA approved since 2006 and has a strong safety record. All treatments at Nōvuu Medspa are performed by Jess, a board-certified nurse practitioner with advanced aesthetic training.</p></div>
+</section>
+
+  <p class="closing">Questions? Visit us at novuumedspa.com</p>
+</body>
+</html>
