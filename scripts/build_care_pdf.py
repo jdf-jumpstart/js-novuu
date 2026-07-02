@@ -25,13 +25,16 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import (
     BaseDocTemplate, PageTemplate, Frame, Paragraph, Spacer,
-    KeepTogether, PageBreak, HRFlowable,
+    KeepTogether, PageBreak, HRFlowable, Image,
 )
+from reportlab.lib.utils import ImageReader
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 FONT_DIR = os.environ.get("FONT_DIR", "/tmp/fonts")
 OUT = os.path.join(ROOT, "novuu-prepost-care-instructions.pdf")
+# Brand wordmark, rasterized from the site's inline #logo SVG in brand green.
+LOGO = os.path.join(HERE, "assets", "novuu-logo.png")
 
 # Brand palette (from the site CSS variables)
 GREEN = "#2B3A36"
@@ -308,9 +311,14 @@ def build():
     doc.addPageTemplates([PageTemplate(id="all", frames=[frame], onPage=draw_bg)])
 
     S = []
-    # masthead
-    S.append(Paragraph("PRE &amp; POST CARE", eyebrow))
-    S.append(Paragraph("NŌVUU MEDSPA", title))
+    # masthead — real brand wordmark
+    iw, ih = ImageReader(LOGO).getSize()
+    logo_w = 2.5 * inch
+    logo = Image(LOGO, width=logo_w, height=logo_w * ih / iw)
+    logo.hAlign = "CENTER"
+    S.append(Spacer(1, 6))
+    S.append(logo)
+    S.append(Spacer(1, 10))
     S.append(Paragraph("Pre &amp; Post Care Instructions", subtitle))
     S.append(Spacer(1, 6))
     S.append(HRFlowable(width="38%", thickness=0.8, color=SAGE, spaceBefore=2,
