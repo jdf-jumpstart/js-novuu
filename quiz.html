@@ -45,7 +45,7 @@ p{color:var(--ink-2)}
 a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:var(--s1)}
 
 /* buttons */
-.btn{display:inline-flex;align-items:center;gap:var(--s3);justify-content:center;font-size:var(--fs-14);font-weight:500;letter-spacing:.08em;text-transform:uppercase;border-radius:var(--r-pill);cursor:pointer;border:1px solid transparent;position:relative;overflow:hidden;transition:background .5s var(--ease),color .5s var(--ease),border-color .5s var(--ease),transform .4s var(--ease)}
+.btn{display:inline-flex;align-items:center;gap:var(--s3);justify-content:center;font-size:var(--fs-14);font-weight:500;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;border-radius:var(--r-pill);cursor:pointer;border:1px solid transparent;position:relative;overflow:hidden;transition:background .5s var(--ease),color .5s var(--ease),border-color .5s var(--ease),transform .4s var(--ease)}
 .btn:active{transform:scale(.97)}
 .btn .dot{width:30px;height:30px;border-radius:var(--r-pill);display:grid;place-items:center;transition:transform .5s var(--ease)}
 .btn .dot svg{width:14px;height:14px}
@@ -65,7 +65,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .topbar{text-align:center;font-size:var(--fs-12);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);padding:var(--s3) var(--s5);background:var(--surface);border-bottom:1px solid var(--line-soft)}
 .topbar a{color:var(--ink);border-bottom:1px solid var(--accent);padding-bottom:1px}
 .nav{position:sticky;top:var(--s4);margin:var(--s4) auto 0;z-index:80;width:min(94%,var(--maxw));display:flex;align-items:center;justify-content:space-between;padding:var(--s3) var(--s3) var(--s3) var(--s5);background:rgba(241,234,224,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:var(--r-pill);box-shadow:var(--e-overlay)}
-.brand-logo{height:30px;width:auto;color:var(--ink);display:block}
+.brand-logo{height:30px;width:auto;aspect-ratio:695/245;color:var(--ink);display:block}
 .nav-links{display:flex;gap:var(--s6);align-items:center}
 .nav-links a{font-size:var(--fs-14);font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);transition:color .4s var(--ease)}
 .nav-links a:hover{color:var(--ink)}
