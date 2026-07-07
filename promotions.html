@@ -326,8 +326,8 @@ footer.invert{padding:var(--s8) 0 var(--s6);background:var(--surface);border-top
 .feebar .eyebrow{margin:0}
 .feebar p{font-size:var(--fs-18);color:var(--ink);margin:0}
 @media(max-width:700px){.feebar{grid-template-columns:1fr;gap:var(--s3)}}
-.promo-img-slot{width:calc(100% + 2*var(--s8));margin:calc(-1*var(--s8)) calc(-1*var(--s8)) var(--s6);aspect-ratio:3/4;border-radius:var(--r-card) var(--r-card) 0 0;background:repeating-linear-gradient(45deg,var(--bg),var(--bg) 12px,var(--surface-2) 12px,var(--surface-2) 24px);display:flex;align-items:center;justify-content:center;text-align:center}
-.promo-img-slot::before{content:"Graphic pending: " attr(data-promo-img);font-size:var(--fs-12);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);padding:0 var(--s5)}
+.promo-img-slot{width:calc(100% + 2*var(--s8));margin:calc(-1*var(--s8)) calc(-1*var(--s8)) var(--s6);aspect-ratio:3/4;border-radius:var(--r-card) var(--r-card) 0 0;overflow:hidden;background:linear-gradient(155deg,#E2D8CB,#E9E0D6 70%)}
+.promo-img-slot img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
 .topbar{text-align:center;font-size:0.8125rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);padding:var(--s3) var(--s5);background:var(--surface);border-bottom:1px solid var(--line-soft)}
 .topbar a{color:var(--ink);border-bottom:1px solid var(--accent);padding-bottom:1px}
 @media(max-width:1024px){
@@ -458,19 +458,19 @@ footer.invert{padding:var(--s8) 0 var(--s6);background:var(--surface);border-top
     </div>
     <div class="mgrid">
       <div class="mcard reveal">
-        <div class="promo-img-slot" data-promo-img="summer-skincare-promo" aria-hidden="true"></div>
+        <div class="promo-img-slot"><img src="images/promos/summer-skincare-promo.jpg" alt="Summer Skincare Promo flyer: buy 2 skincare products, get a free Obagi Lip Therapy and a raffle entry to win the Omnilux Contour mask" loading="lazy"></div>
         <span class="eyebrow"><svg><use href="#leaf"/></svg> The offer</span>
         <h3>Summer Skincare Promo</h3>
         <p class="tag">Buy 2 skincare products and get a free Obagi Lip Therapy, plus a raffle entry to win a $395 Omnilux Contour LED mask. Extra products = extra entries.</p><div class="foot"><a href="https://novuu.myaestheticrecord.com/online-booking" class="btn btn--ghost" style="width:100%">Book Now</a></div>
       </div>
       <div class="mcard reveal" style="--d:.08s">
-        <div class="promo-img-slot" data-promo-img="omnilux-contour-mask" aria-hidden="true"></div>
+        <div class="promo-img-slot"><img src="images/promos/omnilux-contour-mask.jpg" alt="Omnilux Contour LED face mask flyer" loading="lazy"></div>
         <span class="eyebrow"><svg><use href="#leaf"/></svg> Raffle prize</span>
         <h3>Omnilux Contour Face Mask</h3>
         <p class="tag">FDA-cleared, medical-grade LED mask. Just 10 minutes a day, no heat, no downtime. 132 LEDs deliver red light (633nm) to calm redness and kickstart cellular repair, plus near infrared (830nm) to stimulate collagen and elastin.</p><div class="foot"><a href="contact-us.html" class="btn btn--ghost" style="width:100%">Visit us in store</a></div>
       </div>
       <div class="mcard reveal" style="--d:.16s">
-        <div class="promo-img-slot" data-promo-img="obagi-lip-therapy" aria-hidden="true"></div>
+        <div class="promo-img-slot"><img src="images/promos/obagi-lip-therapy.jpg" alt="Obagi Lip Therapy Soothe and Protect SPF 30 flyer" loading="lazy"></div>
         <span class="eyebrow"><svg><use href="#leaf"/></svg> Free with purchase</span>
         <h3>Obagi Lip Therapy Soothe &amp; Protect (SPF 30)</h3>
         <p class="tag">Jess &amp; Alex's favorite lip product. A plumping peptide complex, broad-spectrum SPF 30, and hyaluronic acid + calendula for deep hydration — yours free with any 2 skincare products through 8/15.</p><div class="foot"><a href="https://novuu.myaestheticrecord.com/online-booking" class="btn btn--ghost" style="width:100%">Shop in store</a></div>
