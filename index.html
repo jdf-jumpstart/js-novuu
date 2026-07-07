@@ -203,7 +203,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .res-grid>div:first-child{max-width:600px;margin:0 auto}
 .res-grid p{margin-left:auto;margin-right:auto}
 .gallery{position:relative;border-radius:var(--r-card);padding:var(--s2);background:var(--bg);border:1px solid var(--line);box-shadow:var(--e-raised)}
-.gal-viewport{overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:var(--r-inner)}
+.gal-viewport{overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity;scrollbar-width:none;border-radius:var(--r-inner);cursor:grab}
 .gal-viewport::-webkit-scrollbar{display:none}
 .gal-track{display:flex}
 
@@ -333,7 +333,7 @@ footer.invert{padding:var(--s8) 0 var(--s6);background:var(--surface);border-top
 }
 .foot-socials{display:flex;gap:var(--s3);margin-top:var(--s2)}.foot-socials a{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:var(--r-pill);border:1px solid var(--line-soft);color:var(--ink-2);transition:background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease)}.foot-socials a:hover{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}.foot-socials svg{width:16px;height:16px}/* team & office gallery */
 .tg{padding:var(--s10) 0;background:var(--bg)}
-.tg-track{display:flex;gap:var(--s4);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:var(--s2)}
+.tg-track{display:flex;gap:var(--s4);overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity;scrollbar-width:none;padding-bottom:var(--s2);cursor:grab}
 .tg-track::-webkit-scrollbar{display:none}
 .tg-item{flex:0 0 min(840px,90vw);scroll-snap-align:start;aspect-ratio:4/3;border-radius:var(--r-card);overflow:hidden;border:1px solid var(--line);background:linear-gradient(155deg,#E2D8CB,#E9E0D6 70%)}
 @media(max-width:640px){.tg-item{aspect-ratio:1/1}}
@@ -344,6 +344,9 @@ footer.invert{padding:var(--s8) 0 var(--s6);background:var(--surface);border-top
 .car-btn:hover{background:var(--accent);color:var(--on-accent)}
 .car-btn svg{width:18px;height:18px}
 .car-track:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.car-track{cursor:grab}
+.car-track.is-dragging{cursor:grabbing;scroll-snap-type:none;user-select:none;-webkit-user-select:none}
+.car-track.is-dragging *{pointer-events:none}
 @media(max-width:640px){.car-nav{display:none}}
 .mobile-book-fab{display:none}
 @media(max-width:1024px){.mobile-book-fab{display:inline-flex;position:fixed;right:var(--s5);bottom:calc(var(--s5) + env(safe-area-inset-bottom,0px));z-index:70;box-shadow:var(--e-overlay)}}
@@ -704,6 +707,24 @@ footer.invert{padding:var(--s8) 0 var(--s6);background:var(--surface);border-top
     function step(){var s=track.firstElementChild;if(!s)return 300;var g=parseFloat(getComputedStyle(track).columnGap)||parseFloat(getComputedStyle(track).gap)||24;return s.getBoundingClientRect().width+g;}
     car.querySelectorAll('.car-btn').forEach(function(b){b.addEventListener('click',function(){track.scrollBy({left:step()*parseInt(b.dataset.dir,10),behavior:'smooth'});});});
     track.addEventListener('keydown',function(e){if(e.key==='ArrowRight')track.scrollBy({left:step(),behavior:'smooth'});if(e.key==='ArrowLeft')track.scrollBy({left:-step(),behavior:'smooth'});});
+    var down=false,moved=false,startX=0,startScroll=0;
+    track.addEventListener('pointerdown',function(e){
+      if(e.pointerType==='touch')return;
+      down=true;moved=false;startX=e.clientX;startScroll=track.scrollLeft;
+    });
+    window.addEventListener('pointermove',function(e){
+      if(!down)return;
+      var dx=e.clientX-startX;
+      if(Math.abs(dx)>4){
+        if(!moved)track.classList.add('is-dragging');
+        moved=true;
+      }
+      track.scrollLeft=startScroll-dx;
+    });
+    function endDrag(){if(!down)return;down=false;track.classList.remove('is-dragging');}
+    window.addEventListener('pointerup',endDrag);
+    window.addEventListener('pointercancel',endDrag);
+    track.addEventListener('click',function(e){if(moved){e.preventDefault();e.stopPropagation();moved=false;}},true);
   });
 })();
 var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
