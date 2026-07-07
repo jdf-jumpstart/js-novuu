@@ -371,12 +371,18 @@ footer.invert{padding:var(--s8) 0 var(--s6);background:var(--surface);border-top
 .topbar{text-align:center;font-size:0.8125rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);padding:var(--s3) var(--s5);background:var(--surface);border-bottom:1px solid var(--line-soft)}
 .topbar a{color:var(--ink);border-bottom:1px solid var(--accent);padding-bottom:1px}
 /* section sub-nav */
-.subnav{position:sticky;top:0;z-index:79;display:flex;flex-direction:row;gap:0;padding:0 var(--s5);background:rgba(241,234,224,.95);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+.subnav{position:fixed;top:50%;left:var(--s5);transform:translateY(-50%);z-index:79;display:flex;flex-direction:column;gap:4px;padding:6px;background:rgba(241,234,224,.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--e-overlay);max-height:calc(100vh - var(--s8));overflow-y:auto;scrollbar-width:none;visibility:hidden}
+.subnav.is-positioned{visibility:visible}
 .subnav::-webkit-scrollbar{display:none}
-.subnav a{font-size:var(--fs-12);font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);white-space:nowrap;padding:14px var(--s5);border-bottom:2px solid transparent;transition:color .3s var(--ease),border-color .3s var(--ease)}
+.subnav a{font-size:var(--fs-12);font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);white-space:nowrap;padding:8px var(--s4);border-radius:var(--r-pill);transition:color .3s var(--ease),background .3s var(--ease)}
 .subnav a:hover{color:var(--ink)}
-.subnav a.is-active{color:var(--ink);border-bottom-color:var(--accent)}
-section[id]{scroll-margin-top:120px}
+.subnav a.is-active{color:var(--ink);background:var(--surface)}
+@media(max-width:1120px){.subnav{display:none}}
+/* push page content right so subnav doesn't overlap on mid-width screens */
+@media(min-width:1121px) and (max-width:1360px){
+  body{padding-left:calc(var(--s5) + 130px)}
+}
+section[id]{scroll-margin-top:150px}
 
 /* ============================ CARE INSTRUCTIONS ============================ */
 .care{padding:var(--s10) 0;background:var(--bg)}
@@ -504,7 +510,8 @@ section[id]{scroll-margin-top:120px}
     <div class="reveal" style="--d:.12s">
       <div class="frame">
         <div class="slideshow" aria-label="Chemical peel treatment photos">
-          <img class="ss-slide is-active" src="images/chemical-peels/chemical-peels-hero.jpg" alt="Chemical peel consultation at Nōvuu Medspa" loading="eager">
+          <img class="ss-slide is-active" src="images/chemical-peels/vi-peel-before-after.jpg" alt="VI Peel Precision Plus before and after results for melasma at Nōvuu Medspa" loading="eager">
+          <img class="ss-slide" src="images/chemical-peels/chemical-peels-hero.jpg" alt="Chemical peel consultation at Nōvuu Medspa" loading="lazy">
           <img class="ss-slide" src="images/chemical-peels/chemical-peels-mirror.jpg" alt="Client reviewing skin results at Nōvuu Medspa" loading="lazy">
         </div>
       </div>
@@ -719,6 +726,17 @@ if(!window.matchMedia('(prefers-reduced-motion:reduce)').matches){
   }
   window.addEventListener('scroll',onScroll,{passive:true});
   onScroll();
+  var wrap=document.querySelector('.wrap');
+  function place(){
+    if(!wrap){ bar.classList.remove('is-positioned'); return; }
+    var left=wrap.getBoundingClientRect().left-bar.offsetWidth-24;
+    if(left<24){ bar.classList.remove('is-positioned'); return; }
+    bar.style.left=left+'px';
+    bar.classList.add('is-positioned');
+  }
+  window.addEventListener('resize',place,{passive:true});
+  window.addEventListener('load',place);
+  place();
 })();
 </script>
 </body>
