@@ -184,7 +184,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 /* services */
 .services{padding:var(--s10) 0;background:var(--white)}
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s5)}
-.svc-card:last-child:nth-child(3n+1){grid-column:1/-1;justify-self:center;width:calc((100% - 2*var(--s5))/3)}
+.svc-card:last-child:nth-child(3n+1){grid-column:1/-1;justify-self:stretch;width:auto}
 
 .svc-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:var(--s7);display:flex;flex-direction:column;gap:var(--s3);transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s var(--ease)}
 .svc-card:hover{transform:translateY(-6px);box-shadow:var(--e-raised);border-color:var(--green)}
@@ -301,7 +301,7 @@ footer.invert{padding:var(--s8) 0 var(--s6);background:var(--surface);border-top
   .foot-grid{grid-template-columns:1fr;gap:var(--s6)}
   .closing{border-radius:50% 50% 0 0 / 60px 60px 0 0}
   .svc-grid{grid-template-columns:repeat(2,1fr)}
-  .svc-card:last-child:nth-child(2n+1){grid-column:1/-1;justify-self:center;width:calc((100% - var(--s5))/2)}
+  .svc-card:last-child:nth-child(2n+1){grid-column:1/-1;justify-self:stretch;width:auto}
     }
 @media(max-width:560px){.vgrid{grid-template-columns:1fr}.svc-grid{grid-template-columns:1fr}.svc-card:last-child{grid-column:auto;justify-self:stretch;width:auto}}
 
