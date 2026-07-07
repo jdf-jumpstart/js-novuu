@@ -421,9 +421,12 @@ section[id]{scroll-margin-top:150px}
     --fs-24:1.35rem; --fs-32:1.7rem; --fs-44:2.25rem;
   }
 }
-.foot-socials{display:flex;gap:var(--s3);margin-top:var(--s2)}.foot-socials a{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:var(--r-pill);border:1px solid var(--line-soft);color:var(--ink-2);transition:background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease)}.foot-socials a:hover{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}.foot-socials svg{width:16px;height:16px}</style>
+.foot-socials{display:flex;gap:var(--s3);margin-top:var(--s2)}.foot-socials a{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:var(--r-pill);border:1px solid var(--line-soft);color:var(--ink-2);transition:background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease)}.foot-socials a:hover{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}.foot-socials svg{width:16px;height:16px}.mobile-book-fab{display:none}
+@media(max-width:1024px){.mobile-book-fab{display:inline-flex;position:fixed;right:var(--s5);bottom:calc(var(--s5) + env(safe-area-inset-bottom,0px));z-index:70;box-shadow:var(--e-overlay)}}
+</style>
 </head>
 <body>
+<a href="https://novuu.myaestheticrecord.com/online-booking" class="btn btn--primary mobile-book-fab" aria-label="Book Now">Book Now <span class="dot"><svg><use href="#arr"/></svg></span></a>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
