@@ -183,10 +183,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 
 /* services */
 .services{padding:var(--s10) 0;background:var(--white)}
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s5)}
-.svc-card:last-child:nth-child(3n+1){grid-column:1/-1;justify-self:center;width:calc((100% - 2*var(--s5))/3)}
+.svc-grid{display:flex;gap:var(--s5);overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity;scrollbar-width:none;padding-bottom:var(--s2);cursor:grab}
+.svc-grid::-webkit-scrollbar{display:none}
 
-.svc-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:var(--s7);display:flex;flex-direction:column;gap:var(--s3);transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s var(--ease)}
+
+.svc-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:var(--s7);display:flex;flex-direction:column;gap:var(--s3);flex:0 0 min(340px,82vw);scroll-snap-align:start;transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s var(--ease)}
 .svc-card:hover{transform:translateY(-6px);box-shadow:var(--e-raised);border-color:var(--green)}
 .svc-card h3{font-size:var(--fs-24)}
 .svc-card p{font-size:var(--fs-16);flex:1}
@@ -214,8 +215,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 
 /* testimonials (dark) */
 .tquote{padding:var(--s10) 0}
-.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s5);margin-top:var(--s8)}
-.tcard{border:1px solid var(--line);border-radius:var(--r-card);padding:var(--s5);background:var(--surface)}
+.tgrid{display:flex;gap:var(--s5);margin-top:var(--s8);overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity;scrollbar-width:none;padding-bottom:var(--s2);cursor:grab}
+.tgrid::-webkit-scrollbar{display:none}
+.tcard{border:1px solid var(--line);border-radius:var(--r-card);padding:var(--s5);background:var(--surface);flex:0 0 min(400px,85vw);scroll-snap-align:start}
 .tcard .qmark{font-family:var(--display);font-size:var(--fs-32);line-height:.6;color:var(--green);display:block;margin-bottom:var(--s2)}
 .tcard p{font-size:var(--fs-16);color:var(--ink-2)}
 .tcard cite{display:block;margin-top:var(--s4);font-style:normal;font-size:var(--fs-14);font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
@@ -271,7 +273,7 @@ footer.invert{padding:var(--s8) 0 var(--s6);background:var(--surface);border-top
 .reveal.in{opacity:1;transform:none;filter:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;filter:none;transition:none}*{scroll-behavior:auto}}
 
-@media(max-width:1000px){.vgrid{grid-template-columns:repeat(2,1fr);gap:var(--s7)}.tgrid{grid-template-columns:1fr}}
+@media(max-width:1000px){.vgrid{grid-template-columns:repeat(2,1fr);gap:var(--s7)}}
 @media(max-width:1024px){
   .nav-backdrop{display:block}
   .burger{display:flex}
@@ -300,10 +302,8 @@ footer.invert{padding:var(--s8) 0 var(--s6);background:var(--surface);border-top
   .band-inner{gap:var(--s6)}
   .foot-grid{grid-template-columns:1fr;gap:var(--s6)}
   .closing{border-radius:50% 50% 0 0 / 60px 60px 0 0}
-  .svc-grid{grid-template-columns:repeat(2,1fr)}
-  .svc-card:last-child:nth-child(2n+1){grid-column:1/-1;justify-self:center;width:calc((100% - var(--s5))/2)}
-    }
-@media(max-width:560px){.vgrid{grid-template-columns:1fr}.svc-grid{grid-template-columns:1fr}.svc-grid .svc-card:last-child{grid-column:auto;justify-self:stretch;width:auto}}
+        }
+@media(max-width:560px){.vgrid{grid-template-columns:1fr}}
 
 /* new-patient popup */
 .np-overlay{position:fixed;inset:0;z-index:200;background:rgba(26,26,26,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:var(--s5);opacity:0;pointer-events:none;transition:opacity .5s var(--ease)}
@@ -328,6 +328,7 @@ footer.invert{padding:var(--s8) 0 var(--s6);background:var(--surface);border-top
 @media(max-width:1024px){
   :root{
     --fs-12:0.875rem; --fs-14:0.95rem; --fs-16:1rem; --fs-20:1.15rem;
+    --s8:40px; --s9:56px; --s10:72px;
     --fs-24:1.35rem; --fs-32:1.7rem; --fs-44:2.25rem;
   }
 }
@@ -347,7 +348,7 @@ footer.invert{padding:var(--s8) 0 var(--s6);background:var(--surface);border-top
 .car-track{cursor:grab}
 .car-track.is-dragging{cursor:grabbing;scroll-snap-type:none;user-select:none;-webkit-user-select:none}
 .car-track.is-dragging *{pointer-events:none}
-@media(max-width:640px){.car-nav{display:none}}
+
 .mobile-book-fab{display:none}
 @media(max-width:1024px){.mobile-book-fab{display:inline-flex;position:fixed;right:var(--s5);bottom:calc(var(--s5) + env(safe-area-inset-bottom,0px));z-index:70;box-shadow:var(--e-overlay)}}
 </style>
@@ -441,7 +442,7 @@ footer.invert{padding:var(--s8) 0 var(--s6);background:var(--surface);border-top
         <a href="training.html" role="menuitem">Training / Shadowing</a>
       </div>
     </div>
-    <a href="#results">Results</a><a href="memberships.html">Memberships</a><a href="faqs.html">FAQ</a>
+    <a href="before-and-after.html">Results</a><a href="memberships.html">Memberships</a><a href="faqs.html">FAQ</a>
     <a href="quiz.html" style="white-space:nowrap;border:1.5px solid var(--green);color:var(--green);font-weight:600;padding:6px 14px;border-radius:99px;font-size:0.82rem;letter-spacing:0.04em">Find My Treatment</a>
     <a href="https://novuu.myaestheticrecord.com/online-booking" class="nav-book-now">Book Now</a>
   </div>
@@ -514,18 +515,24 @@ footer.invert{padding:var(--s8) 0 var(--s6);background:var(--surface);border-top
 
 <!-- ====================== SERVICES ====================== -->
 <section class="services" id="services">
-  <div class="wrap">
-    <div class="section-head reveal"><span class="eyebrow"><svg><use href="#leaf"/></svg> Our services</span><h2>What we offer</h2></div>
-    <div class="svc-grid">
-      <a class="svc-card reveal" href="weight-loss.html"><div class="sc-img-wrap"><img class="sc-img" src="images/DSC04213.jpg" alt="Weight loss consultation at Nōvuu Medspa" loading="lazy"></div><h3>Weight Loss Management</h3><p>Reach your healthiest weight with a personalized, medically supervised program — combining proven injectable therapies with expert guidance to create results that last.</p><span class="svc-link">Learn more <svg><use href="#arr"/></svg></span></a>
-      <a class="svc-card reveal" href="biostimulator.html"><div class="sc-img-wrap"><img class="sc-img" src="images/DSC04293.jpg" alt="Injectable treatment at Nōvuu Medspa" loading="eager"></div><h3>Injectables</h3><p>Precisely placed to complement your natural features, our injectable treatments restore volume, soften lines, and refine your look — with results that feel effortlessly you.</p><span class="svc-link">Learn more <svg><use href="#arr"/></svg></span></a>
-      <a class="svc-card reveal" href="microneedling.html"><div class="sc-img-wrap"><img class="sc-img" src="images/DSC04239.jpg" alt="Microneedling treatment with SkinPen at Nōvuu Medspa" loading="lazy"></div><h3>Microneedling</h3><p>Unlock your skin's own renewal response. Micro-precise channels stimulate collagen and elastin production — visibly improving texture, softening scars, and restoring a healthy, radiant glow.</p><span class="svc-link">Learn more <svg><use href="#arr"/></svg></span></a>
-      <a class="svc-card reveal" href="chemical-peels.html"><div class="sc-img-wrap"><img class="sc-img" src="images/chemical-peels/chemical-peels-hero.jpg" alt="Chemical peel consultation at Nōvuu Medspa" loading="lazy"></div><h3>Chemical Peels</h3><p>Medical-grade exfoliation that goes beyond the surface. Targets fine lines, acne, sun damage, and uneven tone to reveal the clearer, more luminous skin beneath — with minimal downtime.</p><span class="svc-link">Learn more <svg><use href="#arr"/></svg></span></a>
-      <a class="svc-card reveal" href="prf-hair-restorations.html"><div class="sc-img-wrap"><img class="sc-img" src="images/DSC04344.jpg" alt="PRF hair restoration supplies at Nōvuu Medspa" loading="lazy"></div><h3>PRF Hair Restoration</h3><p>Your body's own growth factors, activated. This regenerative treatment uses your blood's natural healing proteins to revitalize follicles and support thicker, healthier hair growth from within.</p><span class="svc-link">Learn more <svg><use href="#arr"/></svg></span></a>
-      <a class="svc-card reveal" href="infusions.html"><div class="sc-img-wrap"><img class="sc-img" src="images/DSC04404.jpg" alt="IV infusion lounge at Nōvuu Medspa" loading="lazy"></div><h3>IV Infusions</h3><p>Skip the wait. Essential fluids and nutrients delivered directly to your bloodstream for immediate, full-absorption results — restoring energy, immunity, and clarity in a single session.</p><span class="svc-link">Learn more <svg><use href="#arr"/></svg></span></a>
-      <a class="svc-card reveal" href="wellness-shots.html"><div class="sc-img-wrap"><img class="sc-img" src="images/DSC04451.jpg" alt="Wellness injection supplies at Nōvuu Medspa" loading="lazy"></div><h3>Wellness Injections</h3><p>Small dose, serious impact. Targeted shots of B12, vitamin C, and lipotropic blends designed to lift energy, support immunity, and keep you performing at your best between visits.</p><span class="svc-link">Learn more <svg><use href="#arr"/></svg></span></a>
-      <a class="svc-card reveal" href="special-events.html"><div class="sc-img-wrap"><img class="sc-img" src="images/about/office-waiting-nook.jpg" alt="A calm lounge area at Nōvuu Medspa for special events" loading="lazy"></div><h3>Special Events</h3><p>From your wedding day to group celebrations, we bring the glow to your big moments — with bridal prep packages and mobile IV therapy that comes to you.</p><span class="svc-link">Learn more <svg><use href="#arr"/></svg></span></a>
-      <a class="svc-card reveal" href="training.html"><div class="sc-img-wrap"><img class="sc-img" src="images/about/hero-brow-mapping.jpg" alt="Precision injectable technique at Nōvuu Medspa" loading="lazy"></div><h3>Training / Shadowing</h3><p>We open our doors to aspiring and practicing injectors — offering shadow days and one-on-one injectables training with our team.</p><span class="svc-link">Learn more <svg><use href="#arr"/></svg></span></a>
+  <div class="wrap carousel">
+    <div class="section-head reveal" style="display:flex;align-items:flex-end;justify-content:space-between;gap:var(--s5);flex-wrap:wrap">
+      <div><span class="eyebrow"><svg><use href="#leaf"/></svg> Our services</span><h2>What we offer</h2></div>
+      <div class="car-nav">
+        <button class="car-btn" type="button" data-dir="-1" aria-label="Previous service"><svg><use href="#chev"/></svg></button>
+        <button class="car-btn" type="button" data-dir="1" aria-label="Next service"><svg style="transform:scaleX(-1)"><use href="#chev"/></svg></button>
+      </div>
+    </div>
+    <div class="svc-grid car-track" tabindex="0">
+      <a class="svc-card" href="weight-loss.html"><div class="sc-img-wrap"><img class="sc-img" src="images/DSC04213.jpg" alt="Weight loss consultation at Nōvuu Medspa" loading="lazy"></div><h3>Weight Loss Management</h3><p>Reach your healthiest weight with a personalized, medically supervised program — combining proven injectable therapies with expert guidance to create results that last.</p><span class="svc-link">Learn more <svg><use href="#arr"/></svg></span></a>
+      <a class="svc-card" href="biostimulator.html"><div class="sc-img-wrap"><img class="sc-img" src="images/DSC04293.jpg" alt="Injectable treatment at Nōvuu Medspa" loading="eager"></div><h3>Injectables</h3><p>Precisely placed to complement your natural features, our injectable treatments restore volume, soften lines, and refine your look — with results that feel effortlessly you.</p><span class="svc-link">Learn more <svg><use href="#arr"/></svg></span></a>
+      <a class="svc-card" href="microneedling.html"><div class="sc-img-wrap"><img class="sc-img" src="images/DSC04239.jpg" alt="Microneedling treatment with SkinPen at Nōvuu Medspa" loading="lazy"></div><h3>Microneedling</h3><p>Unlock your skin's own renewal response. Micro-precise channels stimulate collagen and elastin production — visibly improving texture, softening scars, and restoring a healthy, radiant glow.</p><span class="svc-link">Learn more <svg><use href="#arr"/></svg></span></a>
+      <a class="svc-card" href="chemical-peels.html"><div class="sc-img-wrap"><img class="sc-img" src="images/chemical-peels/chemical-peels-hero.jpg" alt="Chemical peel consultation at Nōvuu Medspa" loading="lazy"></div><h3>Chemical Peels</h3><p>Medical-grade exfoliation that goes beyond the surface. Targets fine lines, acne, sun damage, and uneven tone to reveal the clearer, more luminous skin beneath — with minimal downtime.</p><span class="svc-link">Learn more <svg><use href="#arr"/></svg></span></a>
+      <a class="svc-card" href="prf-hair-restorations.html"><div class="sc-img-wrap"><img class="sc-img" src="images/DSC04344.jpg" alt="PRF hair restoration supplies at Nōvuu Medspa" loading="lazy"></div><h3>PRF Hair Restoration</h3><p>Your body's own growth factors, activated. This regenerative treatment uses your blood's natural healing proteins to revitalize follicles and support thicker, healthier hair growth from within.</p><span class="svc-link">Learn more <svg><use href="#arr"/></svg></span></a>
+      <a class="svc-card" href="infusions.html"><div class="sc-img-wrap"><img class="sc-img" src="images/DSC04404.jpg" alt="IV infusion lounge at Nōvuu Medspa" loading="lazy"></div><h3>IV Infusions</h3><p>Skip the wait. Essential fluids and nutrients delivered directly to your bloodstream for immediate, full-absorption results — restoring energy, immunity, and clarity in a single session.</p><span class="svc-link">Learn more <svg><use href="#arr"/></svg></span></a>
+      <a class="svc-card" href="wellness-shots.html"><div class="sc-img-wrap"><img class="sc-img" src="images/DSC04451.jpg" alt="Wellness injection supplies at Nōvuu Medspa" loading="lazy"></div><h3>Wellness Injections</h3><p>Small dose, serious impact. Targeted shots of B12, vitamin C, and lipotropic blends designed to lift energy, support immunity, and keep you performing at your best between visits.</p><span class="svc-link">Learn more <svg><use href="#arr"/></svg></span></a>
+      <a class="svc-card" href="special-events.html"><div class="sc-img-wrap"><img class="sc-img" src="images/about/office-waiting-nook.jpg" alt="A calm lounge area at Nōvuu Medspa for special events" loading="lazy"></div><h3>Special Events</h3><p>From your wedding day to group celebrations, we bring the glow to your big moments — with bridal prep packages and mobile IV therapy that comes to you.</p><span class="svc-link">Learn more <svg><use href="#arr"/></svg></span></a>
+      <a class="svc-card" href="training.html"><div class="sc-img-wrap"><img class="sc-img" src="images/about/hero-brow-mapping.jpg" alt="Precision injectable technique at Nōvuu Medspa" loading="lazy"></div><h3>Training / Shadowing</h3><p>We open our doors to aspiring and practicing injectors — offering shadow days and one-on-one injectables training with our team.</p><span class="svc-link">Learn more <svg><use href="#arr"/></svg></span></a>
     </div>
   </div>
 </section>
@@ -562,12 +569,18 @@ footer.invert{padding:var(--s8) 0 var(--s6);background:var(--surface);border-top
 
 <!-- ====================== TESTIMONIALS (dark) ====================== -->
 <section class="tquote invert">
-  <div class="wrap">
-    <div class="section-head reveal"><span class="eyebrow"><svg><use href="#leaf"/></svg> What our clients say</span><h2>Testimonials</h2></div>
-    <div class="tgrid">
-      <div class="tcard reveal"><span class="qmark">&ldquo;</span><p>Having visited several medspas in the past, I can say without a doubt that Nōvuu Medspa stands out from the rest. From the moment I arrived, I was greeted with warmth and professionalism. The facility itself is stunning, with top-of-the-line equipment and a serene ambiance. The staff took the time to listen to my concerns and goals, tailoring a treatment plan specifically for me. The results I achieved were remarkable, and the compliments I received afterward were a testament to Nōvuu Medspa's expertise. I would highly recommend this place to anyone seeking exceptional care and luxurious indulgence.</p><cite>Sarah M.</cite></div>
-      <div class="tcard reveal" style="--d:.08s"><span class="qmark">&ldquo;</span><p>As someone who values both beauty and wellness, finding the perfect medspa was crucial to me. I can confidently say that I have found that and more in Nōvuu Medspa. The team of experts here combines the latest medical advancements with a true understanding of aesthetics, resulting in treatments that are both effective and natural-looking. The attention to detail and personalized care I received made me feel like a VIP. I left each session feeling refreshed, revitalized, and absolutely radiant. This medspa is a true gem!</p><cite>Jonathan R.</cite></div>
-      <div class="tcard reveal" style="--d:.16s"><span class="qmark">&ldquo;</span><p>I cannot speak highly enough about my experience at Nōvuu Medspa. From the moment I walked through the doors, I felt pampered and taken care of. The staff was incredibly knowledgeable and attentive, guiding me through each step of my customized treatment plan. The facility itself exudes elegance and tranquility, creating a soothing environment for relaxation. The results of my treatments were simply outstanding, exceeding my expectations. I would highly recommend Nōvuu Medspa to anyone looking for a luxurious and rejuvenating experience.</p><cite>Emily S.</cite></div>
+  <div class="wrap carousel">
+    <div class="section-head reveal" style="display:flex;align-items:flex-end;justify-content:space-between;gap:var(--s5);flex-wrap:wrap">
+      <div><span class="eyebrow"><svg><use href="#leaf"/></svg> What our clients say</span><h2>Testimonials</h2></div>
+      <div class="car-nav">
+        <button class="car-btn" type="button" data-dir="-1" aria-label="Previous testimonial"><svg><use href="#chev"/></svg></button>
+        <button class="car-btn" type="button" data-dir="1" aria-label="Next testimonial"><svg style="transform:scaleX(-1)"><use href="#chev"/></svg></button>
+      </div>
+    </div>
+    <div class="tgrid car-track" tabindex="0">
+      <div class="tcard"><span class="qmark">&ldquo;</span><p>Having visited several medspas in the past, I can say without a doubt that Nōvuu Medspa stands out from the rest. From the moment I arrived, I was greeted with warmth and professionalism. The facility itself is stunning, with top-of-the-line equipment and a serene ambiance. The staff took the time to listen to my concerns and goals, tailoring a treatment plan specifically for me. The results I achieved were remarkable, and the compliments I received afterward were a testament to Nōvuu Medspa's expertise. I would highly recommend this place to anyone seeking exceptional care and luxurious indulgence.</p><cite>Sarah M.</cite></div>
+      <div class="tcard"><span class="qmark">&ldquo;</span><p>As someone who values both beauty and wellness, finding the perfect medspa was crucial to me. I can confidently say that I have found that and more in Nōvuu Medspa. The team of experts here combines the latest medical advancements with a true understanding of aesthetics, resulting in treatments that are both effective and natural-looking. The attention to detail and personalized care I received made me feel like a VIP. I left each session feeling refreshed, revitalized, and absolutely radiant. This medspa is a true gem!</p><cite>Jonathan R.</cite></div>
+      <div class="tcard"><span class="qmark">&ldquo;</span><p>I cannot speak highly enough about my experience at Nōvuu Medspa. From the moment I walked through the doors, I felt pampered and taken care of. The staff was incredibly knowledgeable and attentive, guiding me through each step of my customized treatment plan. The facility itself exudes elegance and tranquility, creating a soothing environment for relaxation. The results of my treatments were simply outstanding, exceeding my expectations. I would highly recommend Nōvuu Medspa to anyone looking for a luxurious and rejuvenating experience.</p><cite>Emily S.</cite></div>
     </div>
   </div>
 </section>

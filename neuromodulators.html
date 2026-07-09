@@ -418,12 +418,13 @@ section[id]{scroll-margin-top:150px}
 @media(max-width:1024px){
   :root{
     --fs-12:0.875rem; --fs-14:0.95rem; --fs-16:1rem; --fs-20:1.15rem;
+    --s8:40px; --s9:56px; --s10:72px;
     --fs-24:1.35rem; --fs-32:1.7rem; --fs-44:2.25rem;
   }
 }
 .foot-socials{display:flex;gap:var(--s3);margin-top:var(--s2)}.foot-socials a{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:var(--r-pill);border:1px solid var(--line-soft);color:var(--ink-2);transition:background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease)}.foot-socials a:hover{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}.foot-socials svg{width:16px;height:16px}.mobile-book-fab{display:none}
 @media(max-width:1024px){.mobile-book-fab{display:inline-flex;position:fixed;right:var(--s5);bottom:calc(var(--s5) + env(safe-area-inset-bottom,0px));z-index:70;box-shadow:var(--e-overlay)}}
-</style>
+.ba-mini-track{display:flex;gap:var(--s5);overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity;scrollbar-width:none;padding-bottom:var(--s2);cursor:grab}.ba-mini-track::-webkit-scrollbar{display:none}.ba-mini-track>div{flex:0 0 min(280px,75vw);scroll-snap-align:start}.car-track:focus-visible{outline:2px solid var(--accent);outline-offset:2px}.car-track.is-dragging{cursor:grabbing;scroll-snap-type:none;user-select:none;-webkit-user-select:none}.car-track.is-dragging *{pointer-events:none}</style>
 </head>
 <body>
 <a href="https://novuu.myaestheticrecord.com/online-booking" class="btn btn--primary mobile-book-fab" aria-label="Book Now">Book Now <span class="dot"><svg><use href="#arr"/></svg></span></a>
@@ -516,7 +517,7 @@ section[id]{scroll-margin-top:150px}
         <a href="training.html" role="menuitem">Training / Shadowing</a>
       </div>
     </div>
-    <a href="index.html#results">Results</a><a href="memberships.html">Memberships</a><a href="faqs.html">FAQ</a>
+    <a href="before-and-after.html">Results</a><a href="memberships.html">Memberships</a><a href="faqs.html">FAQ</a>
     <a href="quiz.html" style="white-space:nowrap;border:1.5px solid var(--green);color:var(--green);font-weight:600;padding:6px 14px;border-radius:99px;font-size:0.82rem;letter-spacing:0.04em">Find My Treatment</a><a href="https://novuu.myaestheticrecord.com/online-booking" class="nav-book-now">Book Now</a></div>
   <div style="display:flex;align-items:center;gap:var(--s2)">
     <a href="https://novuu.myaestheticrecord.com/online-booking" class="btn btn--primary">Book Now <span class="dot"><svg><use href="#arr"/></svg></span></a>
@@ -524,7 +525,7 @@ section[id]{scroll-margin-top:150px}
   </div>
 </nav>
 <div class="subnav" aria-label="Page sections">
-  <a href="#overview">Overview</a><a href="#areas">Areas</a><a href="#results">Results</a><a href="#pricing">Pricing</a><a href="#care">Care</a><a href="#faq">FAQ</a>
+  <a href="#overview">Overview</a><a href="#areas">Areas</a><a href="before-and-after.html">Results</a><a href="#pricing">Pricing</a><a href="#care">Care</a><a href="#faq">FAQ</a>
 </div>
 <header class="hero">
   <div class="wrap hero-grid">
@@ -550,7 +551,7 @@ section[id]{scroll-margin-top:150px}
   <div class="treat-layout">
     <div class="reveal">
       <span class="eyebrow"><svg><use href="#leaf"/></svg> Overview</span>
-      <p>Neuromodulators, or neurotoxins like Botox, Dysport, Xeomin, Jeuveau, and Daxxify, are wrinkle-relaxing injections that temporarily prevent muscle contractions. This reduces wrinkles and fine lines caused by muscle movement.</p>
+      <p>Neuromodulators, or neurotoxins like Botox, Dysport, Xeomin, and Daxxify, are wrinkle-relaxing injections that temporarily prevent muscle contractions. This reduces wrinkles and fine lines caused by muscle movement.</p>
     </div>
     <aside class="facts-card reveal" style="--d:.1s">
       <div class="facts-inner">
@@ -592,13 +593,19 @@ section[id]{scroll-margin-top:150px}
   </div>
 </div></section>
 
-<section id="results" style="padding:var(--s10) 0"><div class="wrap">
-  <div class="section-head">
+<section id="results" style="padding:var(--s10) 0"><div class="wrap carousel">
+  <div class="section-head" style="display:flex;align-items:flex-end;justify-content:space-between;gap:var(--s5);flex-wrap:wrap">
+    <div>
     <span class="eyebrow"><svg><use href="#leaf"/></svg> Results</span>
     <h2>Before &amp; after</h2>
     <p>Real results from Nōvuu Medspa clients. Individual outcomes vary.</p>
+    </div>
+    <div class="car-nav">
+      <button class="car-btn" type="button" data-dir="-1" aria-label="Previous result"><svg><use href="#chev"/></svg></button>
+      <button class="car-btn" type="button" data-dir="1" aria-label="Next result"><svg style="transform:scaleX(-1)"><use href="#chev"/></svg></button>
+    </div>
   </div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--s5);justify-content:center">
+  <div class="ba-mini-track car-track" tabindex="0">
     <div style="border-radius:var(--r-card);overflow:hidden;border:1px solid var(--line)"><img src="images/neuromodulators/8-1.png" alt="Before and after neurotoxin — scowl lines" style="width:100%;display:block" loading="lazy"></div>
     <div style="border-radius:var(--r-card);overflow:hidden;border:1px solid var(--line)"><img src="images/neuromodulators/12-1.png" alt="Before and after neurotoxin — forehead lines" style="width:100%;display:block" loading="lazy"></div>
     <div style="border-radius:var(--r-card);overflow:hidden;border:1px solid var(--line)"><img src="images/neuromodulators/15-1.png" alt="Before and after neurotoxin — between-brow lines" style="width:100%;display:block" loading="lazy"></div>
@@ -746,6 +753,30 @@ document.querySelectorAll('.acc-q').forEach(function(btn){
   box.addEventListener('mouseenter',stop); box.addEventListener('mouseleave',start);
   box.addEventListener('focusin',stop); box.addEventListener('focusout',start);
   start();
+})();
+(function(){
+  document.querySelectorAll('.carousel').forEach(function(car){
+    var track=car.querySelector('.car-track'); if(!track) return;
+    function step(){var s=track.firstElementChild;if(!s)return 300;var g=parseFloat(getComputedStyle(track).columnGap)||parseFloat(getComputedStyle(track).gap)||24;return s.getBoundingClientRect().width+g;}
+    car.querySelectorAll('.car-btn').forEach(function(b){b.addEventListener('click',function(){track.scrollBy({left:step()*parseInt(b.dataset.dir,10),behavior:'smooth'});});});
+    track.addEventListener('keydown',function(e){if(e.key==='ArrowRight')track.scrollBy({left:step(),behavior:'smooth'});if(e.key==='ArrowLeft')track.scrollBy({left:-step(),behavior:'smooth'});});
+    var down=false,moved=false,startX=0,startScroll=0;
+    track.addEventListener('pointerdown',function(e){
+      if(e.pointerType==='touch')return;
+      down=true;moved=false;startX=e.clientX;startScroll=track.scrollLeft;
+      track.classList.add('is-dragging');track.setPointerCapture(e.pointerId);
+    });
+    track.addEventListener('pointermove',function(e){
+      if(!down)return;
+      var dx=e.clientX-startX;
+      if(Math.abs(dx)>4)moved=true;
+      track.scrollLeft=startScroll-dx;
+    });
+    function endDrag(e){if(!down)return;down=false;track.classList.remove('is-dragging');if(e&&e.pointerId!=null){try{track.releasePointerCapture(e.pointerId);}catch(err){}}}
+    track.addEventListener('pointerup',endDrag);
+    track.addEventListener('pointercancel',endDrag);
+    track.addEventListener('click',function(e){if(moved){e.preventDefault();e.stopPropagation();moved=false;}},true);
+  });
 })();
 var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
